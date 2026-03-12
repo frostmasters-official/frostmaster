@@ -1,26 +1,43 @@
+/* ✅ First: Google Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Julius+Sans+One&family=Pacifico&family=Playwrite+BE+WAL:wght@100..400&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Protest+Revolution&display=swap'); */
+
+/* ✅ Then: Tailwind */
 @import "tailwindcss";
 
+/* ✅ Then: Custom styles */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-comfortaa: 'Comfortaa', sans-serif;
+  --font-julius: 'Julius Sans One', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+.font-general {
+  font-family: var(--font-comfortaa);
+}
+
+.font-heading {
+  font-family: var(--font-julius);
+}
+
+.outlined-text {
+  -webkit-text-stroke: 1px gray;
+}
+
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+

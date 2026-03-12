@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ServiceCo – Service-Based Website
 
-## Getting Started
+A Next.js 16 project for a professional service business website, with App Router, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Getting started
 
 ```bash
+# Install dependencies (already done if you used create-next-app)
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **`src/app/`** – App Router pages and layout
+  - `page.tsx` – Home (hero, services preview, CTA)
+  - `services/` – Services listing
+  - `about/` – About page
+  - `contact/` – Contact form and careers
+  - `privacy/`, `terms/` – Placeholder legal pages
+- **`src/components/`** – Reusable UI
+  - `Header.tsx` – Sticky nav with mobile menu
+  - `Footer.tsx` – Site footer and links
+  - `ServiceCard.tsx` – Service preview cards
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Command   | Description              |
+|----------|--------------------------|
+| `npm run dev`   | Start dev server (Turbopack) |
+| `npm run build` | Production build          |
+| `npm run start` | Start production server   |
+| `npm run lint`  | Run ESLint                |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Branding**: Update "ServiceCo" in `Header.tsx`, `Footer.tsx`, and `layout.tsx` metadata.
+- **Services**: Edit the `services` array in `src/app/services/page.tsx` and the featured list in `src/app/page.tsx`.
+- **Contact**: Replace the form `action="#"` in `src/app/contact/page.tsx` with your backend or form service (e.g. Formspree, API route).
+- **Legal**: Replace placeholder content in `src/app/privacy/page.tsx` and `src/app/terms/page.tsx`.
