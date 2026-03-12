@@ -1,15 +1,21 @@
-/* ✅ First: Google Fonts */
-/* @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Julius+Sans+One&family=Pacifico&family=Playwrite+BE+WAL:wght@100..400&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Protest+Revolution&display=swap'); */
+/* ✅ Google Fonts — 3 fonts only */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=Comfortaa:wght@400;500;600;700&display=swap");
 
-/* ✅ Then: Tailwind */
+/* ✅ Tailwind */
 @import "tailwindcss";
 
-/* ✅ Then: Custom styles */
+/* ─── Font variables ─────────────────────────────────────────────────────── */
 :root {
-  --font-comfortaa: 'Comfortaa', sans-serif;
-  --font-julius: 'Julius Sans One', sans-serif;
+  --font-heading: "Montserrat", sans-serif; /* headings, display, bold titles */
+  --font-body: "Inter", sans-serif; /* body text, paragraphs, UI      */
+  --font-brand: "Comfortaa", sans-serif; /* brand/logo accent only         */
+
+  /* Legacy aliases — kept so old Tailwind classes still work */
+  --font-comfortaa: var(--font-brand);
+  --font-julius: var(--font-heading);
 }
 
+/* ─── Global defaults ────────────────────────────────────────────────────── */
 html,
 body {
   overflow-x: hidden;
@@ -17,17 +23,42 @@ body {
 }
 
 body {
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-.font-general {
-  font-family: var(--font-comfortaa);
+  background-color: #ffffff;
+  color: #000000;
 }
 
+/* ─── All headings use Montserrat ─────────────────────────────────────────── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* ─── Utility classes ─────────────────────────────────────────────────────── */
 .font-heading {
-  font-family: var(--font-julius);
+  font-family: var(--font-heading);
 }
 
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-brand {
+  font-family: var(--font-brand);
+}
+
+/* Legacy Tailwind class — maps to brand font */
+.font-general {
+  font-family: var(--font-brand);
+}
+
+/* ─── Misc ───────────────────────────────────────────────────────────────── */
 .outlined-text {
   -webkit-text-stroke: 1px gray;
 }
@@ -35,9 +66,9 @@ body {
 html {
   scrollbar-width: none;
   -ms-overflow-style: none;
+  scroll-behavior: smooth;
 }
 
 html::-webkit-scrollbar {
   display: none;
 }
-

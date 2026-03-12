@@ -206,139 +206,139 @@ const serviceData = {
       },
     ],
   },
-  chimney: {
-    title: "Chimney",
-    image: chimney,
-    ogImage: "/service/chim.webp",
-    seoTitle:
-      "Chimney Repair Chennai & Coimbatore | Kitchen Chimney Service | Frost Masters",
-    seoDescription:
-      "Chimney repair and service in Chennai and Coimbatore. Filter cleaning, motor repair, installation. All brands. Same-day service. Call for booking.",
-    description:
-      "Frost Masters offers chimney repair and maintenance in Chennai and Coimbatore. We service all major chimney brands and handle oil and grease filter deep cleaning, carbon filter replacement, motor and fan servicing, noisy operation and smoke issues, lighting and switch panel repair, auto-clean function repair, and exhaust duct inspection and cleaning. We also provide installation and wall-mount adjustments and annual maintenance or service contracts. Regular chimney servicing improves suction and extends the life of your appliance. Book a visit for a thorough check and transparent pricing.",
-    points: [
-      "Oil and grease filter deep cleaning",
-      "Carbon filter replacement service",
-      "Motor and fan servicing",
-      "Noisy operation and smoke issues",
-      "Lighting and switch panel fix",
-      "Auto-clean function repair",
-      "Exhaust duct inspection and cleaning",
-      "Installation and wall-mount adjustments",
-      "Annual maintenance and service contracts",
-      "All major chimney brands supported",
-    ],
-    faq: [
-      {
-        question: "How often should I get my chimney serviced?",
-        answer:
-          "We recommend deep cleaning every 3–6 months for regular cooking. Heavy use may require more frequent servicing to maintain suction and avoid grease buildup.",
-      },
-      {
-        question: "Why is my chimney making noise?",
-        answer:
-          "Dirty or damaged fan, loose parts, or worn motor bearings can cause noise. We clean or replace the affected parts to restore quiet operation.",
-      },
-      {
-        question: "Do you replace chimney filters?",
-        answer:
-          "Yes. We replace oil and grease filters and carbon filters with compatible parts for your chimney model.",
-      },
-      {
-        question: "Can you install a new chimney?",
-        answer:
-          "Yes. We provide chimney installation and wall-mount adjustments for new and existing setups.",
-      },
-    ],
-    cityKeywords: [
-      {
-        city: "Chennai",
-        keywords: [
-          "chimney repair Chennai",
-          "kitchen chimney service Chennai",
-          "chimney cleaning Chennai",
-          "chimney repair near me Chennai",
-          "chimney installation Chennai",
-        ],
-      },
-      {
-        city: "Coimbatore",
-        keywords: [
-          "chimney repair Coimbatore",
-          "kitchen chimney service Coimbatore",
-          "chimney cleaning Coimbatore",
-          "chimney repair near me Coimbatore",
-          "chimney filter replacement Coimbatore",
-        ],
-      },
-    ],
-  },
-  dishwasher: {
-    title: "Dishwasher",
-    image: dish,
-    ogImage: "/service/dishwasher.webp",
-    seoTitle: "Dishwasher Repair Chennai & Coimbatore | Frost Masters",
-    seoDescription:
-      "Dishwasher repair in Chennai and Coimbatore. Drainage, spray arms, pump, door seal. All brands. Same-day service. Call for booking.",
-    description:
-      "Frost Masters provides dishwasher repair and maintenance in Chennai and Coimbatore. We fix loading and draining issues, clean or replace spray arms and inlet valves, repair control panel and sensor issues, and address water leakage and blockages. We also repair racks, seals, door locks, noisy operation, poor cleaning, drain pump and motor replacement, and foul odor removal. We support all major brands and models and offer quick, reliable service with a guarantee. Book a visit and get a clear estimate before we proceed with any repair.",
-    points: [
-      "Loading or draining water issues",
-      "Spray arms and inlet valve cleaning",
-      "Control panel and sensor issues",
-      "Water leakage and blockages fix",
-      "Racks, seals, and door lock repair",
-      "Noisy operation or poor cleaning fix",
-      "Drain pump and motor replacement",
-      "Foul odor removal and maintenance",
-      "All brands and models supported",
-      "Quick, reliable, and guaranteed service",
-    ],
-    faq: [
-      {
-        question: "Why is my dishwasher not draining?",
-        answer:
-          "Blocked drain hose, clogged filter, or a faulty drain pump can cause this. We clean the drain path and replace the pump if necessary.",
-      },
-      {
-        question: "Do you repair all dishwasher brands?",
-        answer:
-          "Yes. We service dishwashers from Bosch, Siemens, IFB, LG, Samsung, and other major brands.",
-      },
-      {
-        question: "What if the dishwasher is not cleaning properly?",
-        answer:
-          "Clogged spray arms, low water pressure, or a faulty inlet valve can reduce cleaning. We clean spray arms and repair or replace faulty parts.",
-      },
-      {
-        question: "Can you fix dishwasher door seal leakage?",
-        answer:
-          "Yes. We replace door gaskets and seals to stop water leakage and ensure proper closing.",
-      },
-    ],
-    cityKeywords: [
-      {
-        city: "Chennai",
-        keywords: [
-          "dishwasher repair Chennai",
-          "dishwasher service Chennai",
-          "dishwasher repair near me Chennai",
-          "Bosch dishwasher repair Chennai",
-          "IFB dishwasher repair Chennai",
-        ],
-      },
-      {
-        city: "Coimbatore",
-        keywords: [
-          "dishwasher repair Coimbatore",
-          "dishwasher service Coimbatore",
-          "dishwasher repair near me Coimbatore",
-          "dishwasher not draining Coimbatore",
-          "dishwasher repair technician Coimbatore",
-        ],
-      },
-    ],
-  },
+  // chimney: {
+  //   title: "Chimney",
+  //   image: chimney,
+  //   ogImage: "/service/chim.webp",
+  //   seoTitle:
+  //     "Chimney Repair Chennai & Coimbatore | Kitchen Chimney Service | Frost Masters",
+  //   seoDescription:
+  //     "Chimney repair and service in Chennai and Coimbatore. Filter cleaning, motor repair, installation. All brands. Same-day service. Call for booking.",
+  //   description:
+  //     "Frost Masters offers chimney repair and maintenance in Chennai and Coimbatore. We service all major chimney brands and handle oil and grease filter deep cleaning, carbon filter replacement, motor and fan servicing, noisy operation and smoke issues, lighting and switch panel repair, auto-clean function repair, and exhaust duct inspection and cleaning. We also provide installation and wall-mount adjustments and annual maintenance or service contracts. Regular chimney servicing improves suction and extends the life of your appliance. Book a visit for a thorough check and transparent pricing.",
+  //   points: [
+  //     "Oil and grease filter deep cleaning",
+  //     "Carbon filter replacement service",
+  //     "Motor and fan servicing",
+  //     "Noisy operation and smoke issues",
+  //     "Lighting and switch panel fix",
+  //     "Auto-clean function repair",
+  //     "Exhaust duct inspection and cleaning",
+  //     "Installation and wall-mount adjustments",
+  //     "Annual maintenance and service contracts",
+  //     "All major chimney brands supported",
+  //   ],
+  //   faq: [
+  //     {
+  //       question: "How often should I get my chimney serviced?",
+  //       answer:
+  //         "We recommend deep cleaning every 3–6 months for regular cooking. Heavy use may require more frequent servicing to maintain suction and avoid grease buildup.",
+  //     },
+  //     {
+  //       question: "Why is my chimney making noise?",
+  //       answer:
+  //         "Dirty or damaged fan, loose parts, or worn motor bearings can cause noise. We clean or replace the affected parts to restore quiet operation.",
+  //     },
+  //     {
+  //       question: "Do you replace chimney filters?",
+  //       answer:
+  //         "Yes. We replace oil and grease filters and carbon filters with compatible parts for your chimney model.",
+  //     },
+  //     {
+  //       question: "Can you install a new chimney?",
+  //       answer:
+  //         "Yes. We provide chimney installation and wall-mount adjustments for new and existing setups.",
+  //     },
+  //   ],
+  //   cityKeywords: [
+  //     {
+  //       city: "Chennai",
+  //       keywords: [
+  //         "chimney repair Chennai",
+  //         "kitchen chimney service Chennai",
+  //         "chimney cleaning Chennai",
+  //         "chimney repair near me Chennai",
+  //         "chimney installation Chennai",
+  //       ],
+  //     },
+  //     {
+  //       city: "Coimbatore",
+  //       keywords: [
+  //         "chimney repair Coimbatore",
+  //         "kitchen chimney service Coimbatore",
+  //         "chimney cleaning Coimbatore",
+  //         "chimney repair near me Coimbatore",
+  //         "chimney filter replacement Coimbatore",
+  //       ],
+  //     },
+  //   ],
+  // },
+  // dishwasher: {
+  //   title: "Dishwasher",
+  //   image: dish,
+  //   ogImage: "/service/dishwasher.webp",
+  //   seoTitle: "Dishwasher Repair Chennai & Coimbatore | Frost Masters",
+  //   seoDescription:
+  //     "Dishwasher repair in Chennai and Coimbatore. Drainage, spray arms, pump, door seal. All brands. Same-day service. Call for booking.",
+  //   description:
+  //     "Frost Masters provides dishwasher repair and maintenance in Chennai and Coimbatore. We fix loading and draining issues, clean or replace spray arms and inlet valves, repair control panel and sensor issues, and address water leakage and blockages. We also repair racks, seals, door locks, noisy operation, poor cleaning, drain pump and motor replacement, and foul odor removal. We support all major brands and models and offer quick, reliable service with a guarantee. Book a visit and get a clear estimate before we proceed with any repair.",
+  //   points: [
+  //     "Loading or draining water issues",
+  //     "Spray arms and inlet valve cleaning",
+  //     "Control panel and sensor issues",
+  //     "Water leakage and blockages fix",
+  //     "Racks, seals, and door lock repair",
+  //     "Noisy operation or poor cleaning fix",
+  //     "Drain pump and motor replacement",
+  //     "Foul odor removal and maintenance",
+  //     "All brands and models supported",
+  //     "Quick, reliable, and guaranteed service",
+  //   ],
+  //   faq: [
+  //     {
+  //       question: "Why is my dishwasher not draining?",
+  //       answer:
+  //         "Blocked drain hose, clogged filter, or a faulty drain pump can cause this. We clean the drain path and replace the pump if necessary.",
+  //     },
+  //     {
+  //       question: "Do you repair all dishwasher brands?",
+  //       answer:
+  //         "Yes. We service dishwashers from Bosch, Siemens, IFB, LG, Samsung, and other major brands.",
+  //     },
+  //     {
+  //       question: "What if the dishwasher is not cleaning properly?",
+  //       answer:
+  //         "Clogged spray arms, low water pressure, or a faulty inlet valve can reduce cleaning. We clean spray arms and repair or replace faulty parts.",
+  //     },
+  //     {
+  //       question: "Can you fix dishwasher door seal leakage?",
+  //       answer:
+  //         "Yes. We replace door gaskets and seals to stop water leakage and ensure proper closing.",
+  //     },
+  //   ],
+  //   cityKeywords: [
+  //     {
+  //       city: "Chennai",
+  //       keywords: [
+  //         "dishwasher repair Chennai",
+  //         "dishwasher service Chennai",
+  //         "dishwasher repair near me Chennai",
+  //         "Bosch dishwasher repair Chennai",
+  //         "IFB dishwasher repair Chennai",
+  //       ],
+  //     },
+  //     {
+  //       city: "Coimbatore",
+  //       keywords: [
+  //         "dishwasher repair Coimbatore",
+  //         "dishwasher service Coimbatore",
+  //         "dishwasher repair near me Coimbatore",
+  //         "dishwasher not draining Coimbatore",
+  //         "dishwasher repair technician Coimbatore",
+  //       ],
+  //     },
+  //   ],
+  // },
   "microwave-oven": {
     title: "Microwave Oven",
     image: oven,

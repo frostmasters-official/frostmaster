@@ -51,8 +51,8 @@ const Footer = () => {
   }, [currentServiceSlug]);
 
   return (
-    <footer className="backdrop-blur-md bg-white text-black py-14">
-      <div className="container mx-auto px-10 sm:px-6 lg:px-8">
+    <footer className="backdrop-blur-md bg-white text-black py-14 border-t border-gray-300 ">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Grid Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 text-left items-start">
           {/* Column 1: Brand Info */}
@@ -111,7 +111,9 @@ const Footer = () => {
                     href="mailto:info@frostmasters.com"
                     className="hover:text-primary transition-colors"
                   >
-                    30/282 Pavamkulangara Jn, <br />   Tripurathura po, Puthiyakavu,<br /> Eranakulam, India, 682301
+                    30/282 Pavamkulangara Jn, <br /> Tripurathura po,
+                    Puthiyakavu,
+                    <br /> Eranakulam, India, 682301
                   </Link>
                 </div>
               </div>
@@ -165,16 +167,16 @@ const Footer = () => {
                 path: "/services/microwave-oven",
                 title: "Microwave oven repair",
               },
-              {
-                label: "Dishwasher",
-                path: "/services/dishwasher",
-                title: "Dishwasher repair",
-              },
-              {
-                label: "Chimney",
-                path: "/services/chimney",
-                title: "Chimney cleaning and repair",
-              },
+              // {
+              //   label: "Dishwasher",
+              //   path: "/services/dishwasher",
+              //   title: "Dishwasher repair",
+              // },
+              // {
+              //   label: "Chimney",
+              //   path: "/services/chimney",
+              //   title: "Chimney cleaning and repair",
+              // },
             ]}
           />
 
@@ -208,7 +210,7 @@ const Footer = () => {
           <div>
             For work :{" "}
             <Link
-              className="hover:text-[#B6F500] transition-colors"
+              className="hover:text-[#EE3F4A] transition-colors"
               href="mailto:sathiya.4046@gmail.com"
             >
               Sathiyaseelan.A

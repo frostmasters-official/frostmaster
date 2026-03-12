@@ -88,11 +88,6 @@ export const ContextProvider = ({ children }) => {
         "Absolutely. We use genuine and quality spare parts for all repairs. Parts are sourced from authorised channels to ensure longevity and safety of your appliance.",
     },
     {
-      question: "Can I reschedule or cancel my service request?",
-      answer:
-        "Yes. You can reschedule or cancel by calling your city number or replying to our confirmation. We request that you inform us in advance so we can adjust the schedule. No cancellation fee if informed before the visit.",
-    },
-    {
       question: "Do you provide service for all appliance brands?",
       answer:
         "Yes. We support major brands including LG, Samsung, Whirlpool, IFB, Godrej, Panasonic, Bosch, Daikin, Voltas, and other popular makes. Brand-specific expertise is available for complex repairs.",
@@ -101,11 +96,6 @@ export const ContextProvider = ({ children }) => {
       question: "Which areas do you cover?",
       answer:
         "We serve Chennai and Coimbatore with multiple localities in each city. You can check our location pages for your area. Service is doorstep—our technician comes to your home or office.",
-    },
-    {
-      question: "Do you offer same-day or emergency service?",
-      answer:
-        "Yes. Same-day and next-day slots are offered subject to availability. For urgent breakdowns, call your city number and we will try to accommodate you at the earliest. Emergency visits may have different timing options.",
     },
     {
       question: "What are the charges for visit and repair?",
@@ -121,31 +111,6 @@ export const ContextProvider = ({ children }) => {
       question: "What payment methods do you accept?",
       answer:
         "We accept cash, UPI (GPay, PhonePe), and online transfer. Payment is collected after the repair is completed and you are satisfied. No advance payment is required for standard bookings.",
-    },
-    {
-      question: "Can I get an estimate before repair?",
-      answer:
-        "Yes. Our technician will inspect the appliance, explain the issue, and give you a written or verbal estimate for labour and parts. Repair begins only after you agree. You can decline and pay only the visit charge if you do not wish to proceed.",
-    },
-    {
-      question: "Do you service on weekends and holidays?",
-      answer:
-        "Yes. We work seven days a week including weekends and most holidays. You can book a slot as per your convenience. Timings may vary; confirm with us when you call.",
-    },
-    {
-      question: "How do I identify your technician?",
-      answer:
-        "Our technicians carry company ID and wear uniform. You will receive a confirmation with technician details before the visit. You can also verify by calling our official numbers: Chennai 6282450300 or Coimbatore 6282450300.",
-    },
-    {
-      question: "What if my appliance is under manufacturer warranty?",
-      answer:
-        "If your appliance is still under brand warranty, we recommend contacting the brand service centre first for free repair. We can still help for out-of-warranty issues, second opinion, or when you prefer a local expert.",
-    },
-    {
-      question: "Do you carry spare parts on the visit?",
-      answer:
-        "We carry common spare parts for AC, fridge, and washing machine. For rare or model-specific parts, we may need to order and schedule a follow-up visit. We will inform you at the time of inspection.",
     },
   ];
 

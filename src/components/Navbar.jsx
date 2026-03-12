@@ -5,20 +5,66 @@ import { RxCross1 } from "react-icons/rx";
 import { TbMenu } from "react-icons/tb";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { myContext } from "@/context/myContext";
-import image from "./logo.webp";
 import Image from "next/image";
-import { FaPhoneVolume } from "react-icons/fa6";
-import SocialLinks from "./SocialLinks";
-import { FaYoutube, FaLinkedin } from "react-icons/fa";
-import { FaFacebookF, FaInstagram } from "react-icons/fa6";
+import {
+  FaPhoneVolume,
+  FaYoutube,
+  FaLinkedin,
+  FaFacebookF,
+  FaInstagram,
+} from "react-icons/fa6";
+
+import { myContext } from "@/context/myContext";
 import { getAllPhones } from "@/data/contact";
 import serviceData from "@/components/data/serviceData";
+import image from "./logo.webp";
+import SocialLinks from "./SocialLinks";
 
+/* ─── Constants & Data ─────────────────────────────────────────────────────── */
 const navServices = Object.entries(serviceData).map(([slug, data]) => ({
   name: data.title,
   slug,
 }));
+
+const EASE = [0.16, 1, 0.3, 1];
+
+/* ─── Sub-Components ───────────────────────────────────────────────────────── */
+
+const SocialIcon = ({ icon: Icon, label, link }) => (
+  <Link
+    href={link}
+    aria-label={label}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-600 hover:text-[#EE3F4A] transition-colors duration-300 p-1.5"
+  >
+    <Icon className="h-4 w-4" />
+  </Link>
+);
+
+const NavLink = ({ name, onClick, isActive }) => (
+  <button
+    onClick={onClick}
+    className="relative py-2 text-sm font-semibold text-gray-900 group transition-colors duration-300 hover:text-[#EE3F4A]"
+  >
+    {name}
+    <span
+      className={`absolute bottom-0 left-0 h-0.5 bg-[#EE3F4A] transition-all duration-300 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+    />
+  </button>
+);
+
+const ServiceLink = ({ name, slug, onClick }) => (
+  <Link
+    href={`/services/${slug}`}
+    onClick={onClick}
+    className="block px-5 py-3 text-sm font-medium text-gray-700 hover:text-[#EE3F4A] hover:bg-gray-50/50 transition-all duration-200 rounded-xl"
+  >
+    {name}
+  </Link>
+);
+
+/* ─── Main Navbar Component ────────────────────────────────────────────────── */
 
 const Navbar = () => {
   const {
@@ -29,141 +75,130 @@ const Navbar = () => {
     setScrolled,
     filteredLinks,
   } = useContext(myContext);
+
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
+  // Scroll handler
   useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? "hidden" : "auto";
-  }, [mobileMenuOpen]);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [setScrolled]);
 
-  // Shrink navbar on scroll
+  // Prevent scroll when mobile menu is open
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+  }, [mobileMenuOpen]);
 
   return (
     <>
-      <style>{`html { scroll-behavior: smooth; }`}</style>
-
-      {/* Navbar */}
       <header
-        className={`text-white fixed top-0 left-0 right-0 z-50 bg-white border-b border-white/10 shadow-xl transition-[height,padding] duration-300 ease-in-out will-change-[height,transform] ${
-          scrolled ? "h-26 py-1" : "h-30 py-2"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+          scrolled
+            ? "bg-white/90 backdrop-blur-md shadow-lg border-b border-gray-100/50 py-1"
+            : "bg-white py-2"
         }`}
       >
-        <div className="container w-full mx-auto px-4 h-full flex flex-col">
-          {/* 🔹 Top Row: Contact + Location + Socials */}
-          <div className="flex justify-between items-center text-sm md:text-base py-1 border-b border-white/10 mx-2">
-            {/* Left: Contact by city */}
-            <div className="flex items-center gap-3 md:gap-6 flex-wrap">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          {/* ── TOP ROW: Contact & Socials ── */}
+          <div
+            className={`flex justify-between items-center border-b transition-all duration-500 ${scrolled ? "h-0 opacity-0 overflow-hidden border-transparent" : "h-10 opacity-100 border-gray-100"}`}
+          >
+            <div className="flex items-center gap-6">
               {getAllPhones().map(({ city, tel, display }) => (
                 <Link
                   key={city}
                   href={`tel:${tel}`}
-                  className="flex items-center gap-2 font-bold text-black transition"
-                  title={`Call ${city}`}
+                  className="flex items-center gap-2 group"
                 >
-                  <FaPhoneVolume className="text-black flex-shrink-0" />
-                  <span className="whitespace-nowrap">
-                    <span className="text-black font-medium">{city}:</span>{" "}
+                  <div className="w-7 h-7 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#EE3F4A]/10 transition-colors duration-300">
+                    <FaPhoneVolume className="text-[10px] text-gray-600 group-hover:text-[#EE3F4A]" />
+                  </div>
+                  <span className="text-xs font-bold text-gray-700">
+                    <span className="text-gray-400 font-medium">{city}:</span>{" "}
                     {display}
                   </span>
                 </Link>
               ))}
             </div>
 
-            {/* Right: Social Links */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
               <SocialIcon
                 icon={FaFacebookF}
                 label="Facebook"
-                link="https://www.facebook.com/profile.php?id=61579389825163"
+                link="https://facebook.com"
               />
               <SocialIcon
                 icon={FaInstagram}
                 label="Instagram"
-                link="https://www.instagram.com/Frost Masters/"
+                link="https://instagram.com"
               />
               <SocialIcon
                 icon={FaYoutube}
                 label="Youtube"
-                link="https://www.youtube.com/channel/UCwRXCFhCSGczfE7tA5mos5g"
+                link="https://youtube.com"
               />
               <SocialIcon
                 icon={FaLinkedin}
                 label="LinkedIn"
-                link="https://www.linkedin.com/in/Frost Masters-Frost Masters-751672380/"
+                link="https://linkedin.com"
               />
             </div>
           </div>
 
-          {/* 🔹 Bottom Row: Logo + Navigation */}
-          <div className="flex justify-between items-center mx-2 h-full border-t border-red-800/20">
+          {/* ── BOTTOM ROW: Logo & Nav ── */}
+          <div
+            className={`flex justify-between items-center transition-all duration-500 ${scrolled ? "h-16" : "h-20"}`}
+          >
             {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Link
-                href="/"
-                className="flex items-center text-3xl md:text-4xl font-bold font-heading tracking-wider gap-2 md:gap-4"
-              >
-                <Image
-                  src={image}
-                  alt="logo"
-                  className="w-40 h-10 md:w-52 md:h-12"
-                />
-              </Link>
-            </motion.div>
+            <Link href="/" className="relative flex items-center group">
+              <Image
+                src={image}
+                alt="Frost Masters Logo"
+                className={`transition-all duration-500 ${scrolled ? "w-40 h-10" : "w-52 h-12"}`}
+                priority
+              />
+            </Link>
 
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center space-x-6 ps-6 py-2">
-              {filteredLinks?.map((link, index) =>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {filteredLinks?.map((link) =>
                 link.key === "services" ? (
                   <div
-                    key={index}
-                    className="relative group"
+                    key={link.key}
+                    className="relative"
                     onMouseEnter={() => setServicesOpen(true)}
                     onMouseLeave={() => setServicesOpen(false)}
                   >
                     <button
-                      type="button"
-                      onClick={() => setServicesOpen((o) => !o)}
-                      className="cursor-pointer text-sm lg:text-base font-medium text-black transition duration-400 inline-flex items-center gap-3 focus:outline-none focus:text-[#B6F500]"
-                      aria-expanded={servicesOpen}
-                      aria-haspopup="true"
-                      aria-label="Open services menu"
+                      className={`flex items-center gap-2 text-sm font-semibold transition-colors duration-300 ${servicesOpen ? "text-[#EE3F4A]" : "text-gray-900"}`}
                     >
                       Services
-                      <span className="text-xs opacity-80">
-                        {servicesOpen ? "▲" : "▼"}
-                      </span>
+                      <motion.span
+                        animate={{ rotate: servicesOpen ? 180 : 0 }}
+                        className="text-[10px] opacity-60"
+                      >
+                        ▼
+                      </motion.span>
                     </button>
+
                     <AnimatePresence>
                       {servicesOpen && (
                         <motion.div
-                          initial={{ opacity: 0, y: -8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -8 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 pt-2 min-w-[220px] z-50"
+                          initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          transition={{ duration: 0.2, ease: EASE }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-64"
                         >
-                          <div className="border border-white/20 rounded-lg shadow-xl py-2">
+                          <div className="bg-white/95 backdrop-blur-xl border border-gray-100 rounded-2xl shadow-2xl p-2">
                             {navServices.map((s) => (
-                              <Link
+                              <ServiceLink
                                 key={s.slug}
-                                href={`/services/${s.slug}`}
-                                className="block px-4 py-2.5 text-black transition font-medium"
-                                title={`${s.name} repair in Chennai & Coimbatore`}
+                                {...s}
                                 onClick={() => setServicesOpen(false)}
-                              >
-                                {s.name}
-                              </Link>
+                              />
                             ))}
                           </div>
                         </motion.div>
@@ -171,49 +206,42 @@ const Navbar = () => {
                     </AnimatePresence>
                   </div>
                 ) : (
-                  <button
-                    key={index}
+                  <NavLink
+                    key={link.key}
+                    name={link.name}
                     onClick={() => onNavigate?.[link.key]?.()}
-                    className=" hover:scale-105 cursor-pointer text-sm lg:text-base font-medium text-black transition duration-400"
-                  >
-                    {link.name}
-                  </button>
+                  />
                 ),
               )}
-              <div className="flex items-center gap-2">
-                {getAllPhones().map(({ city, tel, display }) => (
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-3 ml-4">
+                {getAllPhones().map(({ city, tel }) => (
                   <Link
                     key={city}
                     href={`tel:${tel}`}
-                    className="flex items-center justify-center gap-2 bg-white text-black rounded-full px-3 py-2 font-bold text-xs lg:text-sm shadow-md hover:bg-[#B6F500] hover:scale-105 transition duration-300"
-                    aria-label={`Call ${city}`}
-                    title={`${city}: ${display}`}
+                    className="flex items-center gap-2 bg-[#EE3F4A] hover:bg-black text-white px-5 py-2.5 rounded-full font-bold text-xs whitespace-nowrap transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    <FaPhoneVolume className="text-lg" />
-                    <span className="hidden sm:inline">{city}</span>
+                    <FaPhoneVolume className="text-sm" />
+                    <span>Call {city}</span>
                   </Link>
                 ))}
               </div>
             </nav>
 
-            {/* Hamburger Menu */}
+            {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden"
-              onClick={() => setMobileMenuOpen((prev) => !prev)}
-              aria-label="Toggle_Menu"
+              className="lg:hidden w-12 h-12 flex items-center justify-center rounded-xl bg-gray-50 text-gray-900 transition-all duration-300 hover:bg-[#EE3F4A] hover:text-white"
+              onClick={() => setMobileMenuOpen(true)}
+              aria-label="Open Mobile Menu"
             >
-              <TbMenu className="text-4xl text-black  hover:scale-110 transition duration-300" />
+              <TbMenu className="text-2xl" />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Spacer */}
-      <div
-        className={`${scrolled ? "h-16" : "h-20"} transition-all duration-300`}
-      />
-
-      {/* Mobile Menu */}
+      {/* ── MOBILE MENU OVERLAY ── */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -299,7 +327,7 @@ const Navbar = () => {
                 ),
               )}
             </nav>
-            <SocialLinks />
+              <SocialLinks />
           </motion.div>
         )}
       </AnimatePresence>
@@ -308,13 +336,3 @@ const Navbar = () => {
 };
 
 export default memo(Navbar);
-
-const SocialIcon = ({ icon: Icon, label, link }) => (
-  <Link
-    href={link}
-    aria-label={label}
-    className="text-black transition-color px-1"
-  >
-    <Icon className="h-4 w-4" />
-  </Link>
-);

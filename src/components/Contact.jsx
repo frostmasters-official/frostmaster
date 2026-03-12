@@ -1,6 +1,21 @@
+"use client";
+
 import { myContext } from "@/context/myContext";
 import React, { memo, useContext } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  User,
+  Phone,
+  Mail,
+  MapPin,
+  Wrench,
+  ChevronDown,
+  CheckSquare,
+  Send,
+  Zap,
+} from "lucide-react";
 
+/* ─── complaints map ─────────────────────────────────────────────────────── */
 const complaintsOptions = {
   "Washing Machine": [
     "Spinning Issue",
@@ -23,7 +38,13 @@ const complaintsOptions = {
     "Door Issue",
     "Others",
   ],
-  AC: ["Cooling Issue", "Water Leakage", "Noise Issue", "Not Turning On","Others"],
+  AC: [
+    "Cooling Issue",
+    "Water Leakage",
+    "Noise Issue",
+    "Not Turning On",
+    "Others",
+  ],
   Microwave: [
     "Heating Problem",
     "Turntable Not Working",
@@ -33,400 +54,418 @@ const complaintsOptions = {
   ],
 };
 
+const products = Object.keys(complaintsOptions);
+const EASE = [0.76, 0, 0.24, 1];
+
+/* ─── styled field wrapper ───────────────────────────────────────────────── */
+const Field = ({ icon: Icon, error, children }) => (
+  <div className="flex flex-col gap-1">
+    <div
+      className="flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-200"
+      style={{
+        background: "rgba(0,0,0,0.03)",
+        border: `1px solid ${error ? "rgba(239,68,68,0.6)" : "rgba(0,0,0,0.12)"}`,
+      }}
+    >
+      <Icon
+        className="w-4 h-4 flex-shrink-0"
+        style={{ color: error ? "#ef4444" : "#EE3F4A" }}
+      />
+      {children}
+    </div>
+    <AnimatePresence>
+      {error && (
+        <motion.p
+          className="text-red-500 text-xs pl-1"
+          initial={{ opacity: 0, y: -4 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -4 }}
+          transition={{ duration: 0.22 }}
+        >
+          {error}
+        </motion.p>
+      )}
+    </AnimatePresence>
+  </div>
+);
+
+/* ─── shared input className ─────────────────────────────────────────────── */
+const inputCls = `
+  w-full bg-transparent text-black placeholder-black/40 text-sm
+  focus:outline-none
+`;
+
+/* ══════════════════════════════════════════════════════════════════════════
+   CONTACT
+══════════════════════════════════════════════════════════════════════════ */
 const Contact = ({ isModal = false }) => {
-
-  const [showFullForm, setShowFullForm] = React.useState(false);
-
   const {
     contact,
-    activeTab,
-    setActiveTab,
     contactRef,
-    feedback,
     errors,
-    setErrors,
     handleContactSubmit,
     handleContactChange,
     handleComplaintToggle,
-    handleFeedbackChange,
-    handleStarSelect,
-    handleFeedbackSubmit,
     contactSubmitting,
-    feedbackSubmitting,
   } = useContext(myContext);
 
+  const selectedProduct = contact?.product || "";
+  const selectedComplaints = contact?.complaint || [];
+  const complaints = selectedProduct ? complaintsOptions[selectedProduct] : [];
+
   return (
-    <section 
-      ref={!isModal ? contactRef : null} 
-      className={`${isModal ? 'py-4' : 'py-16'} bg-gray-100 h-fit`}
-    >
-      <div className={`${isModal ? 'max-w-full' : 'max-w-xl'} mx-auto px-4`}>
+    <>
+      <style>{`
+
+        .contact-select option 
+        .contact-scroll::-webkit-scrollbar { width: 4px; }
+        .contact-scroll::-webkit-scrollbar-track { background: transparent; }
+        .contact-scroll::-webkit-scrollbar-thumb { background: rgba(182,245,0,0.25); border-radius: 99px; }
+      `}</style>
+
+      <section
+        ref={!isModal ? contactRef : null}
+        className={isModal ? "" : "py-20 relative overflow-hidden bg-white"}
+        style={{}}
+      >
+        {/* ── standalone page: decorative BG elements ── */}
         {!isModal && (
-        <div className="flex justify-center mb-8 rounded-lg overflow-hidden border border-gray-300">
-          <button
-            onClick={() => {
-              setActiveTab("contact");
-              setErrors({});
-            }}
-            className={`w-1/2 py-3 font-semibold transition-all ${
-              activeTab === "contact"
-                ? "bg-[#B6F500] text-black"
-                : "bg-white text-gray-600 hover:bg-gray-100"
-            }`}
-          >
-            Contact Form
-          </button>
-          <button
-            onClick={() => {
-              setActiveTab("feedback");
-              setErrors({});
-            }}
-            className={`w-1/2 py-3 font-semibold transition-all ${
-              activeTab === "feedback"
-                ? "bg-[#B6F500] text-black"
-                : "bg-white text-gray-600 hover:bg-gray-100"
-            }`}
-          >
-            Feedback Form
-          </button>
-        </div>
+          <>
+            <div
+              className="pointer-events-none absolute top-[-120px] right-[-120px] w-[420px] h-[420px] rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(182,245,0,0.15) 0%, transparent 70%)",
+              }}
+            />
+            <div
+              className="pointer-events-none absolute bottom-[-80px] left-[-80px] w-[300px] h-[300px] rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(182,245,0,0.10) 0%, transparent 70%)",
+              }}
+            />
+          </>
         )}
 
-        {/* Contact Form */}
-        {(isModal || activeTab === "contact") && (
-          <form
-            onSubmit={handleContactSubmit}
-            className="bg-white p-2 sm:p-8 rounded-2xl shadow space-y-4"
-          >
-            {!isModal && (
-              <h2 className="text-3xl md:text-4xl font-bold font-heading tracking-wider text-center mb-6">
-                Contact Us
-              </h2>
-            )}
-
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="w-full md:w-1/2">
-                <input
-                  type="text"
-                  name="contactName"
-                  value={contact?.contactName || ""}
-                  onChange={handleContactChange}
-                  placeholder="Name"
-                  className={`w-full p-3 border rounded focus:outline-none focus:ring-2 ${
-                    errors.contactName
-                      ? "border-red-500 focus:ring-red-500"
-                      : "border-gray-300 focus:ring-[#B6F500]"
-                  }`}
-                />
-                {errors.contactName && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.contactName}
-                  </p>
-                )}
-              </div>
-
-              <div className="w-full md:w-1/2">
-                <input
-                  type="number"
-                  name="contactNumber"
-                  value={contact?.contactNumber || ""}
-                  onChange={handleContactChange}
-                  placeholder="Mobile Number"
-                  className={`w-full p-3 border rounded focus:outline-none focus:ring-2 ${
-                    errors.contactNumber
-                      ? "border-red-500 focus:ring-red-500"
-                      : "border-gray-300 focus:ring-[#B6F500]"
-                  }`}
-                />
-                {errors.contactNumber && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.contactNumber}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            <div>
-              <input
-                type="email"
-                name="contactEmail"
-                value={contact?.contactEmail || ""}
-                onChange={handleContactChange}
-                placeholder="Email"
-                className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#B6F500]"
-              />
-            </div>
-
-            <div>
-              <input
-                type="text"
-                name="contactCity"
-                value={contact?.contactCity || ""}
-                onChange={handleContactChange}
-                placeholder="City"
-                className={`w-full p-3 border rounded focus:outline-none focus:ring-2 ${
-                  errors.contactCity
-                    ? "border-red-500 focus:ring-red-500"
-                    : "border-gray-300 focus:ring-[#B6F500]"
-                }`}
-              />
-              {errors.contactCity && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.contactCity}
-                </p>
-              )}
-            </div>
-
-            {/* Product Selection */}
-            <div>
-              <select
-                name="product"
-                value={contact?.product || ""}
-                onChange={handleContactChange}
-                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm 
-                 focus:outline-none focus:ring-2 focus:ring-[#B6F500] focus:border-[#B6F500] 
-                 transition text-gray-700"
-              >
-                <option value="">Choose a product</option>
-                {Object.keys(complaintsOptions).map((p) => (
-                  <option key={p} value={p}>
-                    {p}
-                  </option>
-                ))}
-              </select>
-              {errors.product && (
-                <p className="text-red-500 text-sm mt-1">{errors.product}</p>
-              )}
-            </div>
-
-            {/* Dynamic Complaints */}
-            {contact?.product && (
-              <div>
-                <p className="mb-3 font-semibold text-gray-800">
-                  Select Complaints
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {complaintsOptions[contact.product].map((c) => (
-                    <label
-                      key={c}
-                      className="flex items-center gap-2 p-2 border border-gray-200 rounded-lg 
-                       cursor-pointer hover:bg-gray-50 transition"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={contact.complaint.includes(c)}
-                        onChange={() => handleComplaintToggle(c)}
-                        className="h-4 w-4 text-[#B6F500] focus:ring-[#B6F500] border-gray-300 rounded"
-                      />
-                      <span className="text-gray-700 text-sm">{c}</span>
-                    </label>
-                  ))}
-                </div>
-                {errors.complaint && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.complaint}
-                  </p>
-                )}
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={contactSubmitting}
-              className="w-full bg-[#B6F500] text-black font-semibold py-3 rounded hover:bg-black hover:text-white transition duration-300 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-[#B6F500] disabled:hover:text-black"
+        <div
+          className={`relative z-10 ${isModal ? "" : "max-w-2xl mx-auto px-4 sm:px-6"}`}
+        >
+          {/* ── Section header (standalone only) ── */}
+          {!isModal && (
+            <motion.div
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: EASE }}
             >
-              {contactSubmitting ? (
-                <span className="inline-flex items-center justify-center gap-2">
-                  <span className="h-4 w-4 border-2 border-black border-t-transparent rounded-full animate-spin" aria-hidden />
-                  Sending...
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <span className="h-px w-10 bg-[#EE3F4A]/60" />
+                <span
+                  className="text-[black] uppercase tracking-[0.35em]"
+                  style={{
+                    fontFamily: "'Inter',sans-serif",
+                    fontSize: "0.65rem",
+                  }}
+                >
+                  Get in Touch
                 </span>
-              ) : (
-                "Send Request"
-              )}
-            </button>
-          </form>
-        )}
-
-        {/* Feedback Form */}
-        {!isModal && activeTab === "feedback" && (
-          <form
-            onSubmit={handleFeedbackSubmit}
-            className="bg-white p-2 sm:p-8 rounded-2xl shadow space-y-4"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold font-heading tracking-wider text-center mb-6">
-              Feedback Form
-            </h2>
-
-            {/* ✅ Step 1: Mobile Number Input */}
-            <div className="flex flex-col">
-              <input
-                type="number"
-                name="mobile"
-                value={feedback.mobile || ""}
-                onChange={async (e) => {
-                  const value = e.target.value;
-                  handleFeedbackChange(e); // keep your existing state handling
-
-                  // When user entered exactly 10 digits → check backend
-                  if (value.length === 10) {
-                    try {
-                      const res = await fetch("/api/contact/number", {
-                        method: "POST",
-                        body: JSON.stringify({ number: value }),
-                      });
-                      const data = await res.json();
-
-                      if (data.exists) {
-                        // ✅ Number found, clear error and show full form
-                        setErrors((prev) => ({ ...prev, mobile: "" }));
-                        setShowFullForm(true);
-                      } else {
-                        // ❌ Not found
-                        setShowFullForm(false);
-                        setErrors((prev) => ({
-                          ...prev,
-                          mobile:
-                            "Mobile number is not registered.",
-                        }));
-                      }
-                    } catch (err) {
-                      console.error("Error checking number:", err);
-                      setErrors((prev) => ({
-                        ...prev,
-                        mobile: "Something went wrong. Try again later.",
-                      }));
-                      setShowFullForm(false);
-                    }
-                  } else {
-                    // Less than 10 digits → hide form and clear error
-                    setShowFullForm(false);
-                    setErrors((prev) => ({ ...prev, mobile: "" }));
-                  }
+                <span className="h-px w-10 bg-[#EE3F4A]/60" />
+              </div>
+              <h2
+                className="text-[black] font-black capitalize leading-[0.9] py-10 text-center"
+              style={{
+                fontFamily: "'Montserrat',sans-serif",
+                fontSize: "clamp(2rem,5vw,3rem)",
+              }}
+              >
+                Book Your Repair
+              </h2>
+              <p
+                className="text-black/60 mt-2"
+                style={{
+                  fontFamily: "'Inter',sans-serif",
+                  fontSize: "0.95rem",
                 }}
-                placeholder="Enter Registered Mobile Number"
-                className={`w-full p-3 border rounded focus:outline-none focus:ring-2 ${
-                  errors.mobile
-                    ? "border-red-500 focus:ring-red-500"
-                    : "border-gray-300 focus:ring-[#B6F500]"
-                }`}
+              >
+                Same-day service · 90-day warranty · Expert technicians
+              </p>
+            </motion.div>
+          )}
+
+          {/* ════════════════════════════════════════════════════════════════
+              FORM CARD
+          ════════════════════════════════════════════════════════════════ */}
+          <motion.form
+            onSubmit={handleContactSubmit}
+            className={`contact-scroll relative overflow-hidden ${isModal ? "" : "rounded-2xl"}`}
+            style={{
+              background: isModal ? "transparent" : "#ffffff",
+              border: isModal ? "none" : "1px solid rgba(0,0,0,0.08)",
+              backdropFilter: "none",
+              padding: isModal ? "0" : "2rem",
+              boxShadow: isModal ? "none" : "0 8px 40px rgba(0,0,0,0.08)",
+            }}
+            initial={!isModal ? { opacity: 0, y: 24 } : {}}
+            whileInView={!isModal ? { opacity: 1, y: 0 } : {}}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
+          >
+            {/* Lime corner accent */}
+            {!isModal && (
+              <div
+                className="pointer-events-none absolute top-0 right-0 w-32 h-32"
+                style={{
+                  background:
+                    "radial-gradient(circle at top right, rgba(182,245,0,0.25) 0%, transparent 70%)",
+                }}
               />
-              {errors.mobile && (
-                <p className="text-red-500 text-sm mt-1">{errors.mobile}</p>
-              )}
-            </div>
+            )}
 
-            {/* ✅ Step 2: Show remaining fields only if number found */}
-            {showFullForm && (
-              <>
-                <div className="flex gap-4">
-                  <div className="flex-1">
-                    <input
-                      type="text"
-                      name="name"
-                      value={feedback.name || ""}
-                      onChange={handleFeedbackChange}
-                      placeholder="Name"
-                      className={`w-full p-3 border rounded focus:outline-none focus:ring-2 ${
-                        errors.name
-                          ? "border-red-500 focus:ring-red-500"
-                          : "border-gray-300 focus:ring-[#B6F500]"
-                      }`}
-                    />
-                    {errors.name && (
-                      <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <input
-                      type="text"
-                      name="city"
-                      value={feedback.city || ""}
-                      onChange={handleFeedbackChange}
-                      placeholder="City"
-                      className={`w-full p-3 border rounded focus:outline-none focus:ring-2 ${
-                        errors.city
-                          ? "border-red-500 focus:ring-red-500"
-                          : "border-gray-300 focus:ring-[#B6F500]"
-                      }`}
-                    />
-                    {errors.city && (
-                      <p className="text-red-500 text-sm mt-1">{errors.city}</p>
-                    )}
-                  </div>
-                </div>
+            <div
+              className="relative z-10 flex flex-col gap-4"
+              style={{ fontFamily: "'Inter',sans-serif" }}
+            >
+              {/* Row 1: Name + Phone */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Field icon={User} error={errors.contactName}>
+                  <input
+                    type="text"
+                    name="contactName"
+                    value={contact?.contactName || ""}
+                    onChange={handleContactChange}
+                    placeholder="Full Name"
+                    className={inputCls}
+                  />
+                </Field>
 
+                <Field icon={Phone} error={errors.contactNumber}>
+                  <input
+                    type="number"
+                    name="contactNumber"
+                    value={contact?.contactNumber || ""}
+                    onChange={handleContactChange}
+                    placeholder="Mobile Number"
+                    className={inputCls}
+                  />
+                </Field>
+              </div>
+
+              {/* Row 2: Email */}
+              <Field icon={Mail} error={errors.contactEmail}>
                 <input
                   type="email"
-                  name="email"
-                  value={feedback.email || ""}
-                  onChange={handleFeedbackChange}
-                  placeholder="Email"
-                  className={`w-full p-3 border rounded focus:outline-none focus:ring-2 ${
-                    errors.email
-                      ? "border-red-500 focus:ring-red-500"
-                      : "border-gray-300 focus:ring-[#B6F500]"
-                  }`}
+                  name="contactEmail"
+                  value={contact?.contactEmail || ""}
+                  onChange={handleContactChange}
+                  placeholder="Email Address (optional)"
+                  className={inputCls}
                 />
-                {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                )}
+              </Field>
 
-                <textarea
-                  name="message"
-                  value={feedback.message || ""}
-                  onChange={handleFeedbackChange}
-                  placeholder="Feedback"
-                  maxLength={500}
-                  rows={3}
-                  className={`w-full p-3 border rounded focus:outline-none focus:ring-2 ${
-                    errors.message
-                      ? "border-red-500 focus:ring-red-500"
-                      : "border-gray-300 focus:ring-[#B6F500]"
-                  }`}
+              {/* Row 3: City */}
+              <Field icon={MapPin} error={errors.contactCity}>
+                <input
+                  type="text"
+                  name="contactCity"
+                  value={contact?.contactCity || ""}
+                  onChange={handleContactChange}
+                  placeholder="Your City"
+                  className={inputCls}
                 />
-                {errors.message && (
-                  <p className="text-red-500 text-sm mt-1">{errors.message}</p>
-                )}
+              </Field>
 
-                <div className="flex items-center gap-2">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <span
-                      key={star}
-                      onClick={() => handleStarSelect(star)}
-                      className={`cursor-pointer text-2xl ${
-                        feedback.stars >= star
-                          ? "text-yellow-400"
-                          : "text-gray-300"
-                      }`}
-                    >
-                      ★
-                    </span>
-                  ))}
+              {/* Row 4: Product select */}
+              <Field icon={Wrench} error={errors.product}>
+                <div className="relative flex-1 flex items-center">
+                  <select
+                    name="product"
+                    value={selectedProduct}
+                    onChange={handleContactChange}
+                    className={`${inputCls} contact-select appearance-none pr-6 cursor-pointer`}
+                  >
+                    <option value="">Choose Appliance</option>
+                    {products.map((p) => (
+                      <option key={p} value={p}>
+                        {p}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="pointer-events-none absolute right-0 w-4 h-4 text-black/40" />
                 </div>
-                {errors.stars && (
-                  <p className="text-red-500 text-sm mt-1">{errors.stars}</p>
-                )}
+              </Field>
 
-                <button
-                  type="submit"
-                  disabled={feedbackSubmitting}
-                  className="w-full bg-[#B6F500] text-black font-semibold py-3 rounded hover:bg-black hover:text-white transition duration-300 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-[#B6F500] disabled:hover:text-black"
-                >
-                  {feedbackSubmitting ? (
-                    <span className="inline-flex items-center justify-center gap-2">
-                      <span className="h-4 w-4 border-2 border-black border-t-transparent rounded-full animate-spin" aria-hidden />
-                      Submitting...
-                    </span>
-                  ) : (
-                    "Submit Feedback"
-                  )}
-                </button>
-              </>
-            )}
-          </form>
-        )}
-      </div>
-    </section>
+              {/* Row 5: Complaints — animated reveal */}
+              <AnimatePresence>
+                {selectedProduct && (
+                  <motion.div
+                    key={selectedProduct}
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.38, ease: EASE }}
+                    style={{ overflow: "hidden" }}
+                  >
+                    <div className="flex flex-col gap-3">
+                      {/* Label */}
+                      <div className="flex items-center gap-2">
+                        <CheckSquare className="w-4 h-4 text-[#EE3F4A]" />
+                        <span
+                          className="text-black/60 text-xs uppercase tracking-[0.2em]"
+                          style={{ fontFamily: "'Inter',sans-serif" }}
+                        >
+                          Select Issues
+                        </span>
+                      </div>
+
+                      {/* Chip grid */}
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                        {complaints.map((c) => {
+                          const checked = selectedComplaints.includes(c);
+                          return (
+                            <motion.label
+                              key={c}
+                              className="flex items-center gap-2 rounded-xl px-3 py-2.5 cursor-pointer transition-all duration-200 select-none"
+                              style={{
+                                background: checked
+                                  ? "rgba(182,245,0,0.20)"
+                                  : "rgba(0,0,0,0.03)",
+                                border: `1px solid ${checked ? "rgba(182,245,0,0.7)" : "rgba(0,0,0,0.10)"}`,
+                              }}
+                              whileHover={{ scale: 1.02 }}
+                              whileTap={{ scale: 0.97 }}
+                            >
+                              {/* Custom checkbox */}
+                              <div
+                                className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0 transition-all duration-200"
+                                style={{
+                                  background: checked
+                                    ? "#EE3F4A"
+                                    : "transparent",
+                                  border: `1.5px solid ${checked ? "#EE3F4A" : "rgba(0,0,0,0.25)"}`,
+                                }}
+                              >
+                                {checked && (
+                                  <svg
+                                    width="9"
+                                    height="7"
+                                    viewBox="0 0 9 7"
+                                    fill="none"
+                                  >
+                                    <path
+                                      d="M1 3.5L3.2 6L8 1"
+                                      stroke="#000"
+                                      strokeWidth="1.6"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                )}
+                              </div>
+                              <input
+                                type="checkbox"
+                                checked={checked}
+                                onChange={() => handleComplaintToggle(c)}
+                                className="sr-only"
+                              />
+                              <span
+                                className="text-xs leading-snug"
+                                style={{
+                                  color: checked
+                                    ? "#5a8a00"
+                                    : "rgba(0,0,0,0.65)",
+                                  fontFamily: "'Inter',sans-serif",
+                                }}
+                              >
+                                {c}
+                              </span>
+                            </motion.label>
+                          );
+                        })}
+                      </div>
+
+                      <AnimatePresence>
+                        {errors.complaint && (
+                          <motion.p
+                            className="text-red-400 text-xs pl-1"
+                            initial={{ opacity: 0, y: -4 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0 }}
+                          >
+                            {errors.complaint}
+                          </motion.p>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Submit */}
+              <motion.button
+                type="submit"
+                disabled={contactSubmitting}
+                className="relative w-full overflow-hidden rounded-xl font-bold text-black flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                style={{
+                  background: "#EE3F4A",
+                  padding: "14px 24px",
+                  fontFamily: "'Montserrat',sans-serif",
+                  fontSize: "1rem",
+                  letterSpacing: "0.06em",
+                }}
+                whileHover={
+                  !contactSubmitting
+                    ? {
+                        scale: 1.015,
+                        boxShadow: "0 0 28px rgba(182,245,0,0.4)",
+                      }
+                    : {}
+                }
+                whileTap={!contactSubmitting ? { scale: 0.98 } : {}}
+              >
+                {/* Shine sweep */}
+                <motion.span
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.25) 50%, transparent 65%)",
+                  }}
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "160%" }}
+                  transition={{ duration: 0.55, ease: "easeInOut" }}
+                />
+
+                {contactSubmitting ? (
+                  <>
+                    <span className="h-4 w-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                    <span>Sending…</span>
+                  </>
+                ) : (
+                  <>
+                    <Zap className="w-4 h-4" fill="black" />
+                    <span>SEND SERVICE REQUEST</span>
+                    <Send className="w-4 h-4" />
+                  </>
+                )}
+              </motion.button>
+
+              {/* Trust micro-line */}
+              <p
+                className="text-center text-black/35"
+                style={{
+                  fontFamily: "'Inter',sans-serif",
+                  fontSize: "0.52rem",
+                  letterSpacing: "0.15em",
+                }}
+              >
+                SAME-DAY RESPONSE · 90-DAY WARRANTY · NO HIDDEN FEES
+              </p>
+            </div>
+          </motion.form>
+        </div>
+      </section>
+    </>
   );
 };
 

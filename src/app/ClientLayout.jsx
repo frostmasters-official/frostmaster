@@ -37,9 +37,9 @@ export default function ClientLayout({ children }) {
         {children}
       </div>
 
-      {/* <div id="feedback" ref={feedbackRef}>
+      <div id="feedback" ref={feedbackRef}>
         <Feedback />
-      </div> */}
+      </div>
 
       <div id="about" ref={aboutRef}>
         <AboutUs/>

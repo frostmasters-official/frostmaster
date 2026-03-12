@@ -21,7 +21,6 @@
 // import tv from "../../public/cover/tv.webp";
 // import washingMachine from "../../public/cover/washing-machine.webp";
 
-
 // import AC_cropped from '../../public/cover/AC_cropped.webp'
 // import fridge_cropped from '../../public/cover/fridge_cropped.jpg'
 // import washingMachine_cropped from '../../public/cover/washing-machine_cropped.jpg'
@@ -225,7 +224,7 @@
 //                   href={`tel:${tel}`}
 //                   title={`Call ${city}`}
 //                   className="
-//                     hover:scale-105 hover:bg-[#B6F500]
+//                     hover:scale-105 hover:bg-[#EE3F4A]
 //                     transition-all duration-300
 //                     bg-white/90 text-black
 //                     px-5 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3
@@ -291,7 +290,7 @@
 //               className={`
 //                 rounded-full transition-all duration-500
 //                 ${i === active
-//                   ? "bg-[#B6F500] w-6 h-2"
+//                   ? "bg-[#EE3F4A] w-6 h-2"
 //                   : "bg-white/50 hover:bg-white/80 w-2 h-2"}
 //               `}
 //             />
@@ -304,8 +303,6 @@
 // };
 
 // export default memo(Home);
-
-
 
 "use client";
 
@@ -322,51 +319,109 @@ import { Observer } from "gsap/Observer";
 import Image from "next/image";
 import { getAllPhones } from "@/data/contact";
 
-import AC             from "../../public/cover/AC.webp";
-import Chimney        from "../../public/cover/Chimney.webp";
-import fridge         from "../../public/cover/fridge.webp";
-import dish           from "../../public/cover/dish.webp";
-import oven           from "../../public/cover/oven.webp";
-import tv             from "../../public/cover/tv.webp";
+import AC from "../../public/cover/AC.webp";
+import Chimney from "../../public/cover/Chimney.webp";
+import fridge from "../../public/cover/fridge.webp";
+import dish from "../../public/cover/dish.webp";
+import oven from "../../public/cover/oven.webp";
+import tv from "../../public/cover/tv.webp";
 import washingMachine from "../../public/cover/washing-machine.webp";
 
-import AC_cropped             from "../../public/cover/AC_cropped.webp";
-import fridge_cropped         from "../../public/cover/fridge_cropped.jpg";
+import AC_cropped from "../../public/cover/AC_cropped.webp";
+import fridge_cropped from "../../public/cover/fridge_cropped.jpg";
 import washingMachine_cropped from "../../public/cover/washing-machine_cropped.jpg";
-import tv_cropped             from "../../public/cover/tv_cropped.jpg";
-import dish_cropped           from "../../public/cover/dish_cropped.webp";
-import oven_cropped           from "../../public/cover/oven_cropped.jpg";
-import chimney_cropped        from "../../public/cover/Chimney_cropped.webp";
+import tv_cropped from "../../public/cover/tv_cropped.jpg";
+import dish_cropped from "../../public/cover/dish_cropped.webp";
+import oven_cropped from "../../public/cover/oven_cropped.jpg";
+import chimney_cropped from "../../public/cover/Chimney_cropped.webp";
 
 gsap.registerPlugin(Observer);
 
 /* ─── Data ───────────────────────────────────────────────────────────────── */
 const slides = [
-  { id: 1, title: "Washing\nMachine",  label: "LAUNDRY",    description: "Professional washing machine repair services", bg: washingMachine, bgMobile: washingMachine_cropped },
-  { id: 2, title: "Television",        label: "DISPLAY",     description: "Expert TV repair and maintenance",             bg: tv,             bgMobile: tv_cropped             },
-  { id: 3, title: "Refrigerator",      label: "COOLING",     description: "Reliable fridge repair solutions",             bg: fridge,         bgMobile: fridge_cropped         },
-  { id: 4, title: "Chimney",           label: "VENTILATION", description: "Chimney cleaning and repair services",         bg: Chimney,        bgMobile: chimney_cropped        },
-  { id: 5, title: "Air\nConditioner",  label: "HVAC",        description: "AC installation and repair experts",           bg: AC,             bgMobile: AC_cropped             },
-  { id: 6, title: "Microwave\nOven",   label: "COOKING",     description: "Expert microwave oven repair and maintenance", bg: oven,           bgMobile: oven_cropped           },
-  { id: 7, title: "Dishwasher",        label: "CLEANING",    description: "Reliable dishwasher repair and installation",  bg: dish,           bgMobile: dish_cropped           },
+  {
+    id: 1,
+    title: "Washing Machine",
+    label: "LAUNDRY",
+    description: "Professional washing machine repair services",
+    bg: washingMachine,
+    bgMobile: washingMachine_cropped,
+  },
+  {
+    id: 2,
+    title: "Television",
+    label: "DISPLAY",
+    description: "Expert TV repair and maintenance",
+    bg: tv,
+    bgMobile: tv_cropped,
+  },
+  {
+    id: 3,
+    title: "Refrigerator",
+    label: "COOLING",
+    description: "Reliable fridge repair solutions",
+    bg: fridge,
+    bgMobile: fridge_cropped,
+  },
+  // {
+  //   id: 4,
+  //   title: "Chimney",
+  //   label: "VENTILATION",
+  //   description: "Chimney cleaning and repair services",
+  //   bg: Chimney,
+  //   bgMobile: chimney_cropped,
+  // },
+  {
+    id: 5,
+    title: "Air Conditioner",
+    label: "HVAC",
+    description: "AC installation and repair experts",
+    bg: AC,
+    bgMobile: AC_cropped,
+  },
+  {
+    id: 6,
+    title: "Microwave Oven",
+    label: "COOKING",
+    description: "Expert microwave oven repair and maintenance",
+    bg: oven,
+    bgMobile: oven_cropped,
+  },
+  // {
+  //   id: 7,
+  //   title: "Dishwasher",
+  //   label: "CLEANING",
+  //   description: "Reliable dishwasher repair and installation",
+  //   bg: dish,
+  //   bgMobile: dish_cropped,
+  // },
 ];
 
-const SLIDE_DURATION      = 5;
+const SLIDE_DURATION = 5;
 const TRANSITION_DURATION = 1.0;
-const EASE_SMOOTH         = [0.76, 0, 0.24, 1];
-
-
+const EASE_SMOOTH = [0.76, 0, 0.24, 1];
 
 /* ═══════════════════════════════════════════════════════════════════════════
    BG LAYER
 ═══════════════════════════════════════════════════════════════════════════ */
 const BgLayer = memo(function BgLayer({ slide, isActive, direction }) {
-  const mobileSrc  = (slide.bgMobile || slide.bg).src;
+  const mobileSrc = (slide.bgMobile || slide.bg).src;
   const desktopSrc = slide.bg.src;
   const variants = {
-    enter:  (d) => ({ clipPath: d >= 0 ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)", scale: 1.07 }),
-    center: { clipPath: "inset(0 0% 0 0%)", scale: 1,   transition: { duration: TRANSITION_DURATION, ease: EASE_SMOOTH } },
-    exit:   (d) => ({ clipPath: d >= 0 ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)", scale: 1, transition: { duration: TRANSITION_DURATION, ease: EASE_SMOOTH } }),
+    enter: (d) => ({
+      clipPath: d >= 0 ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)",
+      scale: 1.07,
+    }),
+    center: {
+      clipPath: "inset(0 0% 0 0%)",
+      scale: 1,
+      transition: { duration: TRANSITION_DURATION, ease: EASE_SMOOTH },
+    },
+    exit: (d) => ({
+      clipPath: d >= 0 ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)",
+      scale: 1,
+      transition: { duration: TRANSITION_DURATION, ease: EASE_SMOOTH },
+    }),
   };
   return (
     <AnimatePresence custom={direction} initial={false}>
@@ -376,15 +431,34 @@ const BgLayer = memo(function BgLayer({ slide, isActive, direction }) {
           className="absolute inset-0"
           custom={direction}
           variants={variants}
-          initial="enter" animate="center" exit="exit"
+          initial="enter"
+          animate="center"
+          exit="exit"
           style={{ willChange: "clip-path, transform" }}
         >
-          <div className="absolute inset-0 z-10"
-            style={{ background: "linear-gradient(115deg, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.22) 20%)" }} />
-          <div className="absolute inset-0 md:hidden"
-            style={{ backgroundImage: `url(${mobileSrc})`,  backgroundSize: "cover", backgroundPosition: "center" }} />
-          <div className="absolute inset-0 hidden md:block"
-            style={{ backgroundImage: `url(${desktopSrc})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div
+            className="absolute inset-0 z-10"
+            style={{
+              background:
+                "linear-gradient(115deg, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.22) 20%)",
+            }}
+          />
+          <div
+            className="absolute inset-0 md:hidden"
+            style={{
+              backgroundImage: `url(${mobileSrc})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          <div
+            className="absolute inset-0 hidden md:block"
+            style={{
+              backgroundImage: `url(${desktopSrc})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
         </motion.div>
       )}
     </AnimatePresence>
@@ -395,13 +469,17 @@ const BgLayer = memo(function BgLayer({ slide, isActive, direction }) {
    CAROUSEL STRIP  — fixed row, active expands in-place (no scrolling)
    All 7 thumbs always visible. Active one grows wider + taller in-place.
 ═══════════════════════════════════════════════════════════════════════════ */
-const CarouselStrip = memo(function CarouselStrip({ active, goTo, slideDuration }) {
+const CarouselStrip = memo(function CarouselStrip({
+  active,
+  goTo,
+  slideDuration,
+}) {
   // Fixed sizes — no scrolling, everything always visible
-  const STRIP_H  = 110;  // height of the whole strip container
-  const T_W      = 52;   // inactive thumb width
-  const T_H      = 62;   // inactive thumb height (shorter, sits at bottom)
-  const A_W      = 360;  // active card width
-  const A_H      = 210;  // active card height (full strip height)
+  const STRIP_H = 110; // height of the whole strip container
+  const T_W = 52; // inactive thumb width
+  const T_H = 62; // inactive thumb height (shorter, sits at bottom)
+  const A_W = 360; // active card width
+  const A_H = 210; // active card height (full strip height)
   const RADIUS_T = 5;
   const RADIUS_A = 14;
   const STRIP_GAP = 6;
@@ -409,7 +487,11 @@ const CarouselStrip = memo(function CarouselStrip({ active, goTo, slideDuration 
   return (
     <div
       className="flex items-end"
-      style={{ gap: `${STRIP_GAP}px`, height: `${STRIP_H}px`, alignItems: "flex-end" }}
+      style={{
+        gap: `${STRIP_GAP}px`,
+        height: `${STRIP_H}px`,
+        alignItems: "flex-end",
+      }}
     >
       {slides.map((slide, i) => {
         const isAct = i === active;
@@ -421,13 +503,17 @@ const CarouselStrip = memo(function CarouselStrip({ active, goTo, slideDuration 
             className="relative flex-shrink-0 overflow-hidden focus:outline-none"
             style={{ willChange: "width, height, border-radius" }}
             animate={{
-              width:        isAct ? A_W      : T_W,
-              height:       isAct ? A_H      : T_H,
+              width: isAct ? A_W : T_W,
+              height: isAct ? A_H : T_H,
               borderRadius: isAct ? RADIUS_A : RADIUS_T,
-              opacity:      isAct ? 1        : 0.85,
+              opacity: isAct ? 1 : 0.85,
             }}
             transition={{ duration: 0.62, ease: EASE_SMOOTH }}
-            whileHover={!isAct ? { opacity: 0.82, scale: 1.05, transition: { duration: 0.32 } } : {}}
+            whileHover={
+              !isAct
+                ? { opacity: 0.82, scale: 1.05, transition: { duration: 0.32 } }
+                : {}
+            }
           >
             {/* Photo */}
             <Image
@@ -455,10 +541,13 @@ const CarouselStrip = memo(function CarouselStrip({ active, goTo, slideDuration 
                   <motion.div
                     key="tint"
                     className="absolute inset-0 z-10 pointer-events-none"
-                    style={{ background: "linear-gradient(to top, rgba(182,245,0,0.22) 0%, transparent 70%)" }}
+                    style={{
+                      background:
+                        "linear-gradient(to top, rgba(182,245,0,0.22) 0%, transparent 70%)",
+                    }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    exit={{    opacity: 0 }}
+                    exit={{ opacity: 0 }}
                     transition={{ duration: 0.35 }}
                   />
 
@@ -468,12 +557,13 @@ const CarouselStrip = memo(function CarouselStrip({ active, goTo, slideDuration 
                     className="absolute inset-0 z-20 pointer-events-none"
                     style={{
                       borderRadius: RADIUS_A,
-                      border: "2px solid #B6F500",
-                      boxShadow: "0 0 18px rgba(182,245,0,0.3), inset 0 0 8px rgba(182,245,0,0.06)",
+                      border: "2px solid #EE3F4A",
+                      boxShadow:
+                        "0 0 18px rgba(182,245,0,0.3), inset 0 0 8px rgba(182,245,0,0.06)",
                     }}
                     initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-                    animate={{ clipPath: "inset(0% 0% 0% 0%)"   }}
-                    exit={{    clipPath: "inset(0% 0% 100% 0%)" }}
+                    animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+                    exit={{ clipPath: "inset(0% 0% 100% 0%)" }}
                     transition={{ duration: 0.6, ease: EASE_SMOOTH }}
                   />
 
@@ -483,12 +573,16 @@ const CarouselStrip = memo(function CarouselStrip({ active, goTo, slideDuration 
                     className="absolute bottom-7 left-2.5 right-2 z-30 pointer-events-none"
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{    opacity: 0, y: 4 }}
+                    exit={{ opacity: 0, y: 4 }}
                     transition={{ delay: 0.2, duration: 0.32 }}
                   >
                     <span
                       className="text-white font-black uppercase leading-tight block"
-                      style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: "0.72rem", textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}
+                      style={{
+                        fontFamily: "'Montserrat',sans-serif",
+                        fontSize: "0.72rem",
+                        textShadow: "0 1px 6px rgba(0,0,0,0.7)",
+                      }}
                     >
                       {slide.title.replace("\n", " ")}
                     </span>
@@ -500,12 +594,15 @@ const CarouselStrip = memo(function CarouselStrip({ active, goTo, slideDuration 
                     className="absolute bottom-2 left-2.5 z-30"
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{    opacity: 0, y: 4 }}
+                    exit={{ opacity: 0, y: 4 }}
                     transition={{ delay: 0.25, duration: 0.3 }}
                   >
                     <span
-                      className="bg-[#B6F500] text-black font-bold px-2 py-[2px] rounded-full uppercase tracking-widest"
-                      style={{ fontFamily: "'DM Mono',monospace", fontSize: "0.42rem" }}
+                      className="bg-[#EE3F4A] text-black font-bold px-2 py-[2px] rounded-full uppercase tracking-widest"
+                      style={{
+                        fontFamily: "'Inter',sans-serif",
+                        fontSize: "0.42rem",
+                      }}
                     >
                       {slide.label}
                     </span>
@@ -514,11 +611,15 @@ const CarouselStrip = memo(function CarouselStrip({ active, goTo, slideDuration 
                   {/* Progress bar at base of active card */}
                   <div
                     className="absolute bottom-0 left-0 right-0 z-30 overflow-hidden"
-                    style={{ height: "3px", borderRadius: `0 0 ${RADIUS_A}px ${RADIUS_A}px`, background: "rgba(255,255,255,0.08)" }}
+                    style={{
+                      height: "3px",
+                      borderRadius: `0 0 ${RADIUS_A}px ${RADIUS_A}px`,
+                      background: "rgba(255,255,255,0.08)",
+                    }}
                   >
                     <motion.div
                       key={`pb-${active}`}
-                      className="absolute inset-y-0 left-0 bg-[#B6F500]"
+                      className="absolute inset-y-0 left-0 bg-[#EE3F4A]"
                       initial={{ width: "0%" }}
                       animate={{ width: "100%" }}
                       transition={{ duration: slideDuration, ease: "linear" }}
@@ -533,7 +634,10 @@ const CarouselStrip = memo(function CarouselStrip({ active, goTo, slideDuration 
               <div className="absolute inset-0 z-20 flex items-end justify-center pb-1.5 pointer-events-none">
                 <span
                   className="text-white/40 tabular-nums"
-                  style={{ fontFamily: "'DM Mono',monospace", fontSize: "0.5rem" }}
+                  style={{
+                    fontFamily: "'Inter',sans-serif",
+                    fontSize: "0.5rem",
+                  }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -551,23 +655,29 @@ const CarouselStrip = memo(function CarouselStrip({ active, goTo, slideDuration 
 ═══════════════════════════════════════════════════════════════════════════ */
 const SlideCounter = memo(function SlideCounter({ active, total }) {
   return (
-    <div className="flex items-end gap-1 select-none" style={{ fontFamily: "'DM Mono', monospace" }}>
+    <div
+      className="flex items-end gap-1 select-none"
+      style={{ fontFamily: "'Inter',sans-serif" }}
+    >
       <div className="overflow-hidden" style={{ lineHeight: 1 }}>
         <AnimatePresence mode="wait">
           <motion.span
             key={active}
-            className="text-[#B6F500] font-bold block"
+            className="text-[#EE3F4A] font-bold block"
             style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)" }}
             initial={{ y: "100%", opacity: 0 }}
-            animate={{ y: "0%",   opacity: 1 }}
-            exit={{    y: "-100%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            exit={{ y: "-100%", opacity: 0 }}
             transition={{ duration: 0.42, ease: [0.33, 1, 0.68, 1] }}
           >
             {String(active + 1).padStart(2, "0")}
           </motion.span>
         </AnimatePresence>
       </div>
-      <span className="text-white/28 pb-0.5" style={{ fontSize: "clamp(0.75rem, 1.6vw, 1rem)" }}>
+      <span
+        className="text-white/28 pb-0.5"
+        style={{ fontSize: "clamp(0.75rem, 1.6vw, 1rem)" }}
+      >
         /{String(total).padStart(2, "0")}
       </span>
     </div>
@@ -578,11 +688,11 @@ const SlideCounter = memo(function SlideCounter({ active, total }) {
    HOME
 ═══════════════════════════════════════════════════════════════════════════ */
 const Home = ({ homeRef }) => {
-  const [active, setActive]       = useState(0);
+  const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
-  const activeRef                 = useRef(0);
-  const intervalRef               = useRef(null);
-  const isPausedRef               = useRef(false);
+  const activeRef = useRef(0);
+  const intervalRef = useRef(null);
+  const isPausedRef = useRef(false);
 
   const goTo = useCallback((idx) => {
     const next = ((idx % slides.length) + slides.length) % slides.length;
@@ -611,52 +721,84 @@ const Home = ({ homeRef }) => {
     const obs = Observer.create({
       target: document.body,
       type: "touch,drag",
-      onPress:     () => { isPausedRef.current = true;  acc = 0; },
-      onDragStart: () => { isPausedRef.current = true; },
+      onPress: () => {
+        isPausedRef.current = true;
+        acc = 0;
+      },
+      onDragStart: () => {
+        isPausedRef.current = true;
+      },
       onDrag: (self) => {
         acc += self.deltaX;
-        if (Math.abs(acc) >= 80) { goTo(activeRef.current + (acc < 0 ? 1 : -1)); acc = 0; }
+        if (Math.abs(acc) >= 80) {
+          goTo(activeRef.current + (acc < 0 ? 1 : -1));
+          acc = 0;
+        }
       },
-      onRelease: () => { acc = 0; isPausedRef.current = false; },
+      onRelease: () => {
+        acc = 0;
+        isPausedRef.current = false;
+      },
     });
-    return () => { obs.kill(); stopAutoplay(); };
+    return () => {
+      obs.kill();
+      stopAutoplay();
+    };
   }, [goTo, startAutoplay, stopAutoplay]);
 
   useLayoutEffect(() => {
     const src = (slides[0].bgMobile || slides[0].bg).src;
     if (!src || typeof document === "undefined") return;
     if (!document.querySelector(`link[rel="preload"][href="${src}"]`)) {
-      const l = Object.assign(document.createElement("link"), { rel: "preload", as: "image", href: src });
+      const l = Object.assign(document.createElement("link"), {
+        rel: "preload",
+        as: "image",
+        href: src,
+      });
       document.head.appendChild(l);
     }
   }, []);
 
-  const current    = slides[active];
+  const current = slides[active];
   const titleWords = current.title.split("\n");
 
   return (
     <section ref={homeRef}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;500&display=swap');`}</style>
-
-      <section className="relative w-full h-[calc(100vh-4rem)] overflow-hidden select-none">
-
+      <section className="relative max-w-8xl h-[850px] overflow-hidden select-none">
         {/* Backgrounds */}
         <div className="absolute inset-0" aria-hidden="true">
           {slides.map((slide, i) => (
-            <BgLayer key={slide.id} slide={slide} isActive={i === active} direction={direction} />
+            <BgLayer
+              key={slide.id}
+              slide={slide}
+              isActive={i === active}
+              direction={direction}
+            />
           ))}
         </div>
 
         {/* Left text */}
         <div className="relative z-30 h-full flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24 pt-28 pb-44 max-w-2xl">
-
           {/* Category tag */}
           <AnimatePresence mode="wait">
-            <motion.div key={`tag-${active}`} className="flex items-center gap-3 mb-4"
-              initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 14 }}
-              transition={{ duration: 0.48, ease: "easeOut" }}>
-              <span className="h-px w-7 bg-[#B6F500]" />
-              <span className="text-[#B6F500] tracking-[0.35em] uppercase" style={{ fontFamily: "'DM Mono',monospace", fontSize: "0.67rem" }}>{current.label}</span>
+            <motion.div
+              key={`tag-${active}`}
+              className="flex items-center gap-3 mb-4"
+              initial={{ opacity: 0, x: -14 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 14 }}
+              transition={{ duration: 0.48, ease: "easeOut" }}
+            >
+              <span className="h-px w-7 bg-[#EE3F4A]" />
+              <span
+                className="text-[#EE3F4A] tracking-[0.35em] uppercase"
+                style={{
+                  fontFamily: "'Inter',sans-serif",
+                  fontSize: "0.67rem",
+                }}
+              >
+                {current.label}
+              </span>
             </motion.div>
           </AnimatePresence>
 
@@ -666,13 +808,23 @@ const Home = ({ homeRef }) => {
               {titleWords.map((word, i) => (
                 <div key={i} className="overflow-hidden">
                   <motion.h1
-                    className="text-white font-black uppercase leading-[0.88] block"
-                    style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: "clamp(3.2rem,9vw,7.5rem)", textShadow: "0 4px 30px rgba(0,0,0,0.35)" }}
+                    className="text-white font-black uppercase leading-[0.88] block "
+                    style={{
+                      fontFamily: "'Montserrat',sans-serif",
+                      fontSize: "clamp(3.2rem,9vw,4rem)",
+                      textShadow: "0 4px 30px rgba(0,0,0,0.35)",
+                    }}
                     initial={{ y: "104%", opacity: 0 }}
-                    animate={{ y: "0%",   opacity: 1 }}
-                    exit={{    y: "-104%", opacity: 0 }}
-                    transition={{ duration: 0.62, delay: i * 0.07, ease: [0.33, 1, 0.68, 1] }}
-                  >{word}</motion.h1>
+                    animate={{ y: "0%", opacity: 1 }}
+                    exit={{ y: "-104%", opacity: 0 }}
+                    transition={{
+                      duration: 0.62,
+                      delay: i * 0.07,
+                      ease: [0.33, 1, 0.68, 1],
+                    }}
+                  >
+                    {word}
+                  </motion.h1>
                 </div>
               ))}
             </motion.div>
@@ -683,24 +835,49 @@ const Home = ({ homeRef }) => {
             <motion.p
               key={`desc-${active}`}
               className="text-white/62 mb-7 max-w-sm"
-              style={{ fontFamily: "'Inter',sans-serif", fontSize: "clamp(0.85rem,1.4vw,1rem)", lineHeight: 1.65 }}
-              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
+              style={{
+                fontFamily: "'Inter',sans-serif",
+                fontSize: "clamp(0.85rem,1.4vw,1rem)",
+                lineHeight: 1.65,
+              }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-            >{current.description}</motion.p>
+            >
+              {current.description}
+            </motion.p>
           </AnimatePresence>
 
           {/* Phone CTAs */}
-          <motion.div className="flex flex-wrap gap-2 sm:gap-3"
-            initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.55 }}>
+          <motion.div
+            className="flex flex-wrap gap-2 sm:gap-3"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.55 }}
+          >
             {getAllPhones().map(({ city, tel, display }) => (
-              <a key={city} href={`tel:${tel}`} title={`Call ${city}`}
+              <a
+                key={city}
+                href={`tel:${tel}`}
+                title={`Call ${city}`}
                 className="group relative overflow-hidden rounded-full"
-                style={{ fontFamily: "'Barlow Condensed',sans-serif" }}>
-                <span className="absolute inset-0 bg-[#B6F500] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out rounded-full" aria-hidden="true" />
-                <span className="relative z-10 flex items-center gap-1.5 bg-white/10 border border-white/20 group-hover:border-[#B6F500] text-white group-hover:text-black transition-colors duration-300 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 font-bold tracking-wide whitespace-nowrap"
-                  style={{ fontSize: "clamp(0.8rem,1.3vw,1rem)" }}>
-                  <span className="text-[#B6F500] group-hover:text-black transition-colors" style={{ fontSize: "0.65em" }}>●</span>
+                style={{ fontFamily: "'Montserrat',sans-serif" }}
+              >
+                <span
+                  className="absolute inset-0 bg-[#EE3F4A] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out rounded-full"
+                  aria-hidden="true"
+                />
+                <span
+                  className="relative z-10 flex items-center gap-1.5 bg-white/10 border border-white/20 group-hover:border-[#EE3F4A] text-white group-hover:text-black transition-colors duration-300 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 font-bold tracking-wide whitespace-nowrap"
+                  style={{ fontSize: "clamp(0.8rem,1.3vw,1rem)" }}
+                >
+                  <span
+                    className="text-[#EE3F4A] group-hover:text-black transition-colors"
+                    style={{ fontSize: "0.65em" }}
+                  >
+                    ●
+                  </span>
                   {city}: {display}
                 </span>
               </a>
@@ -715,35 +892,55 @@ const Home = ({ homeRef }) => {
           {/* Header */}
           <div className="flex items-center gap-2 mr-1">
             <span className="h-px w-5 bg-white/22" />
-            <span className="text-white/32 uppercase tracking-[0.24em]"
-              style={{ fontFamily: "'DM Mono',monospace", fontSize: "0.57rem" }}>Services</span>
+            <span
+              className="text-white/32 uppercase tracking-[0.24em]"
+              style={{ fontFamily: "'Inter',sans-serif", fontSize: "0.57rem" }}
+            >
+              Services
+            </span>
           </div>
 
-          <CarouselStrip active={active} goTo={goTo} slideDuration={SLIDE_DURATION} />
+          <CarouselStrip
+            active={active}
+            goTo={goTo}
+            slideDuration={SLIDE_DURATION}
+          />
         </div>
 
         {/* Mobile dots */}
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 flex md:hidden items-center gap-2">
           {slides.map((_, i) => (
-            <button key={i} onClick={() => goTo(i)} aria-label={`Slide ${i + 1}`}
-              className={`rounded-full transition-all duration-500 ${i === active ? "bg-[#B6F500] w-6 h-2" : "bg-white/32 hover:bg-white/60 w-2 h-2"}`} />
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Slide ${i + 1}`}
+              className={`rounded-full transition-all duration-500 ${i === active ? "bg-[#EE3F4A] w-6 h-2" : "bg-white/32 hover:bg-white/60 w-2 h-2"}`}
+            />
           ))}
         </div>
 
         {/* Full-width progress bar */}
         <div className="absolute bottom-0 left-0 right-0 z-30 flex">
           {slides.map((_, i) => (
-            <div key={i} className="flex-1 h-[2px] bg-white/10 relative overflow-hidden">
+            <div
+              key={i}
+              className="flex-1 h-[2px] bg-white/10 relative overflow-hidden"
+            >
               {i === active && (
-                <motion.div key={`pb-${active}`} className="absolute inset-y-0 left-0 bg-[#B6F500]"
-                  initial={{ width: "0%" }} animate={{ width: "100%" }}
-                  transition={{ duration: SLIDE_DURATION, ease: "linear" }} />
+                <motion.div
+                  key={`pb-${active}`}
+                  className="absolute inset-y-0 left-0 bg-[#EE3F4A]"
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: SLIDE_DURATION, ease: "linear" }}
+                />
               )}
-              {i < active && <div className="absolute inset-0 bg-[#B6F500]/48" />}
+              {i < active && (
+                <div className="absolute inset-0 bg-[#EE3F4A]/48" />
+              )}
             </div>
           ))}
         </div>
-
       </section>
     </section>
   );
