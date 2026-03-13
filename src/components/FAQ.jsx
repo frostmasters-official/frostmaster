@@ -41,7 +41,7 @@ const FAQ = () => {
   return (
     <section
       ref={faqRef}
-      className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32"
+      className="max-w-8xl mx-auto px-6 lg:px-12 py-24 lg:py-32"
     >
       {faqSchema && (
         <script

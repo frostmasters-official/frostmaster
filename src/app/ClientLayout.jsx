@@ -15,7 +15,7 @@ import { useState, useEffect } from "react";
 import BookingModal from "@/components/BookingModal";
 
 export default function ClientLayout({ children }) {
-  const {homeRef,feedbackRef,aboutRef,contactRef} = useContext(myContext)
+  const {homeRef,contactRef} = useContext(myContext)
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -37,14 +37,7 @@ export default function ClientLayout({ children }) {
         {children}
       </div>
 
-      <div id="feedback" ref={feedbackRef}>
-        <Feedback />
-      </div>
-
-      <div id="about" ref={aboutRef}>
-        <AboutUs/>
-        <FAQ />
-      </div>
+      
 
       <div id="contact" ref={contactRef}>
         <Contact/>

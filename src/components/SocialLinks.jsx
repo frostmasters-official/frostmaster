@@ -12,22 +12,22 @@ const SocialLinks = () => {
         <SocialIcon
           icon={FaFacebookF}
           label="Facebook"
-          link="https://www.facebook.com/profile.php?id=61579389825163"
+          link="https://www.facebook.com/frostmasters/"
         />
         <SocialIcon
           icon={FaInstagram}
           label="Instagram"
-          link="https://www.instagram.com/Frost Masters/"
+          link="https://www.instagram.com/frostmasters.official/"
         />
         <SocialIcon
           icon={FaYoutube}
           label="Youtube"
-          link="https://www.youtube.com/channel/UCwRXCFhCSGczfE7tA5mos5g"
+          link="https://www.youtube.com"
         />
         <SocialIcon
           icon={FaLinkedin}
           label="LinkedIn"
-          link="https://www.linkedin.com/in/Frost Masters-Frost Masters-751672380/"
+          link="https://www.linkedin.com/in/frostmasters-offical-5a1082394/"
         />
       </div>
       <div className="flex items-center gap-2">

@@ -21,11 +21,11 @@ const Footer = () => {
   const { filteredLinks, onNavigate, pathname } = useContext(myContext);
   const currentYear = new Date().getFullYear();
 
-  // On service pages: /services/washing-machine OR /services/chennai/washing-machine-service-in-chennai
+  // On service pages: /services/washing-machine OR /services/Eranakulam/washing-machine-service-in-Eranakulam
   const currentServiceSlug = useMemo(() => {
     if (!pathname || !pathname.startsWith("/services/")) return null;
     const segments = pathname.split("/").filter(Boolean);
-    // ["services", "washing-machine"] or ["services", "chennai", "washing-machine-service-in-chennai"]
+    // ["services", "washing-machine"] or ["services", "Eranakulam", "washing-machine-service-in-Eranakulam"]
     if (segments.length === 2) {
       const slug = segments[1];
       return serviceData[slug] ? slug : null;
@@ -52,7 +52,7 @@ const Footer = () => {
 
   return (
     <footer className="backdrop-blur-md bg-white text-black py-14 border-t border-gray-300 ">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="max-w-8xl mx-auto px-6 lg:px-12">
         {/* Grid Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 text-left items-start">
           {/* Column 1: Brand Info */}
@@ -75,7 +75,7 @@ const Footer = () => {
               </Link>
               <div className="space-y-4">
                 <div className="flex items-start gap-4 text-justify">
-                  Trusted home appliance repair in Chennai &amp; Coimbatore.
+                  Trusted home appliance repair in Eranakulam &amp; Eranakulam.
                   Call your city number below.
                 </div>
                 <div className="flex items-start gap-4">
@@ -179,14 +179,14 @@ const Footer = () => {
               // },
             ]}
           />
-
+          {/* 
           {serviceInAreaLinks.length > 0 && (
             <FooterColumn
               title="Service in your area"
               delay={0.25}
               items={serviceInAreaLinks}
             />
-          )}
+          )} */}
 
           <FooterColumn
             title="Support"

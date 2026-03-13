@@ -20,16 +20,6 @@ export const ContextProvider = ({ children }) => {
   const feedbackRef = useRef(null);
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
-  const csrfTokenRef = useRef(null);
-
-  useEffect(() => {
-    fetch("/api/csrf", { credentials: "same-origin" })
-      .then((r) => r.json())
-      .then((data) => {
-        csrfTokenRef.current = data?.token ?? null;
-      })
-      .catch(() => {});
-  }, []);
 
   // feedback state
   const [feedback, setFeedback] = useState({
@@ -70,7 +60,7 @@ export const ContextProvider = ({ children }) => {
     {
       question: "How can I book a service with Frost Masters?",
       answer:
-        "You can book by visiting our website, filling the contact form, or calling your city number: Chennai 6282450300 or Coimbatore 6282450300. We confirm the slot and send a technician to your doorstep.",
+        "You can book by visiting our website, filling the contact form, or calling your city number: Eranakulam 6282450300 or Eranakulam 6282450300. We confirm the slot and send a technician to your doorstep.",
     },
     {
       question: "What is the service response time?",
@@ -95,7 +85,7 @@ export const ContextProvider = ({ children }) => {
     {
       question: "Which areas do you cover?",
       answer:
-        "We serve Chennai and Coimbatore with multiple localities in each city. You can check our location pages for your area. Service is doorstep—our technician comes to your home or office.",
+        "We serve Eranakulam and Eranakulam with multiple localities in each city. You can check our location pages for your area. Service is doorstep—our technician comes to your home or office.",
     },
     {
       question: "What are the charges for visit and repair?",
@@ -123,9 +113,21 @@ export const ContextProvider = ({ children }) => {
   const pathname = usePathname();
 
   // On service pages hide only Home; keep Services so users can open dropdown and see all service pages
-  const filteredLinks = pathname.startsWith("/services")
-    ? navLinks.filter((link) => !["home"].includes(link.key))
-    : navLinks;
+  let filteredLinks = navLinks;
+
+  if (pathname.startsWith("/services")) {
+    filteredLinks = navLinks.filter(
+      (link) => !["home", "feedback", "about"].includes(link.key),
+    );
+  } else if (pathname.startsWith("/terms-and-conditions")) {
+    filteredLinks = navLinks.filter(
+      (link) => !["home", "feedback", "about"].includes(link.key),
+    );
+  } else if (pathname.startsWith("/privacy-policy")) {
+    filteredLinks = navLinks.filter(
+      (link) => !["home", "feedback", "about"].includes(link.key),
+    );
+  }
 
   // navigation scroll
   const scrollToSection = (key) => {

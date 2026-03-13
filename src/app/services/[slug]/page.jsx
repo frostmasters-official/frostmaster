@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
   const service = serviceData[slug];
   if (!service) return { title: "Service Not Found" };
 
-  const url = `https://www.Frost Masters.com/services/${slug}`;
+  const url = `https://www.FrostMasters.com/services/${slug}`;
 
   return {
     title: service.seoTitle,
@@ -27,8 +27,8 @@ export async function generateMetadata({ params }) {
       images: [
         {
           url: service.ogImage
-            ? `https://www.Frost Masters.com${service.ogImage}`
-            : "https://www.Frost Masters.com/logo.webp",
+            ? `https://www.FrostMasters.com${service.ogImage}`
+            : "https://www.FrostMasters.com/logo.webp",
           width: 1200,
           height: 630,
           alt: `${service.title} Repair - Frost Masters`,
@@ -43,8 +43,8 @@ export async function generateMetadata({ params }) {
       description: service.seoDescription,
       images: [
         service.ogImage
-          ? `https://www.Frost Masters.com${service.ogImage}`
-          : "https://www.Frost Masters.com/logo.webp",
+          ? `https://www.FrostMasters.com${service.ogImage}`
+          : "https://www.FrostMasters.com/logo.webp",
       ],
     },
   };
@@ -55,7 +55,7 @@ export default async function ServicePage({ params }) {
   const service = serviceData[slug];
   if (!service) return notFound();
 
-  const url = `https://www.Frost Masters.com/services/${slug}`;
+  const url = `https://www.FrostMasters.com/services/${slug}`;
 
   const faqSchema =
     Array.isArray(service.faq) && service.faq.length > 0
@@ -85,19 +85,19 @@ export default async function ServicePage({ params }) {
             provider: {
               "@type": "LocalBusiness",
               name: "Frost Masters",
-              url: "https://www.Frost Masters.com",
+              url: "https://www.FrostMasters.com",
               telephone: PRIMARY_PHONE,
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "Chennai",
+                addressLocality: "Eranakulam",
                 addressRegion: "Tamil Nadu",
                 postalCode: "600119",
                 addressCountry: "IN",
               },
             },
             areaServed: [
-              { "@type": "Place", name: "Chennai" },
-              { "@type": "Place", name: "Coimbatore" },
+              { "@type": "Place", name: "Eranakulam" },
+              { "@type": "Place", name: "Eranakulam" },
             ],
             url,
           }),

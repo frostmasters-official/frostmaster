@@ -92,15 +92,15 @@ const Navbar = () => {
   }, [mobileMenuOpen]);
 
   return (
-    <>
+    <nav className="max-w-8xl mx-auto">
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
           scrolled
-            ? "bg-white/90 backdrop-blur-md shadow-lg border-b border-gray-100/50 py-1"
+            ? "bg-white/90 backdrop-blur-md shadow-lg py-1"
             : "bg-white py-2"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="px-6 lg:px-12">
           {/* ── TOP ROW: Contact & Socials ── */}
           <div
             className={`flex justify-between items-center border-b transition-all duration-500 ${scrolled ? "h-0 opacity-0 overflow-hidden border-transparent" : "h-10 opacity-100 border-gray-100"}`}
@@ -113,9 +113,9 @@ const Navbar = () => {
                   className="flex items-center gap-2 group"
                 >
                   <div className="w-7 h-7 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#EE3F4A]/10 transition-colors duration-300">
-                    <FaPhoneVolume className="text-[10px] text-gray-600 group-hover:text-[#EE3F4A]" />
+                    <FaPhoneVolume className="text-lg text-gray-600 group-hover:text-[#EE3F4A]" />
                   </div>
-                  <span className="text-xs font-bold text-gray-700">
+                  <span className="text-lg font-bold text-gray-700">
                     <span className="text-gray-400 font-medium">{city}:</span>{" "}
                     {display}
                   </span>
@@ -231,11 +231,11 @@ const Navbar = () => {
 
             {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden w-12 h-12 flex items-center justify-center rounded-xl bg-gray-50 text-gray-900 transition-all duration-300 hover:bg-[#EE3F4A] hover:text-white"
+              className="lg:hidden w-12 h-12 flex items-center justify-center text-gray-900 transition-all"
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Open Mobile Menu"
             >
-              <TbMenu className="text-2xl" />
+              <TbMenu className="text-4xl cursor-pointer p-2 shadow shadow-black hover:shadow-md rounded-full hover:scale-120 duration-600 transition text-black" />
             </button>
           </div>
         </div>
@@ -265,7 +265,7 @@ const Navbar = () => {
                   <Image
                     src={image}
                     alt="logo"
-                    className="w-40 h-12 md:w-52 md:h-16"
+                    className="w-40 h-10 md:w-52 md:h-14"
                   />
                 </Link>
               </motion.div>
@@ -331,7 +331,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </nav>
   );
 };
 

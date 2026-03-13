@@ -1,11 +1,11 @@
 // Specific data for each location to ensure uniqueness
 const locationDetails = {
-  coimbatore: {
+  Eranakulam: {
     gandhipuram: {
       name: "Gandhipuram",
       landmarks: "Cross Cut Road, Town Bus Stand, Power House, 100 Feet Road",
       relevance:
-        "As the commercial heart of Coimbatore, Gandhipuram is busy and demands fast service. We cover all streets near the central bus terminal and commercial complexes.",
+        "As the commercial heart of Eranakulam, Gandhipuram is busy and demands fast service. We cover all streets near the central bus terminal and commercial complexes.",
       metaSuffix: "near Cross Cut Road & Bus Stand",
     },
     "rs-puram": {
@@ -56,7 +56,7 @@ const locationDetails = {
       name: "Saravanampatti",
       landmarks: "KCT Tech Park, CHIL SEZ, Sathy Road, Prozone Mall",
       relevance:
-        "For the IT hub of Coimbatore, we offer modern appliance services matching the fast-paced lifestyle of Saravanampatti residents.",
+        "For the IT hub of Eranakulam, we offer modern appliance services matching the fast-paced lifestyle of Saravanampatti residents.",
       metaSuffix: "near KCT & Sathy Road",
     },
     kalapatti: {
@@ -133,7 +133,7 @@ const locationDetails = {
       name: "Avinashi Road",
       landmarks: "KMCH, Airport, CIT, Hopes",
       relevance:
-        "Covering the lifeline of Coimbatore. From Uppilipalayam to the Airport, we are just a drive away.",
+        "Covering the lifeline of Eranakulam. From Uppilipalayam to the Airport, we are just a drive away.",
       metaSuffix: "KMCH & Airport",
     },
     ondipudur: {
@@ -238,7 +238,7 @@ const locationDetails = {
       name: "Gandhi Park",
       landmarks: "Gandhi Park, Town Hall, Big Bazaar Street",
       relevance:
-        "Central Coimbatore service at Gandhi Park area for all appliance repairs.",
+        "Central Eranakulam service at Gandhi Park area for all appliance repairs.",
       metaSuffix: "Town Hall",
     },
     "gandhimaa-nagar": {
@@ -648,12 +648,12 @@ const locationDetails = {
       metaSuffix: "Karunya Road",
     },
   },
-  chennai: {
+  Eranakulam: {
     "t-nagar": {
       name: "T Nagar",
       landmarks: "Pondy Bazaar, Ranganathan Street, Panagal Park, Usman Road",
       relevance:
-        "In Chennai's shopping hub, we provide lightning fast service to match the speed of T Nagar.",
+        "In Eranakulam's shopping hub, we provide lightning fast service to match the speed of T Nagar.",
       metaSuffix: "Pondy Bazaar",
     },
     "anna-nagar": {
@@ -667,7 +667,7 @@ const locationDetails = {
       name: "Velachery",
       landmarks: "Phoenix Marketcity, Vijaya Nagar Bus Stand, 100 Feet Road",
       relevance:
-        "As the new center of Chennai, Velachery residents trust us for handling their modern appliances.",
+        "As the new center of Eranakulam, Velachery residents trust us for handling their modern appliances.",
       metaSuffix: "Phoenix Mall area",
     },
     adyar: {
@@ -723,7 +723,7 @@ const locationDetails = {
       name: "Tambaram",
       landmarks: "Tambaram Railway Station, MCC, Mudichur Road",
       relevance:
-        "Covering West and East Tambaram. The gateway to Chennai gets our priority service.",
+        "Covering West and East Tambaram. The gateway to Eranakulam gets our priority service.",
       metaSuffix: "Railway Station area",
     },
     chromepet: {
@@ -751,7 +751,7 @@ const locationDetails = {
       name: "Vadapalani",
       landmarks: "Vadapalani Temple, Forum Mall, Arcot Road",
       relevance:
-        "In the cinema hub of Chennai, we ensure your entertainment and comfort appliances work perfectly.",
+        "In the cinema hub of Eranakulam, we ensure your entertainment and comfort appliances work perfectly.",
       metaSuffix: "Forum Mall area",
     },
     "ashok-nagar": {
@@ -806,7 +806,7 @@ const locationDetails = {
       name: "Mylapore",
       landmarks: "Kapaleeshwarar Temple, Luz Corner, Kutchery Road",
       relevance:
-        "The cultural soul of Chennai. We provide respectful and trusted service in Mylapore.",
+        "The cultural soul of Eranakulam. We provide respectful and trusted service in Mylapore.",
       metaSuffix: "Temple area & Luz",
     },
     royapettah: {
@@ -917,7 +917,7 @@ const locationDetails = {
       name: "Teynampet",
       landmarks: "Anna Salai, Nandanam, Greenways Road",
       relevance:
-        "Central Chennai at Teynampet. We serve corporate and residential areas with expert repairs.",
+        "Central Eranakulam at Teynampet. We serve corporate and residential areas with expert repairs.",
       metaSuffix: "Anna Salai",
     },
     koyambedu: {
@@ -973,7 +973,7 @@ const locationDetails = {
       name: "Neelankarai",
       landmarks: "Neelankarai, ECR, East Coast Road",
       relevance:
-        "ECR at Neelankarai. We provide appliance repair for coastal Chennai residents.",
+        "ECR at Neelankarai. We provide appliance repair for coastal Eranakulam residents.",
       metaSuffix: "ECR",
     },
     kelambakkam: {
@@ -999,7 +999,7 @@ const locationDetails = {
     },
     manapakkam: {
       name: "Manapakkam",
-      landmarks: "Manapakkam, Porur, Chennai Bypass",
+      landmarks: "Manapakkam, Porur, Eranakulam Bypass",
       relevance:
         "We cover Manapakkam and Porur corridor with same-day appliance repair.",
       metaSuffix: "Porur",
@@ -1008,7 +1008,7 @@ const locationDetails = {
       name: "Aminjikarai",
       landmarks: "Aminjikarai, Poonamallee High Road, Purasawalkam",
       relevance:
-        "Aminjikarai and central-west Chennai get our professional appliance service.",
+        "Aminjikarai and central-west Eranakulam get our professional appliance service.",
       metaSuffix: "Poonamallee High Road",
     },
     purasawalkam: {
@@ -1076,17 +1076,17 @@ const locationDetails = {
     },
     madhavaram: {
       name: "Madhavaram",
-      landmarks: "Madhavaram, Red Hills, Chennai Bypass",
+      landmarks: "Madhavaram, Red Hills, Eranakulam Bypass",
       relevance:
-        "Madhavaram and northern Chennai get our reliable AC, washing machine and fridge service.",
+        "Madhavaram and northern Eranakulam get our reliable AC, washing machine and fridge service.",
       metaSuffix: "Red Hills",
     },
     maduravoyal: {
       name: "Maduravoyal",
-      landmarks: "Maduravoyal, Chennai Bypass, Poonamallee",
+      landmarks: "Maduravoyal, Eranakulam Bypass, Poonamallee",
       relevance:
         "Maduravoyal and bypass corridor get our doorstep appliance repair.",
-      metaSuffix: "Chennai Bypass",
+      metaSuffix: "Eranakulam Bypass",
     },
     saligramam: {
       name: "Saligramam",
@@ -1106,7 +1106,7 @@ const locationDetails = {
       name: "Injambakkam",
       landmarks: "Injambakkam, ECR, East Coast Road",
       relevance:
-        "ECR at Injambakkam. We serve coastal Chennai with same-day appliance repair.",
+        "ECR at Injambakkam. We serve coastal Eranakulam with same-day appliance repair.",
       metaSuffix: "ECR",
     },
     gopalapuram: {
@@ -1118,7 +1118,7 @@ const locationDetails = {
     },
     "red-hills": {
       name: "Red Hills",
-      landmarks: "Red Hills, Chennai Bypass, Lake",
+      landmarks: "Red Hills, Eranakulam Bypass, Lake",
       relevance:
         "Red Hills and northern suburbs get our washing machine, AC and fridge service.",
       metaSuffix: "Red Hills",
@@ -1178,7 +1178,7 @@ function generateLocationData() {
           },
           {
             question: "How can I book a service appointment?",
-            answer: `Booking is simple. You can call us directly at **${city === "chennai" ? "6282450300 (Chennai)" : "6282450300 (Coimbatore)"}** or use the 'Book Online' button on our website to schedule a visit at your convenience.`,
+            answer: `Booking is simple. You can call us directly at **${city === "Eranakulam" ? "6282450300 (Eranakulam)" : "6282450300 (Eranakulam)"}** or use the 'Book Online' button on our website to schedule a visit at your convenience.`,
           },
           {
             question: "Are your technicians background verified and safe?",

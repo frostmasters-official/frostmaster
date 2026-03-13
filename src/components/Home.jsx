@@ -764,7 +764,7 @@ const Home = ({ homeRef }) => {
 
   return (
     <section ref={homeRef}>
-      <section className="relative max-w-8xl h-[850px] overflow-hidden select-none">
+      <section className="relative max-w-8xl h-[850px] mx-auto overflow-hidden select-none">
         {/* Backgrounds */}
         <div className="absolute inset-0" aria-hidden="true">
           {slides.map((slide, i) => (
@@ -778,9 +778,9 @@ const Home = ({ homeRef }) => {
         </div>
 
         {/* Left text */}
-        <div className="relative z-30 h-full flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24 pt-28 pb-44 max-w-2xl">
+        <div className="relative z-30 h-full flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24 pt-28 pb-44 max-w-4xl">
           {/* Category tag */}
-          <AnimatePresence mode="wait">
+          {/* <AnimatePresence mode="wait">
             <motion.div
               key={`tag-${active}`}
               className="flex items-center gap-3 mb-4"
@@ -800,18 +800,18 @@ const Home = ({ homeRef }) => {
                 {current.label}
               </span>
             </motion.div>
-          </AnimatePresence>
+          </AnimatePresence> */}
 
           {/* Title */}
           <AnimatePresence mode="wait">
             <motion.div key={`title-${active}`} className="mb-5">
               {titleWords.map((word, i) => (
-                <div key={i} className="overflow-hidden">
+                <div key={i} className="overflow-hidden -my-2 py-2">
                   <motion.h1
-                    className="text-white font-black uppercase leading-[0.88] block "
+                    className="text-white font-black uppercase leading-[1.1] block py-2"
                     style={{
                       fontFamily: "'Montserrat',sans-serif",
-                      fontSize: "clamp(3.2rem,9vw,4rem)",
+                      fontSize: "clamp(3.2rem,9vw,5rem)",
                       textShadow: "0 4px 30px rgba(0,0,0,0.35)",
                     }}
                     initial={{ y: "104%", opacity: 0 }}
@@ -888,7 +888,7 @@ const Home = ({ homeRef }) => {
         {/* ════════════════════════════════════════════════
             BOTTOM-RIGHT CAROUSEL
         ════════════════════════════════════════════════ */}
-        <div className="absolute bottom-8 right-6 md:right-10 lg:right-14 z-30 hidden md:flex flex-col items-end gap-2">
+        <div className="absolute bottom-28 right-6 md:right-10 lg:right-14 z-30 hidden md:flex flex-col items-end gap-2">
           {/* Header */}
           <div className="flex items-center gap-2 mr-1">
             <span className="h-px w-5 bg-white/22" />
@@ -916,29 +916,6 @@ const Home = ({ homeRef }) => {
               aria-label={`Slide ${i + 1}`}
               className={`rounded-full transition-all duration-500 ${i === active ? "bg-[#EE3F4A] w-6 h-2" : "bg-white/32 hover:bg-white/60 w-2 h-2"}`}
             />
-          ))}
-        </div>
-
-        {/* Full-width progress bar */}
-        <div className="absolute bottom-0 left-0 right-0 z-30 flex">
-          {slides.map((_, i) => (
-            <div
-              key={i}
-              className="flex-1 h-[2px] bg-white/10 relative overflow-hidden"
-            >
-              {i === active && (
-                <motion.div
-                  key={`pb-${active}`}
-                  className="absolute inset-y-0 left-0 bg-[#EE3F4A]"
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: SLIDE_DURATION, ease: "linear" }}
-                />
-              )}
-              {i < active && (
-                <div className="absolute inset-0 bg-[#EE3F4A]/48" />
-              )}
-            </div>
           ))}
         </div>
       </section>

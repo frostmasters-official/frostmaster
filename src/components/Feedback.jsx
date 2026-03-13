@@ -8,38 +8,38 @@ import { myContext } from "@/context/myContext";
 const STATIC_FEEDBACKS = [
   {
     id: 1,
-    name: "Suresh Kumar",
-    city: "Chennai",
+    name: "Kesiya Kesiya",
+    city: "Eranakulam",
     date: "March 10, 2026",
     message:
-      "Excellent service! My washing machine was making loud noises, and the technician fixed it within an hour. Very professional and punctual. Highly recommend Frost Masters for anyone in Chennai.",
+      "I've had other repair services before, but this was by far the best experience. The technician was knowledgeable, explained the issue, and gave me tips to keep my washer running smoothly.",
     stars: 5,
   },
   {
     id: 2,
-    name: "Priya R.",
-    city: "Coimbatore",
+    name: "Akhil Pradeep",
+    city: "Eranakulam",
     date: "March 05, 2026",
     message:
-      "I called for AC gas refilling. The team arrived on time, wore uniforms, and followed all safety protocols. Fair pricing and great quality work. My AC is cooling better than ever now!",
+      "The repair was done well and my fridge is working fine again. Took a bit longer than expected, but the technician kept me updated.",
     stars: 5,
   },
   {
     id: 3,
-    name: "Karthik M.",
-    city: "Chennai",
+    name: "Sandhya Binesh",
+    city: "Eranakulam",
     date: "February 28, 2026",
     message:
-      "Best fridge repair service I've found. They replaced the thermostat and now it's cooling perfectly. Transparent estimate and no hidden charges. Very happy with the technician's expertise.",
+      "Outstanding service from start to finish. The technician arrived on time, diagnosed the issue quickly, and had my fridge working perfectly the same day.",
     stars: 5,
   },
   {
     id: 4,
-    name: "Anitha Lakshmi",
-    city: "Coimbatore",
+    name: "Ashik",
+    city: "Eranakulam",
     date: "February 15, 2026",
     message:
-      "Seamless booking process and very friendly staff. They serviced my microwave oven properly and even gave some tips for maintenance. Neatly done and very reliable service in Coimbatore.",
+      "My washing machine stopped spinning, and They repaired it efficiently. Very happy with their service.",
     stars: 4,
   },
 ];
@@ -66,9 +66,9 @@ const FeedbackCard = ({ item, index }) => (
           </p>
         </div>
       </div>
-      <span className="text-xs font-bold text-gray-400 bg-gray-50 px-3 py-1 rounded-full">
+      {/* <span className="text-xs font-bold text-gray-400 bg-gray-50 px-3 py-1 rounded-full">
         {item.date}
-      </span>
+      </span> */}
     </div>
 
     <p className="text-gray-600 leading-relaxed flex-grow text-lg italic">
@@ -99,7 +99,7 @@ const Feedback = () => {
       ref={feedbackRef}
       className="py-24 lg:py-32 bg-[#fcfcfc] overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="max-w-8xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -109,17 +109,19 @@ const Feedback = () => {
           >
             Testimonials
           </motion.div>
-          <h2 className="text-[black] font-black capitalize leading-[0.9] py-10 text-center"
-              style={{
-                fontFamily: "'Montserrat',sans-serif",
-                fontSize: "clamp(2rem,5vw,3rem)",
-              }}>
+          <h2
+            className="text-[black] font-black capitalize leading-[0.9] py-10 text-center"
+            style={{
+              fontFamily: "'Montserrat',sans-serif",
+              fontSize: "clamp(2rem,5vw,3rem)",
+            }}
+          >
             What Our Customers Say
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Real feedback from homeowners in Chennai and Coimbatore who trust
+          {/* <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            Real feedback from homeowners in Eranakulam and Eranakulam who trust
             Frost Masters for their appliance needs.
-          </p>
+          </p> */}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

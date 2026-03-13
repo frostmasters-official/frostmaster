@@ -1,42 +1,42 @@
 export const PHONE = {
-  coimbatore: {
+  Eranakulam: {
     tel: "+916282450300",
     display: "6282450300",
     displayFull: "+91 6282450300",
-    city: "Coimbatore",
+    city: "Eranakulam",
   },
 };
 
-/** Get phone for a city slug (e.g. 'chennai', 'coimbatore'). */
+/** Get phone for a city slug (e.g. 'Eranakulam', 'Eranakulam'). */
 export function getPhoneForCity(citySlug) {
   const key = String(citySlug || "").toLowerCase();
-  return PHONE[key] || PHONE.coimbatore;
+  return PHONE[key] || PHONE.Eranakulam;
 }
 
 /** All numbers for display (e.g. footer, contact). */
 export function getAllPhones() {
-  return [PHONE.coimbatore];
+  return [PHONE.Eranakulam];
 }
 
 /** City slugs and names for service-area URLs. */
 export const SERVICE_CITIES = [
-  { slug: "coimbatore", name: "Coimbatore" },
-  { slug: "coimbatore", name: "Coimbatore" },
+  { slug: "Eranakulam", name: "Eranakulam" },
+  { slug: "Eranakulam", name: "Eranakulam" },
 ];
 
 const SERVICE_IN_CITY_SUFFIX = "-service-in-";
 
-/** Build path: /services/[city]/[service]-service-in-[city] (e.g. /services/chennai/washing-machine-service-in-chennai). */
+/** Build path: /services/[city]/[service]-service-in-[city] (e.g. /services/Eranakulam/washing-machine-service-in-Eranakulam). */
 export function getServiceInCityPath(serviceSlug, citySlug) {
   return `/services/${citySlug}/${serviceSlug}${SERVICE_IN_CITY_SUFFIX}${citySlug}`;
 }
 
-/** Build path: /services/[main-city]/[service]-service-in-[area-name] (e.g. /services/coimbatore/washing-machine-service-in-gandhipuram). */
+/** Build path: /services/[main-city]/[service]-service-in-[area-name] (e.g. /services/Eranakulam/washing-machine-service-in-gandhipuram). */
 export function getServiceInAreaPath(serviceSlug, citySlug, areaSlug) {
   return `/services/${citySlug}/${serviceSlug}${SERVICE_IN_CITY_SUFFIX}${areaSlug}`;
 }
 
-/** Build slug segment: [service]-service-in-[city] (e.g. washing-machine-service-in-chennai). */
+/** Build slug segment: [service]-service-in-[city] (e.g. washing-machine-service-in-Eranakulam). */
 export function getServiceInCitySlug(serviceSlug, citySlug) {
   return `${serviceSlug}${SERVICE_IN_CITY_SUFFIX}${citySlug}`;
 }
@@ -51,6 +51,6 @@ export function parseServiceInCitySlug(slug) {
   return { serviceSlug, citySlug };
 }
 
-/** Primary number for schema/fallback (Coimbatore). */
-export const PRIMARY_PHONE = PHONE.coimbatore.tel;
-export const PRIMARY_PHONE_DISPLAY = PHONE.coimbatore.displayFull;
+/** Primary number for schema/fallback (Eranakulam). */
+export const PRIMARY_PHONE = PHONE.Eranakulam.tel;
+export const PRIMARY_PHONE_DISPLAY = PHONE.Eranakulam.displayFull;
