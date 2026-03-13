@@ -51,7 +51,7 @@ const Footer = () => {
   }, [currentServiceSlug]);
 
   return (
-    <footer className="backdrop-blur-md bg-white text-black py-14 border-t border-gray-300 ">
+    <footer className="backdrop-blur-md bg-white text-black pt-18 pb-10 ">
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
         {/* Grid Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 text-left items-start">
@@ -74,7 +74,10 @@ const Footer = () => {
                 />
               </Link>
               <div className="space-y-4">
-                <div className="flex items-start gap-4 text-justify">
+                <div 
+                  className="flex items-start gap-4 text-justify"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
                   Trusted home appliance repair in Eranakulam &amp; Eranakulam.
                   Call your city number below.
                 </div>
@@ -83,6 +86,7 @@ const Footer = () => {
                   <Link
                     href="mailto:info@frostmasters.com"
                     className="hover:text-primary transition-colors"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     info@frostmasters.com
                   </Link>
@@ -94,6 +98,7 @@ const Footer = () => {
                       <Link
                         href={`tel:${tel}`}
                         className="hover:text-primary transition-colors"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
                         title={`Call ${city}`}
                       >
                         {/* <span className="font-medium text-black">
@@ -110,6 +115,7 @@ const Footer = () => {
                   <Link
                     href="mailto:info@frostmasters.com"
                     className="hover:text-primary transition-colors"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     30/282 Pavamkulangara Jn, <br /> Tripurathura po,
                     Puthiyakavu,
@@ -128,13 +134,19 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="flex flex-col gap-4 h-full">
-              <h2 className="font-semibold text-lg text-black">Quick Links</h2>
+              <h2 
+                className="font-semibold text-lg text-black"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+              >
+                Quick Links
+              </h2>
               <ul className="flex flex-col items-start space-y-3">
                 {filteredLinks?.map((link, index) => (
                   <button
                     key={index}
                     onClick={() => onNavigate?.[link.key]?.()}
                     className="cursor-pointer text-black hover:text-primary transition-colors"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     {link.name}
                   </button>
@@ -230,7 +242,12 @@ const FooterColumn = ({ title, items, delay }) => (
     transition={{ duration: 0.5, delay }}
   >
     <div className="flex flex-col gap-4 h-full">
-      <h2 className="font-semibold text-lg text-black">{title}</h2>
+      <h2 
+        className="font-semibold text-lg text-black"
+        style={{ fontFamily: "'Montserrat', sans-serif" }}
+      >
+        {title}
+      </h2>
       <ul className="space-y-3">
         {items.map((item, index) => (
           <li key={index}>
@@ -238,6 +255,7 @@ const FooterColumn = ({ title, items, delay }) => (
               href={item.path}
               title={item.title || item.label}
               className="text-black hover:text-black transition-colors"
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {item.label}
             </Link>

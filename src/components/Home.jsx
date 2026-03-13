@@ -870,7 +870,10 @@ const Home = ({ homeRef }) => {
                 />
                 <span
                   className="relative z-10 flex items-center gap-1.5 bg-white/10 border border-white/20 group-hover:border-[#EE3F4A] text-white group-hover:text-black transition-colors duration-300 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 font-bold tracking-wide whitespace-nowrap"
-                  style={{ fontSize: "clamp(0.8rem,1.3vw,1rem)" }}
+                  style={{ 
+                    fontFamily: "'Montserrat',sans-serif",
+                    fontSize: "clamp(0.8rem,1.3vw,1rem)" 
+                  }}
                 >
                   <span
                     className="text-[#EE3F4A] group-hover:text-black transition-colors"

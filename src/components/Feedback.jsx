@@ -4,6 +4,7 @@ import React, { memo, useContext } from "react";
 import { motion } from "framer-motion";
 import { FaQuoteLeft, FaStar } from "react-icons/fa6";
 import { myContext } from "@/context/myContext";
+import SectionHeader from "./SectionHeader";
 
 const STATIC_FEEDBACKS = [
   {
@@ -61,7 +62,7 @@ const FeedbackCard = ({ item, index }) => (
           <h3 className="text-xl font-bold text-gray-900 font-heading">
             {item.name}
           </h3>
-          <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+          <p className="text-sm font-medium text-gray-500 uppercase tracking-wider" style={{ fontFamily: "'Inter',sans-serif" }}>
             {item.city}
           </p>
         </div>
@@ -71,7 +72,10 @@ const FeedbackCard = ({ item, index }) => (
       </span> */}
     </div>
 
-    <p className="text-gray-600 leading-relaxed flex-grow text-lg italic">
+    <p 
+      className="text-gray-600 leading-relaxed flex-grow text-lg italic"
+      style={{ fontFamily: "'Inter', sans-serif" }}
+    >
       "{item.message}"
     </p>
 
@@ -84,7 +88,10 @@ const FeedbackCard = ({ item, index }) => (
           }`}
         />
       ))}
-      <span className="ml-2 text-sm font-bold text-gray-900">
+      <span 
+        className="ml-2 text-sm font-bold text-gray-900"
+        style={{ fontFamily: "'Inter', sans-serif" }}
+      >
         {item.stars}.0 / 5.0
       </span>
     </div>
@@ -97,31 +104,17 @@ const Feedback = () => {
   return (
     <section
       ref={feedbackRef}
-      className="py-24 lg:py-32 bg-[#fcfcfc] overflow-hidden"
+      className="py-16 bg-[#fcfcfc] overflow-hidden"
     >
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full bg-[#EE3F4A]/10 text-[#EE3F4A] text-sm font-bold uppercase tracking-widest mb-4"
-          >
-            Testimonials
-          </motion.div>
-          <h2
-            className="text-[black] font-black capitalize leading-[0.9] py-10 text-center"
-            style={{
-              fontFamily: "'Montserrat',sans-serif",
-              fontSize: "clamp(2rem,5vw,3rem)",
-            }}
-          >
-            What Our Customers Say
-          </h2>
-          {/* <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Real feedback from homeowners in Eranakulam and Eranakulam who trust
-            Frost Masters for their appliance needs.
-          </p> */}
+          <SectionHeader
+  tag="Testimonials"
+  titleStart="What Our Customers"
+  highlight="Say"
+  description="Real feedback from customers who trust our repair services."
+/>
+          
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

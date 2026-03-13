@@ -63,6 +63,7 @@ export default function ServiceContent({ service, cityName }) {
                 <button
                   onClick={() => onNavigate?.["contact"]?.()}
                   className="px-8 py-4 rounded-full bg-[#EE3F4A] text-black font-bold text-lg md:text-xl hover:bg-[black] hover:text-white transition duration-300 shadow-lg hover:shadow-xl inline-block"
+                  style={{ fontFamily: "'Montserrat',sans-serif" }}
                 >
                   Enquiry Now
                 </button>

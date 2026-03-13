@@ -14,6 +14,7 @@ import {
   Send,
   Zap,
 } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 /* ─── complaints map ─────────────────────────────────────────────────────── */
 const complaintsOptions = {
@@ -125,7 +126,7 @@ const Contact = ({ isModal = false }) => {
 
       <section
         ref={!isModal ? contactRef : null}
-        className={isModal ? "" : "py-20 relative overflow-hidden bg-white"}
+        className={isModal ? "" : "py-16 relative overflow-hidden bg-white"}
         style={{}}
       >
         {/* ── standalone page: decorative BG elements ── */}
@@ -153,45 +154,12 @@ const Contact = ({ isModal = false }) => {
         >
           {/* ── Section header (standalone only) ── */}
           {!isModal && (
-            <motion.div
-              className="text-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: EASE }}
-            >
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <span className="h-px w-10 bg-[#EE3F4A]/60" />
-                <span
-                  className="text-[black] uppercase tracking-[0.35em]"
-                  style={{
-                    fontFamily: "'Inter',sans-serif",
-                    fontSize: "0.65rem",
-                  }}
-                >
-                  Get in Touch
-                </span>
-                <span className="h-px w-10 bg-[#EE3F4A]/60" />
-              </div>
-              <h2
-                className="text-[black] font-black capitalize leading-[0.9] py-10 text-center"
-              style={{
-                fontFamily: "'Montserrat',sans-serif",
-                fontSize: "clamp(2rem,5vw,3rem)",
-              }}
-              >
-                Book Your Repair
-              </h2>
-              <p
-                className="text-black/60 mt-2"
-                style={{
-                  fontFamily: "'Inter',sans-serif",
-                  fontSize: "0.95rem",
-                }}
-              >
-                Same-day service · 90-day warranty · Expert technicians
-              </p>
-            </motion.div>
+            <SectionHeader
+  tag="Get in Touch"
+  titleStart="Book Your"
+  highlight="Repair"
+  description="Same-day service · 90-day warranty · Expert technicians"
+/>
           )}
 
           {/* ════════════════════════════════════════════════════════════════

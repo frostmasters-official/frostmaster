@@ -8,6 +8,7 @@ import {
   Gem,
   Phone,
 } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 const EASE = [0.76, 0, 0.24, 1];
 
@@ -43,7 +44,7 @@ const Extra = () => {
   return (
     <div>
       <section
-        className="relative overflow-hidden py-24"
+        className="relative overflow-hidden py-16"
         style={{ background: "#f4f6f9" }}
       >
         {/* subtle corner accents */}
@@ -64,33 +65,12 @@ const Extra = () => {
 
         <div className="relative z-10 px-6 lg:px-12">
           {/* Heading */}
-          <motion.div className="text-center mb-16" {...fadeUp(0)}>
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="h-px w-10 bg-[black]/20" />
-              <span
-                className="uppercase tracking-[0.35em] text-[black]/40"
-                style={{
-                  fontFamily: "'Inter',sans-serif",
-                  fontSize: "0.62rem",
-                }}
-              >
-                Our Commitment
-              </span>
-              <span className="h-px w-10 bg-[black]/20" />
-            </div>
-            <h2
-              className="text-[black] font-black capitalize leading-[0.9] py-10 text-center"
-              style={{
-                fontFamily: "'Montserrat',sans-serif",
-                fontSize: "clamp(2rem,5vw,3rem)",
-              }}
-            >
-              We Promise{" "}
-              <span style={{ color: "#EE3F4A", WebkitTextStroke: "2px black" }}>
-                You
-              </span>
-            </h2>
-          </motion.div>
+          <SectionHeader
+  tag="Our Commitment"
+  titleStart="We Promise"
+  highlight="You"
+  description="Fast service, genuine spare parts, and reliable repairs you can trust."
+/>
 
           {/* Promise cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">

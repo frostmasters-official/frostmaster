@@ -160,8 +160,15 @@ export default function PrivacyPolicy() {
               <Shield className="w-5 h-5 text-[#EE3F4A]" />
               <span className="text-[#EE3F4A] uppercase tracking-[0.3em] font-bold text-[0.65rem]">Privacy Protected</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 font-heading">
-              Privacy <span className="text-[#EE3F4A]">Policy</span>
+            <h1 
+              className="font-black mb-6 uppercase leading-[0.9]"
+              style={{
+                fontFamily: "'Montserrat',sans-serif",
+                fontSize: "clamp(2rem,5vw,3rem)",
+                color: "black"
+              }}
+            >
+              Privacy <span style={{ color: "#EE3F4A" }}>Policy</span>
             </h1>
             <p className="text-gray-500 font-medium">Last Updated: March 2026</p>
           </motion.div>
@@ -202,7 +209,16 @@ export default function PrivacyPolicy() {
       <section className="py-20 bg-gray-50 mb-10 mx-6 rounded-[2rem] lg:rounded-[3rem]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div {...fadeUp(0)}>
-            <h2 className="text-3xl font-black mb-10 font-heading">Contact <span className="text-[#EE3F4A]">Us</span></h2>
+            <h2 
+              className="font-black mb-10 uppercase leading-[0.9]"
+              style={{
+                fontFamily: "'Montserrat',sans-serif",
+                fontSize: "clamp(2rem,5vw,3rem)",
+                color: "black"
+              }}
+            >
+              Contact <span style={{ color: "#EE3F4A" }}>Us</span>
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
               <div className="space-y-6">
                 <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100 transition-transform hover:-translate-y-1">

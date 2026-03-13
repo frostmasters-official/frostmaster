@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { CheckCircle, Users, Zap } from "lucide-react";
 import all from "../../public/service/all.webp";
 import Extra from "./Extra";
+import SectionHeader from "./SectionHeader";
 
 const EASE = [0.76, 0, 0.24, 1];
 
@@ -36,10 +37,7 @@ const AboutUs = () => {
       <style>{`
 
       `}</style>
-      <section
-        id="about"
-        className="relative overflow-hidden py-20 lg:py-28 bg-[#f7f8fa]"
-      >
+      <section id="about" className="relative overflow-hidden py-16">
         {/* soft radial accents */}
         <div
           className="pointer-events-none absolute top-0 right-0 w-[500px] h-[500px]"
@@ -58,34 +56,12 @@ const AboutUs = () => {
 
         <div className="relative z-10 px-6 lg:px-12">
           {/* ── Top headline ── */}
-          <motion.div className="text-center mb-14" {...fadeUp(0)}>
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="h-px w-10 bg-[#EE3F4A]" />
-              <span
-                className="text-[#EE3F4A] uppercase tracking-[0.35em]"
-                style={{
-                  fontFamily: "'Inter',sans-serif",
-                  fontSize: "0.62rem",
-                }}
-              >
-                Who We Are
-              </span>
-              <span className="h-px w-10 bg-[#EE3F4A]" />
-            </div>
-            <h2
-              className="text-[black] font-black capitalize leading-[0.9] py-10 text-center"
-              style={{
-                fontFamily: "'Montserrat',sans-serif",
-                fontSize: "clamp(2rem,5vw,3rem)",
-              }}
-            >
-              Trusted Appliance
-              <br />
-              <span style={{ color: "#EE3F4A", WebkitTextStroke: "2px black" }}>
-                Repair Experts
-              </span>
-            </h2>
-          </motion.div>
+          <SectionHeader
+            tag="Who We Are"
+            titleStart="Trusted Appliance Repair"
+            highlight="Experts"
+            description="Experienced technicians delivering reliable appliance repair services."
+          />
 
           {/* ── 3-column grid ── */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-10 lg:gap-8 items-start">

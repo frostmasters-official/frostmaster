@@ -221,6 +221,7 @@ const Navbar = () => {
                     key={city}
                     href={`tel:${tel}`}
                     className="flex items-center gap-2 bg-[#EE3F4A] hover:bg-black text-white px-5 py-2.5 rounded-full font-bold text-xs whitespace-nowrap transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                    style={{ fontFamily: "'Montserrat',sans-serif" }}
                   >
                     <FaPhoneVolume className="text-sm" />
                     <span>Call {city}</span>

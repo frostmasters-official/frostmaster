@@ -22,7 +22,7 @@ const LocationPage = ({ data, city, area }) => {
   if (!data) return null;
 
   return (
-    <div className="min-h-screen selection:bg-[#EE3F4A] font-general">
+    <div className="min-h-screen selection:bg-[#EE3F4A]">
       {/* Hero Section */}
       <section className="relative items-center justify-center pt-32 pb-20 px-4 md:px-10 lg:px-20 overflow-hidden">
         <div className="absolute inset-0 z-0" />
@@ -35,15 +35,22 @@ const LocationPage = ({ data, city, area }) => {
             <span className="text-[black] font-bold tracking-widest uppercase text-sm md:text-base mb-4 block">
               {city} &bull; {area.replace("-", " ")}
             </span>
-            <h1 className="text-[black] text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+            <h1 
+              className="text-[black] text-4xl md:text-6xl font-extrabold leading-tight mb-6"
+              style={{ fontFamily: "'Montserrat',sans-serif" }}
+            >
               {data.h1}
             </h1>
-            <p className="text-[black] text-lg md:text-xl leading-relaxed mb-8 text-justify">
+            <p 
+              className="text-[black] text-lg md:text-xl leading-relaxed mb-8 text-justify"
+              style={{ fontFamily: "'Inter',sans-serif" }}
+            >
               {data.metaDescription}
             </p>
             <a
               href={`tel:${getPhoneForCity(city).tel}`}
               className="inline-flex items-center gap-2 bg-[#EE3F4A] text-black px-8 py-4 rounded-full text-xl font-bold hover:scale-105 transition-transform duration-300"
+              style={{ fontFamily: "'Montserrat',sans-serif" }}
               title={`Call ${getPhoneForCity(city).city}`}
             >
               <Phone className="w-6 h-6" />
@@ -60,7 +67,10 @@ const LocationPage = ({ data, city, area }) => {
           <div className="lg:col-span-2 space-y-12">
             {/* Intro */}
             <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
-              <h2 className="text-3xl font-bold mb-6 text-[black]">
+              <h2 
+                className="text-3xl font-bold mb-6 text-[black]"
+                style={{ fontFamily: "'Montserrat',sans-serif" }}
+              >
                 About Our Service
               </h2>
               <p className="text-[black] text-lg leading-relaxed whitespace-pre-wrap text-justify">

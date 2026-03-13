@@ -2,6 +2,7 @@
 
 import { myContext } from "@/context/myContext";
 import { useState, useRef, useEffect, memo, useContext } from "react";
+import SectionHeader from "./SectionHeader";
 
 const FAQ = () => {
   const { faqRef, faqList } = useContext(myContext);
@@ -41,7 +42,7 @@ const FAQ = () => {
   return (
     <section
       ref={faqRef}
-      className="max-w-8xl mx-auto px-6 lg:px-12 py-24 lg:py-32"
+      className="max-w-8xl mx-auto px-6 lg:px-12 py-16"
     >
       {faqSchema && (
         <script
@@ -49,13 +50,12 @@ const FAQ = () => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      <h2 className="text-[black] font-black capitalize leading-[0.9] py-10 text-center"
-              style={{
-                fontFamily: "'Montserrat',sans-serif",
-                fontSize: "clamp(2rem,5vw,3rem)",
-              }}>
-        Frequently Asked Questions (FAQ)
-      </h2>
+      <SectionHeader
+  tag="FAQ"
+  titleStart="Frequently Asked"
+  highlight="Questions"
+  description="Quick answers to common questions about our appliance repair services."
+/>
 
       <div className="mb-10 max-w-2xl mx-auto relative group">
         <input
@@ -64,6 +64,7 @@ const FAQ = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="w-full px-6 py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#EE3F4A]/20 focus:border-[#EE3F4A] text-black transition-all duration-300 shadow-sm group-hover:shadow-md"
+          style={{ fontFamily: "'Inter',sans-serif" }}
         />
       </div>
 
@@ -84,6 +85,7 @@ const FAQ = () => {
               >
                 <span
                   className={`text-left pr-4 font-bold text-lg sm:text-base md:text-lg transition-colors duration-300 ${openIndex === index ? "text-[#EE3F4A]" : "text-gray-900 group-hover:text-[#EE3F4A]"}`}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {item.question}
                 </span>
@@ -107,6 +109,7 @@ const FAQ = () => {
                   className={`px-6 pb-6 pt-0 text-gray-600 leading-relaxed text-sm md:text-base text-justify transition-opacity duration-500 ${
                     openIndex === index ? "opacity-100" : "opacity-0"
                   }`}
+                  style={{ fontFamily: "'Inter',sans-serif" }}
                 >
                   {item.answer}
                 </div>

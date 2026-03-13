@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowUpRight, Wrench } from "lucide-react";
 import serviceData from "./data/serviceData";
 import { myContext } from "@/context/myContext";
+import SectionHeader from "./SectionHeader";
 
 const services = Object.entries(serviceData);
 
@@ -38,7 +39,10 @@ const ServiceCard = ({ slug, service, className = "", size = "md", index }) => (
 
       {/* Top-left badge */}
       <div className="absolute top-3 left-3 z-10">
-        <span className="inline-flex items-center gap-1.5 bg-black/40 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">
+        <span 
+          className="inline-flex items-center gap-1.5 bg-black/40 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
           <Wrench className="w-3 h-3 flex-shrink-0" />
           Expert Service
         </span>
@@ -50,6 +54,7 @@ const ServiceCard = ({ slug, service, className = "", size = "md", index }) => (
           className={`text-white font-bold tracking-wide leading-tight ${
             size === "lg" ? "text-xl" : size === "md" ? "text-base" : "text-sm"
           }`}
+          style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {service.title}
         </span>
@@ -77,35 +82,14 @@ const Services = () => {
 
   return (
     <section ref={servicesRef} className="py-16 bg-white">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-6 lg:px-12">
         {/* Heading */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <h2
-            className="text-[black] font-black uppercase leading-[0.9]"
-            style={{
-              fontFamily: "'Montserrat',sans-serif",
-              fontSize: "clamp(2.8rem,6vw,4rem)",
-            }}
-          >
-            Our Services
-          </h2>
-          <p
-            className="text-[black]/60 mt-3 text-base max-w-xl mx-auto"
-            style={{
-              fontFamily: "'Inter',sans-serif",
-              fontSize: "0.95rem",
-            }}
-          >
-            Expert home appliance repair &amp; maintenance — same-day service,
-            genuine parts, 90-day warranty.
-          </p>
-        </motion.div>
+        <SectionHeader
+  tag="Our Services"
+  titleStart="Our"
+  highlight="Services"
+  description="Expert home appliance repair & maintenance — same-day service, genuine parts, 90-day warranty."
+/>
 
         {/* ── Desktop Bento Grid (hidden on mobile) ── */}
         <div
