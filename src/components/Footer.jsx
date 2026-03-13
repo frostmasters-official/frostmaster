@@ -25,7 +25,6 @@ const Footer = () => {
   const currentServiceSlug = useMemo(() => {
     if (!pathname || !pathname.startsWith("/services/")) return null;
     const segments = pathname.split("/").filter(Boolean);
-    // ["services", "washing-machine"] or ["services", "Eranakulam", "washing-machine-service-in-Eranakulam"]
     if (segments.length === 2) {
       const slug = segments[1];
       return serviceData[slug] ? slug : null;
@@ -51,181 +50,131 @@ const Footer = () => {
   }, [currentServiceSlug]);
 
   return (
-    <footer className="backdrop-blur-md bg-white text-black pt-18 pb-10 ">
+    <footer className="bg-black text-white pt-20 pb-10">
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
-        {/* Grid Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 text-left items-start">
-          {/* Column 1: Brand Info */}
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 text-left items-start">
+          
+          {/* Column 1: Brand & Primary Contact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="md:col-span-2 lg:col-span-2"
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 flex flex-col gap-6"
           >
-            <div className="flex flex-col gap-6">
-              <Link
-                href="/"
-                className="flex items-center text-xl md:text-2xl font-bold font-heading tracking-wider gap-2 md:gap-4"
-              >
-                <Image
-                  src={image}
-                  alt="logo"
-                  className="w-40 h-10 md:w-52 md:h-12"
-                />
-              </Link>
-              <div className="space-y-4">
-                <div 
-                  className="flex items-start gap-4 text-justify"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  Trusted home appliance repair in Eranakulam &amp; Eranakulam.
-                  Call your city number below.
+            <Link href="/" className="inline-block transform hover:scale-105 transition-transform duration-300">
+              <Image src={image} alt="Frost Masters Logo" className="w-48 h-auto brightness-0 invert" />
+            </Link>
+            
+            <p className="text-white/60 leading-relaxed text-sm max-w-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
+              Premium home appliance repair in Eranakulam & Kochi. Expert technicians at your doorstep within 60 minutes.
+            </p>
+
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 group">
+                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#EE3F4A]/50 transition-colors">
+                  <FaRegEnvelope className="h-4 w-4 text-[#EE3F4A]" />
                 </div>
-                <div className="flex items-start gap-4">
-                  <FaRegEnvelope className="h-5 w-5 mt-0.5 text-black flex-shrink-0" />
-                  <Link
-                    href="mailto:info@frostmasters.com"
-                    className="hover:text-primary transition-colors"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    info@frostmasters.com
-                  </Link>
+                <Link href="mailto:info@frostmasters.com" className="text-white/70 hover:text-white transition-colors text-sm font-medium">
+                  info@frostmasters.com
+                </Link>
+              </div>
+
+              <div className="flex items-center gap-3 group">
+                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#EE3F4A]/50 transition-colors">
+                  <LuPhone className="h-4 w-4 text-[#EE3F4A]" />
                 </div>
-                <div className="flex flex-col gap-2">
-                  {getAllPhones().map(({ city, tel, displayFull }) => (
-                    <div key={city} className="flex items-start gap-4">
-                      <LuPhone className="h-5 w-5 mt-0.5 text-black flex-shrink-0" />
-                      <Link
-                        href={`tel:${tel}`}
-                        className="hover:text-primary transition-colors"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                        title={`Call ${city}`}
-                      >
-                        {/* <span className="font-medium text-black">
-                          {city}:
-                        </span>{" "} */}
-                        {displayFull}
-                      </Link>
-                    </div>
+                <div className="flex flex-col">
+                  {getAllPhones().slice(0, 1).map(({ tel, displayFull }) => (
+                    <Link key={tel} href={`tel:${tel}`} className="text-white hover:text-white transition-colors text-sm font-bold">
+                      {displayFull}
+                    </Link>
                   ))}
+                  <span className="text-white/40 text-[10px] uppercase tracking-wider">Primary Support</span>
                 </div>
-                {/* Address */}
-                <div className="flex items-start gap-4">
-                  <FaAddressBook className="h-5 w-5 mt-0.5 text-black flex-shrink-0" />
-                  <Link
-                    href="mailto:info@frostmasters.com"
-                    className="hover:text-primary transition-colors"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    30/282 Pavamkulangara Jn, <br /> Tripurathura po,
-                    Puthiyakavu,
-                    <br /> Eranakulam, India, 682301
-                  </Link>
+              </div>
+
+              <div className="flex items-start gap-3 group">
+                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#EE3F4A]/50 transition-colors mt-1">
+                  <FaAddressBook className="h-4 w-4 text-[#EE3F4A]" />
                 </div>
+                <p className="text-white/60 text-sm leading-relaxed max-w-[240px]">
+                  30/282 Pavamkulangara Jn, Tripurathura po, Puthiyakavu, Eranakulam, India - 682301
+                </p>
               </div>
             </div>
           </motion.div>
 
-          <FooterColumn title="" delay={0.2} items={[]} />
+          {/* Column 2: Our Services */}
+          <div className="lg:col-span-2">
+            <FooterColumn
+              title="Our Services"
+              delay={0.1}
+              items={[
+                { label: "Washing Machine", path: "/services/washing-machine" },
+                { label: "Refrigerator", path: "/services/refrigerator" },
+                { label: "Air Conditioner", path: "/services/air-conditioner" },
+                { label: "Microwave Oven", path: "/services/microwave-oven" },
+                { label: "Dishwasher Repair", path: "/services/dishwasher" },
+              ]}
+            />
+          </div>
 
+          {/* Column 3: Quick Navigation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-2 flex flex-col gap-6"
           >
-            <div className="flex flex-col gap-4 h-full">
-              <h2 
-                className="font-semibold text-lg text-black"
-                style={{ fontFamily: "'Montserrat', sans-serif" }}
-              >
-                Quick Links
-              </h2>
-              <ul className="flex flex-col items-start space-y-3">
-                {filteredLinks?.map((link, index) => (
+            <h3 className="text-white font-bold uppercase tracking-[0.2em] text-xs" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              Quick Links
+            </h3>
+            <ul className="flex flex-col gap-4">
+              {filteredLinks?.map((link) => (
+                <li key={link.key}>
                   <button
-                    key={index}
                     onClick={() => onNavigate?.[link.key]?.()}
-                    className="cursor-pointer text-black hover:text-primary transition-colors"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
+                    className="text-white/60 hover:text-[#EE3F4A] transition-all duration-300 text-sm font-medium hover:translate-x-1 inline-block text-left"
                   >
                     {link.name}
                   </button>
-                ))}
-              </ul>
-            </div>
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
-          <FooterColumn
-            title="Our Services"
-            delay={0.2}
-            items={[
-              {
-                label: "Washing Machine Repair",
-                path: "/services/washing-machine",
-                title: "Washing machine service and repair",
-              },
-              {
-                label: "Refrigerator Repair",
-                path: "/services/refrigerator",
-                title: "Fridge service and repair",
-              },
-              {
-                label: "AC Repair",
-                path: "/services/air-conditioner",
-                title: "AC service and repair",
-              },
-              {
-                label: "Microwave Oven",
-                path: "/services/microwave-oven",
-                title: "Microwave oven repair",
-              },
-              // {
-              //   label: "Dishwasher",
-              //   path: "/services/dishwasher",
-              //   title: "Dishwasher repair",
-              // },
-              // {
-              //   label: "Chimney",
-              //   path: "/services/chimney",
-              //   title: "Chimney cleaning and repair",
-              // },
-            ]}
-          />
-          {/* 
-          {serviceInAreaLinks.length > 0 && (
+          {/* Column 4: Support & Legal */}
+          <div className="lg:col-span-3">
             <FooterColumn
-              title="Service in your area"
-              delay={0.25}
-              items={serviceInAreaLinks}
+              title="Support"
+              delay={0.3}
+              items={[
+                { label: "Help Center", path: "/" },
+                { label: "Privacy Policy", path: "/privacy-policy" },
+                { label: "Terms of Service", path: "/terms-and-conditions" },
+                { label: "Service Request", path: "/" },
+              ]}
             />
-          )} */}
-
-          <FooterColumn
-            title="Support"
-            delay={0.3}
-            items={[
-              // { label: "Help", path: "/" },
-              { label: "Privacy Policy", path: "/privacy-policy" },
-              { label: "Terms & Conditions", path: "/terms-and-conditions" },
-            ]}
-          />
+          </div>
         </div>
 
+        {/* Mid-level Action: Socials & All Locations */}
         <SocialLinks />
 
         {/* Footer bottom */}
-        <hr className="border-white/10 mt-8 mb-6" />
-        <div className="flex flex-col md:flex-row items-center justify-between text-gray-400 text-sm gap-4">
-          <div className="text-sm">
-            &copy; {currentYear} Frost Masters. All rights reserved.
-          </div>
-          <div>
-            For work :{" "}
+        <div className="pt-10 mt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-white/40 text-xs font-medium tracking-wide">
+            &copy; {currentYear} FROST MASTERS. ALL RIGHTS RESERVED.
+          </p>
+          
+          <div className="flex items-center gap-1.5 text-xs text-white/40 font-medium">
+            <span>DESIGNED BY</span>
             <Link
-              className="hover:text-[#EE3F4A] transition-colors"
               href="mailto:sathiya.4046@gmail.com"
+              className="text-white/60 hover:text-[#EE3F4A] transition-colors border-b border-white/20 hover:border-[#EE3F4A]"
             >
-              Sathiyaseelan.A
+              SATHIYASEELAN.A
             </Link>
           </div>
         </div>
@@ -239,30 +188,24 @@ const FooterColumn = ({ title, items, delay }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay }}
+    transition={{ duration: 0.6, delay }}
+    className="flex flex-col gap-6"
   >
-    <div className="flex flex-col gap-4 h-full">
-      <h2 
-        className="font-semibold text-lg text-black"
-        style={{ fontFamily: "'Montserrat', sans-serif" }}
-      >
-        {title}
-      </h2>
-      <ul className="space-y-3">
-        {items.map((item, index) => (
-          <li key={index}>
-            <Link
-              href={item.path}
-              title={item.title || item.label}
-              className="text-black hover:text-black transition-colors"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <h3 className="text-white font-bold uppercase tracking-[0.2em] text-xs" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      {title}
+    </h3>
+    <ul className="flex flex-col gap-4">
+      {items.map((item, index) => (
+        <li key={index}>
+          <Link
+            href={item.path}
+            className="text-white/60 hover:text-[#EE3F4A] transition-all duration-300 text-sm font-medium hover:translate-x-1 inline-block"
+          >
+            {item.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
   </motion.div>
 );
 

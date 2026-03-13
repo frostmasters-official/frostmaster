@@ -67,8 +67,8 @@ const BookingModal = ({ isOpen, onClose }) => {
             <motion.div
               className="absolute inset-0"
               style={{
-                background: "rgba(4, 8, 20, 0.88)",
-                backdropFilter: "blur(12px)",
+                background: "rgba(0, 0, 0, 0.5)",
+                backdropFilter: "blur(8px)",
               }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -100,7 +100,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                 style={{
                   width: "300px",
                   background:
-                    "linear-gradient(160deg, #0a0f1e 0%, black 60%, #0d1528 100%)",
+                    "linear-gradient(160deg, #0000 0%, black 0%, #000 100%)",
                   padding: "36px 28px",
                 }}
               >

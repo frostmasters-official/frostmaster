@@ -1,309 +1,3 @@
-// "use client";
-
-// import React, {
-//   useRef,
-//   useState,
-//   useLayoutEffect,
-//   useCallback,
-//   memo,
-// } from "react";
-// import { AnimatePresence, motion } from "framer-motion";
-// import { gsap } from "gsap";
-// import { Observer } from "gsap/Observer";
-// import Image from "next/image";
-// import { getAllPhones } from "@/data/contact";
-
-// import AC from "../../public/cover/AC.webp";
-// import Chimney from "../../public/cover/Chimney.webp";
-// import fridge from "../../public/cover/fridge.webp";
-// import dish from "../../public/cover/dish.webp";
-// import oven from "../../public/cover/oven.webp";
-// import tv from "../../public/cover/tv.webp";
-// import washingMachine from "../../public/cover/washing-machine.webp";
-
-// import AC_cropped from '../../public/cover/AC_cropped.webp'
-// import fridge_cropped from '../../public/cover/fridge_cropped.jpg'
-// import washingMachine_cropped from '../../public/cover/washing-machine_cropped.jpg'
-// import tv_cropped from '../../public/cover/tv_cropped.jpg'
-// import dish_cropped from '../../public/cover/dish_cropped.webp'
-// import oven_cropped from '../../public/cover/oven_cropped.jpg'
-// import chimney_cropped from '../../public/cover/Chimney_cropped.webp'
-
-// gsap.registerPlugin(Observer);
-
-// const slides = [
-//   { id: 1, title: "Washing Machine", description: "Professional washing machine repair services", bg: washingMachine, bgMobile: washingMachine_cropped },
-//   { id: 2, title: "Television",      description: "Expert TV repair and maintenance",             bg: tv, bgMobile: tv_cropped },
-//   { id: 3, title: "Refrigerator",    description: "Reliable fridge repair solutions",             bg: fridge, bgMobile: fridge_cropped },
-//   { id: 4, title: "Chimney",         description: "Chimney cleaning and repair services",         bg: Chimney, bgMobile: chimney_cropped },
-//   { id: 5, title: "Air Conditioner", description: "AC installation and repair experts",           bg: AC, bgMobile: AC_cropped },
-//   { id: 6, title: "Microwave Oven",  description: "Expert microwave oven repair and maintenance", bg: oven, bgMobile: oven_cropped },
-//   { id: 7, title: "Dishwasher",      description: "Reliable dishwasher repair and installation",  bg: dish, bgMobile: dish_cropped },
-// ];
-
-// const SLIDE_DURATION      = 4;
-// const TRANSITION_DURATION = 2;
-
-// const bgStyle = (src, isActive) => ({
-//   backgroundImage: `linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.5)),url(${src})`,
-//   backgroundSize: "cover",
-//   backgroundPosition: "center",
-//   opacity: isActive ? 1 : 0,
-//   willChange: "opacity",
-//   transition: `opacity ${TRANSITION_DURATION}s ease-in-out`,
-//   zIndex: isActive ? 1 : 0,
-// });
-
-// const BgLayer = memo(function BgLayer({ slide, isActive }) {
-//   const mobileSrc = (slide.bgMobile || slide.bg).src;
-//   const desktopSrc = slide.bg.src;
-//   return (
-//     <>
-//       <div
-//         className="absolute inset-0 md:hidden"
-//         style={bgStyle(mobileSrc, isActive)}
-//         aria-hidden="true"
-//       />
-//       <div
-//         className="absolute inset-0 hidden md:block"
-//         style={bgStyle(desktopSrc, isActive)}
-//         aria-hidden="true"
-//       />
-//     </>
-//   );
-// });
-
-// const cardVariants = {
-//   initial: { scale: 0.85, opacity: 0 },
-//   animate: { scale: 1,    opacity: 1 },
-//   exit:    { scale: 0.85, opacity: 0 },
-// };
-// const textVariants = {
-//   initial: { y: 22,  opacity: 0 },
-//   animate: { y: 0,   opacity: 1 },
-//   exit:    { y: -22, opacity: 0 },
-// };
-// const descVariants = {
-//   initial: { y: 12,  opacity: 0    },
-//   animate: { y: 0,   opacity: 0.92 },
-//   exit:    { y: -12, opacity: 0    },
-// };
-// const textTransition = { duration: 0.8, ease: [0.33, 1, 0.68, 1] };
-// const descTransition  = { duration: 0.8, ease: "easeInOut", delay: 0.08 };
-// const cardTransition  = { duration: 1.4, ease: "easeInOut" };
-
-// const Home = ({ homeRef }) => {
-//   const [active, setActive] = useState(0);
-//   const activeRef           = useRef(0);
-//   const intervalRef         = useRef(null);
-//   const isPausedRef         = useRef(false);
-
-//   const goTo = useCallback((idx) => {
-//     const next = ((idx % slides.length) + slides.length) % slides.length;
-//     if (next === activeRef.current) return;
-//     activeRef.current = next;
-//     setActive(next);
-//   }, []);
-
-//   const startAutoplay = useCallback(() => {
-//     if (intervalRef.current) return;
-//     intervalRef.current = setInterval(() => {
-//       if (!isPausedRef.current) goTo(activeRef.current + 1);
-//     }, SLIDE_DURATION * 1000);
-//   }, [goTo]);
-
-//   const stopAutoplay = useCallback(() => {
-//     clearInterval(intervalRef.current);
-//     intervalRef.current = null;
-//   }, []);
-
-//   useLayoutEffect(() => {
-//     startAutoplay();
-
-//     let accDelta  = 0;
-//     const threshold = 80;
-
-//     const obs = Observer.create({
-//       target: document.body,
-//       type: "touch,drag",
-//       onPress:     () => { isPausedRef.current = true;  accDelta = 0; },
-//       onDragStart: () => { isPausedRef.current = true; },
-//       onDrag: (self) => {
-//         accDelta += self.deltaX;
-//         if (Math.abs(accDelta) >= threshold) {
-//           goTo(activeRef.current + (accDelta < 0 ? 1 : -1));
-//           accDelta = 0;
-//         }
-//       },
-//       onRelease: () => { accDelta = 0; isPausedRef.current = false; },
-//     });
-
-//     return () => { obs.kill(); stopAutoplay(); };
-//   }, [goTo, startAutoplay, stopAutoplay]);
-
-//   useLayoutEffect(() => {
-//     const src = (slides[0].bgMobile || slides[0].bg).src;
-//     if (!src || typeof document === "undefined") return;
-//     let link = document.querySelector(`link[rel="preload"][href="${src}"]`);
-//     if (!link) {
-//       link = document.createElement("link");
-//       link.rel = "preload";
-//       link.as = "image";
-//       link.href = src;
-//       document.head.appendChild(link);
-//     }
-//   }, []);
-
-//   const currentSlide = slides[active];
-
-//   return (
-//     <section ref={homeRef}>
-//       <section className="relative w-full h-screen overflow-hidden select-none">
-
-//         {/* Backgrounds */}
-//         <div className="absolute inset-0" aria-hidden="true">
-//           {slides.map((slide, i) => (
-//             <BgLayer key={slide.id} slide={slide} isActive={i === active} />
-//           ))}
-//         </div>
-
-//         {/* Main content */}
-//         <div className="
-//           relative z-10
-//           flex flex-col md:flex-row
-//           h-full items-center
-//           justify-center md:justify-between
-//           px-6 sm:px-10 md:px-16 lg:px-24
-//           gap-8 md:gap-0
-//           pt-24 pb-16 md:py-0
-//         ">
-
-//           {/* ── Left: Text + CTA ────────────────────────────────────────────── */}
-//           <div className="flex flex-col justify-center w-full md:w-1/2 gap-4 md:gap-6">
-
-//             <AnimatePresence mode="wait">
-//               <motion.h1
-//                 key={`title-${active}`}
-//                 className="
-//                   text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl
-//                   text-white leading-none font-extrabold uppercase drop-shadow-xl
-//                 "
-//                 variants={textVariants}
-//                 initial="initial"
-//                 animate="animate"
-//                 exit="exit"
-//                 transition={textTransition}
-//               >
-//                 {currentSlide.title}
-//               </motion.h1>
-//             </AnimatePresence>
-
-//             <AnimatePresence mode="wait">
-//               <motion.p
-//                 key={`desc-${active}`}
-//                 className="
-//                   max-w-[90%] sm:max-w-sm md:max-w-md
-//                   text-sm sm:text-base md:text-lg
-//                   text-white/90 drop-shadow-md
-//                 "
-//                 variants={descVariants}
-//                 initial="initial"
-//                 animate="animate"
-//                 exit="exit"
-//                 transition={descTransition}
-//               >
-//                 {currentSlide.description}
-//               </motion.p>
-//             </AnimatePresence>
-
-//             {/* Phone buttons — wrap gracefully on small screens */}
-//             <div className="flex flex-wrap gap-2 sm:gap-3 mt-1">
-//               {getAllPhones().map(({ city, tel, display }) => (
-//                 <a
-//                   key={city}
-//                   href={`tel:${tel}`}
-//                   title={`Call ${city}`}
-//                   className="
-//                     hover:scale-105 hover:bg-[#EE3F4A]
-//                     transition-all duration-300
-//                     bg-white/90 text-black
-//                     px-5 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3
-//                     rounded-full
-//                     text-sm sm:text-base md:text-lg lg:text-xl
-//                     font-extrabold whitespace-nowrap
-//                   "
-//                 >
-//                   {city}: {display}
-//                 </a>
-//               ))}
-//             </div>
-//           </div>
-
-//           {/* ── Right: Image card (hidden on xs, shown sm+) ──────────────────── */}
-//           <div className="
-//             hidden sm:flex
-//             w-full md:w-1/2
-//             h-[220px] sm:h-[260px] md:h-[55%] lg:h-[65%]
-//             items-center justify-center
-//             relative
-//           ">
-//             <AnimatePresence mode="wait">
-//               <motion.div
-//                 key={`card-${active}`}
-//                 className="
-//                   absolute
-//                   w-[85%] sm:w-4/5 md:w-3/4
-//                   h-full
-//                   rounded-[2rem] md:rounded-[3rem]
-//                   overflow-hidden z-20 shadow-2xl
-//                 "
-//                 style={{ willChange: "opacity, transform" }}
-//                 variants={cardVariants}
-//                 initial="initial"
-//                 animate="animate"
-//                 exit="exit"
-//                 transition={cardTransition}
-//               >
-//                 <Image
-//                   src={currentSlide.bg}
-//                   alt={currentSlide.title}
-//                   className="h-full w-full object-cover"
-//                   priority={active === 0}
-//                   loading={active === 0 ? "eager" : "lazy"}
-//                   sizes="(max-width: 640px) 0vw, (max-width: 1024px) 45vw, 37vw"
-//                   width={600}
-//                   height={400}
-//                 />
-//               </motion.div>
-//             </AnimatePresence>
-//           </div>
-
-//         </div>
-
-//         {/* ── Dot / pill indicators ─────────────────────────────────────────── */}
-//         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
-//           {slides.map((_, i) => (
-//             <button
-//               key={i}
-//               onClick={() => goTo(i)}
-//               aria-label={`Go to slide ${i + 1}`}
-//               className={`
-//                 rounded-full transition-all duration-500
-//                 ${i === active
-//                   ? "bg-[#EE3F4A] w-6 h-2"
-//                   : "bg-white/50 hover:bg-white/80 w-2 h-2"}
-//               `}
-//             />
-//           ))}
-//         </div>
-
-//       </section>
-//     </section>
-//   );
-// };
-
-// export default memo(Home);
-
 "use client";
 
 import React, {
@@ -465,21 +159,16 @@ const BgLayer = memo(function BgLayer({ slide, isActive, direction }) {
   );
 });
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   CAROUSEL STRIP  — fixed row, active expands in-place (no scrolling)
-   All 7 thumbs always visible. Active one grows wider + taller in-place.
-═══════════════════════════════════════════════════════════════════════════ */
 const CarouselStrip = memo(function CarouselStrip({
   active,
   goTo,
   slideDuration,
 }) {
-  // Fixed sizes — no scrolling, everything always visible
-  const STRIP_H = 110; // height of the whole strip container
-  const T_W = 52; // inactive thumb width
-  const T_H = 62; // inactive thumb height (shorter, sits at bottom)
-  const A_W = 360; // active card width
-  const A_H = 210; // active card height (full strip height)
+  const STRIP_H = 110; 
+  const T_W = 52; 
+  const T_H = 62; 
+  const A_W = 360; 
+  const A_H = 210; 
   const RADIUS_T = 5;
   const RADIUS_A = 14;
   const STRIP_GAP = 6;
@@ -557,7 +246,7 @@ const CarouselStrip = memo(function CarouselStrip({
                     className="absolute inset-0 z-20 pointer-events-none"
                     style={{
                       borderRadius: RADIUS_A,
-                      border: "2px solid #EE3F4A",
+                      border: "none",
                       boxShadow:
                         "0 0 18px rgba(182,245,0,0.3), inset 0 0 8px rgba(182,245,0,0.06)",
                     }}
@@ -567,48 +256,7 @@ const CarouselStrip = memo(function CarouselStrip({
                     transition={{ duration: 0.6, ease: EASE_SMOOTH }}
                   />
 
-                  {/* Title text */}
-                  <motion.div
-                    key="title"
-                    className="absolute bottom-7 left-2.5 right-2 z-30 pointer-events-none"
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 4 }}
-                    transition={{ delay: 0.2, duration: 0.32 }}
-                  >
-                    <span
-                      className="text-white font-black uppercase leading-tight block"
-                      style={{
-                        fontFamily: "'Montserrat',sans-serif",
-                        fontSize: "0.72rem",
-                        textShadow: "0 1px 6px rgba(0,0,0,0.7)",
-                      }}
-                    >
-                      {slide.title.replace("\n", " ")}
-                    </span>
-                  </motion.div>
-
-                  {/* Label pill */}
-                  <motion.div
-                    key="lbl"
-                    className="absolute bottom-2 left-2.5 z-30"
-                    initial={{ opacity: 0, y: 5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 4 }}
-                    transition={{ delay: 0.25, duration: 0.3 }}
-                  >
-                    <span
-                      className="bg-[#EE3F4A] text-black font-bold px-2 py-[2px] rounded-full uppercase tracking-widest"
-                      style={{
-                        fontFamily: "'Inter',sans-serif",
-                        fontSize: "0.42rem",
-                      }}
-                    >
-                      {slide.label}
-                    </span>
-                  </motion.div>
-
-                  {/* Progress bar at base of active card */}
+              
                   <div
                     className="absolute bottom-0 left-0 right-0 z-30 overflow-hidden"
                     style={{
@@ -646,40 +294,6 @@ const CarouselStrip = memo(function CarouselStrip({
           </motion.button>
         );
       })}
-    </div>
-  );
-});
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SLIDE COUNTER
-═══════════════════════════════════════════════════════════════════════════ */
-const SlideCounter = memo(function SlideCounter({ active, total }) {
-  return (
-    <div
-      className="flex items-end gap-1 select-none"
-      style={{ fontFamily: "'Inter',sans-serif" }}
-    >
-      <div className="overflow-hidden" style={{ lineHeight: 1 }}>
-        <AnimatePresence mode="wait">
-          <motion.span
-            key={active}
-            className="text-[#EE3F4A] font-bold block"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)" }}
-            initial={{ y: "100%", opacity: 0 }}
-            animate={{ y: "0%", opacity: 1 }}
-            exit={{ y: "-100%", opacity: 0 }}
-            transition={{ duration: 0.42, ease: [0.33, 1, 0.68, 1] }}
-          >
-            {String(active + 1).padStart(2, "0")}
-          </motion.span>
-        </AnimatePresence>
-      </div>
-      <span
-        className="text-white/28 pb-0.5"
-        style={{ fontSize: "clamp(0.75rem, 1.6vw, 1rem)" }}
-      >
-        /{String(total).padStart(2, "0")}
-      </span>
     </div>
   );
 });
@@ -778,29 +392,7 @@ const Home = ({ homeRef }) => {
         </div>
 
         {/* Left text */}
-        <div className="relative z-30 h-full flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24 pt-28 pb-44 max-w-4xl">
-          {/* Category tag */}
-          {/* <AnimatePresence mode="wait">
-            <motion.div
-              key={`tag-${active}`}
-              className="flex items-center gap-3 mb-4"
-              initial={{ opacity: 0, x: -14 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 14 }}
-              transition={{ duration: 0.48, ease: "easeOut" }}
-            >
-              <span className="h-px w-7 bg-[#EE3F4A]" />
-              <span
-                className="text-[#EE3F4A] tracking-[0.35em] uppercase"
-                style={{
-                  fontFamily: "'Inter',sans-serif",
-                  fontSize: "0.67rem",
-                }}
-              >
-                {current.label}
-              </span>
-            </motion.div>
-          </AnimatePresence> */}
+        <div className="relative z-30 h-full flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24 pt-28 pb-44 max-w-5xl">
 
           {/* Title */}
           <AnimatePresence mode="wait">
@@ -869,19 +461,13 @@ const Home = ({ homeRef }) => {
                   aria-hidden="true"
                 />
                 <span
-                  className="relative z-10 flex items-center gap-1.5 bg-white/10 border border-white/20 group-hover:border-[#EE3F4A] text-white group-hover:text-black transition-colors duration-300 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 font-bold tracking-wide whitespace-nowrap"
+                  className="relative z-10 flex items-center gap-1.5 bg-white hover:bg-white/10 text-black group-hover:text-white transition-colors duration-300 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 font-bold tracking-wide whitespace-nowrap"
                   style={{ 
                     fontFamily: "'Montserrat',sans-serif",
-                    fontSize: "clamp(0.8rem,1.3vw,1rem)" 
+                    fontSize: "clamp(1rem,1.3vw,1.5rem)" 
                   }}
                 >
-                  <span
-                    className="text-[#EE3F4A] group-hover:text-black transition-colors"
-                    style={{ fontSize: "0.65em" }}
-                  >
-                    ●
-                  </span>
-                  {city}: {display}
+                  Call Now: {display}
                 </span>
               </a>
             ))}
@@ -893,15 +479,6 @@ const Home = ({ homeRef }) => {
         ════════════════════════════════════════════════ */}
         <div className="absolute bottom-28 right-6 md:right-10 lg:right-14 z-30 hidden md:flex flex-col items-end gap-2">
           {/* Header */}
-          <div className="flex items-center gap-2 mr-1">
-            <span className="h-px w-5 bg-white/22" />
-            <span
-              className="text-white/32 uppercase tracking-[0.24em]"
-              style={{ fontFamily: "'Inter',sans-serif", fontSize: "0.57rem" }}
-            >
-              Services
-            </span>
-          </div>
 
           <CarouselStrip
             active={active}

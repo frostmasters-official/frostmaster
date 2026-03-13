@@ -1,28 +1,19 @@
 "use client";
 import { motion } from "framer-motion";
 
-import {
-
-  Clock,
-  CreditCard,
-  Gem,
-  Phone,
-} from "lucide-react";
+import { Clock, CreditCard, Gem, Phone } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
 const EASE = [0.76, 0, 0.24, 1];
 
-  const fadeUp = (delay = 0) => ({
-    initial: { opacity: 0, y: 28 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.6, delay, ease: EASE },
-  });
-
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 28 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6, delay, ease: EASE },
+});
 
 const Extra = () => {
-
-
   const promises = [
     {
       icon: Gem,
@@ -45,32 +36,26 @@ const Extra = () => {
     <div>
       <section
         className="relative overflow-hidden py-16"
-        style={{ background: "#f4f6f9" }}
+        
       >
         {/* subtle corner accents */}
         <div
           className="pointer-events-none absolute top-0 left-0 w-64 h-64"
-          style={{
-            background:
-              "radial-gradient(circle at top left,rgba(182,245,0,0.12) 0%,transparent 70%)",
-          }}
+          
         />
         <div
           className="pointer-events-none absolute bottom-0 right-0 w-64 h-64"
-          style={{
-            background:
-              "radial-gradient(circle at bottom right,rgba(17,27,52,0.06) 0%,transparent 70%)",
-          }}
+          
         />
 
         <div className="relative z-10 px-6 lg:px-12">
           {/* Heading */}
           <SectionHeader
-  tag="Our Commitment"
-  titleStart="We Promise"
-  highlight="You"
-  description="Fast service, genuine spare parts, and reliable repairs you can trust."
-/>
+            tag="Our Commitment"
+            titleStart="We Promise"
+            highlight="You"
+            description="Fast service, genuine spare parts, and reliable repairs you can trust."
+          />
 
           {/* Promise cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
@@ -139,7 +124,7 @@ const Extra = () => {
 
           {/* Body paragraph */}
           <motion.p
-            className="text-center mx-auto max-w-2xl text-[black]/55 leading-loose"
+            className="text-justify md:text-center mx-auto max-w-3xl text-[black]/55 leading-loose"
             style={{ fontFamily: "'Inter',sans-serif", fontSize: "0.97rem" }}
             {...fadeUp(0.3)}
           >
@@ -154,9 +139,6 @@ const Extra = () => {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════════════
-          SECTION 3 — BOOK AN APPOINTMENT  (dark CTA banner)
-      ══════════════════════════════════════════════════════════════════ */}
       <section
         className="relative overflow-hidden py-16"
         style={{
@@ -245,31 +227,6 @@ const Extra = () => {
                 />
                 <Phone className="w-5 h-5 relative z-10" />
                 <span className="relative z-10">+91 62824 50300</span>
-              </a>
-
-              <a
-                href="tel:+917397814820"
-                className="group relative overflow-hidden flex items-center gap-3 rounded-full font-bold transition-all duration-300"
-                style={{
-                  background: "transparent",
-                  padding: "13px 28px",
-                  fontFamily: "'Montserrat',sans-serif",
-                  fontSize: "1.05rem",
-                  letterSpacing: "0.05em",
-                  color: "white",
-                  border: "1.5px solid rgba(255,255,255,0.2)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "#EE3F4A";
-                  e.currentTarget.style.color = "#EE3F4A";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-                  e.currentTarget.style.color = "white";
-                }}
-              >
-                <Phone className="w-5 h-5" />
-                <span>+91 73978 14820</span>
               </a>
             </div>
           </motion.div>

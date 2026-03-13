@@ -20,7 +20,7 @@ export default function SectionHeader({
     >
       {/* Top Label */}
       {tag && (
-        <div className="flex items-center justify-center gap-3 mb-4">
+        <div className="flex items-center justify-center gap-3 mb-2">
           <span className="h-px w-10 bg-[#EE3F4A]/60" />
           <span
             className="uppercase tracking-[0.35em]"
@@ -38,7 +38,7 @@ export default function SectionHeader({
 
       {/* Heading */}
       <h2
-        className="font-black capitalize leading-[0.9] pt-8 pb-5"
+        className="font-black capitalize leading-[0.9] pt-3 pb-1"
         style={{
           fontFamily: "'Montserrat',sans-serif",
           fontSize: "clamp(2rem,5vw,3rem)",

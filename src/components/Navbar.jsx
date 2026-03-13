@@ -115,10 +115,10 @@ const Navbar = () => {
                   <div className="w-7 h-7 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#EE3F4A]/10 transition-colors duration-300">
                     <FaPhoneVolume className="text-lg text-gray-600 group-hover:text-[#EE3F4A]" />
                   </div>
-                  <span className="text-lg font-bold text-gray-700">
-                    <span className="text-gray-400 font-medium">{city}:</span>{" "}
+                  <span className="text-lg md:text-xl font-bold">
+                    
                     {display}
-                  </span>
+                    </span>
                 </Link>
               ))}
             </div>
@@ -156,7 +156,7 @@ const Navbar = () => {
               <Image
                 src={image}
                 alt="Frost Masters Logo"
-                className={`transition-all duration-500 ${scrolled ? "w-40 h-10" : "w-52 h-12"}`}
+                className={`transition-all duration-500 ${scrolled ? "w-48 h-auto" : "w-48 h-auto md:w-52 md:h-12"}`}
                 priority
               />
             </Link>

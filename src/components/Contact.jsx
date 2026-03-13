@@ -96,9 +96,6 @@ const inputCls = `
   focus:outline-none
 `;
 
-/* ══════════════════════════════════════════════════════════════════════════
-   CONTACT
-══════════════════════════════════════════════════════════════════════════ */
 const Contact = ({ isModal = false }) => {
   const {
     contact,
@@ -134,10 +131,6 @@ const Contact = ({ isModal = false }) => {
           <>
             <div
               className="pointer-events-none absolute top-[-120px] right-[-120px] w-[420px] h-[420px] rounded-full"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(182,245,0,0.15) 0%, transparent 70%)",
-              }}
             />
             <div
               className="pointer-events-none absolute bottom-[-80px] left-[-80px] w-[300px] h-[300px] rounded-full"
@@ -155,11 +148,11 @@ const Contact = ({ isModal = false }) => {
           {/* ── Section header (standalone only) ── */}
           {!isModal && (
             <SectionHeader
-  tag="Get in Touch"
-  titleStart="Book Your"
-  highlight="Repair"
-  description="Same-day service · 90-day warranty · Expert technicians"
-/>
+              tag="Get in Touch"
+              titleStart="Book Your"
+              highlight="Repair"
+              description="Same-day service · 90-day warranty · Expert technicians"
+            />
           )}
 
           {/* ════════════════════════════════════════════════════════════════
