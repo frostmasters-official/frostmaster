@@ -150,10 +150,10 @@ const Footer = () => {
               title="Support"
               delay={0.3}
               items={[
-                { label: "Help Center", path: "/" },
+                // { label: "Help Center", path: "/" },
                 { label: "Privacy Policy", path: "/privacy-policy" },
                 { label: "Terms of Service", path: "/terms-and-conditions" },
-                { label: "Service Request", path: "/" },
+                // { label: "Service Request", path: "/" },
               ]}
             />
           </div>
