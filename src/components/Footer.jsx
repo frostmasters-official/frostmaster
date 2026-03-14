@@ -135,7 +135,6 @@ const Footer = () => {
                 { label: "Refrigerator", path: "/services/refrigerator" },
                 { label: "Air Conditioner", path: "/services/air-conditioner" },
                 { label: "Microwave Oven", path: "/services/microwave-oven" },
-                { label: "Dishwasher Repair", path: "/services/dishwasher" },
               ]}
             />
           </div>
