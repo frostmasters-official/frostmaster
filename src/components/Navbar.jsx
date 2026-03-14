@@ -12,6 +12,7 @@ import {
   FaLinkedin,
   FaFacebookF,
   FaInstagram,
+  FaWhatsapp,
 } from "react-icons/fa6";
 
 import { myContext } from "@/context/myContext";
@@ -36,16 +37,16 @@ const SocialIcon = ({ icon: Icon, label, link }) => (
     aria-label={label}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-gray-600 hover:text-[#EE3F4A] transition-colors duration-300 p-1.5"
+    className="text-gray-600 hover:text-white rounded-full hover:bg-[#EE3F4A] transition-colors duration-400 p-1.5"
   >
-    <Icon className="h-4 w-4" />
+    <Icon className="h-6 w-6" />
   </Link>
 );
 
 const NavLink = ({ name, onClick, isActive }) => (
   <button
     onClick={onClick}
-    className="relative py-2 text-sm font-semibold text-gray-900 group transition-colors duration-300 hover:text-[#EE3F4A]"
+    className="relative py-2 text-md font-semibold text-gray-900 group transition-colors duration-300 hover:text-[#EE3F4A]"
   >
     {name}
     <span
@@ -58,7 +59,7 @@ const ServiceLink = ({ name, slug, onClick }) => (
   <Link
     href={`/services/${slug}`}
     onClick={onClick}
-    className="block px-5 py-3 text-sm font-medium text-gray-700 hover:text-[#EE3F4A] hover:bg-gray-50/50 transition-all duration-200 rounded-xl"
+    className="block px-5 py-3 text-md font-medium text-gray-700 hover:text-[#EE3F4A] hover:bg-gray-50/50 transition-all duration-200 rounded-xl"
   >
     {name}
   </Link>
@@ -117,7 +118,7 @@ const Navbar = () => {
                   </div>
                   <span className="text-lg md:text-xl font-bold">
                     
-                    {display}
+                    Call Now : {display}
                     </span>
                 </Link>
               ))}
@@ -156,7 +157,7 @@ const Navbar = () => {
               <Image
                 src={image}
                 alt="Frost Masters Logo"
-                className={`transition-all duration-500 ${scrolled ? "w-48 h-auto" : "w-48 h-auto md:w-52 md:h-12"}`}
+                className={`transition-all duration-500 ${scrolled ? "w-64 h-14" : "w-64 h-14"}`}
                 priority
               />
             </Link>
@@ -172,12 +173,12 @@ const Navbar = () => {
                     onMouseLeave={() => setServicesOpen(false)}
                   >
                     <button
-                      className={`flex items-center gap-2 text-sm font-semibold transition-colors duration-300 ${servicesOpen ? "text-[#EE3F4A]" : "text-gray-900"}`}
+                      className={`flex items-center gap-2 text-md font-semibold transition-colors duration-300 ${servicesOpen ? "text-[#EE3F4A]" : "text-gray-900"}`}
                     >
                       Services
                       <motion.span
                         animate={{ rotate: servicesOpen ? 180 : 0 }}
-                        className="text-[10px] opacity-60"
+                        className="text-md opacity-60"
                       >
                         ▼
                       </motion.span>
@@ -215,28 +216,35 @@ const Navbar = () => {
               )}
 
               {/* Action Buttons */}
-              <div className="flex items-center gap-3 ml-4">
                 {getAllPhones().map(({ city, tel }) => (
-                  <Link
-                    key={city}
-                    href={`tel:${tel}`}
-                    className="flex items-center gap-2 bg-[#EE3F4A] hover:bg-black text-white px-5 py-2.5 rounded-full font-bold text-xs whitespace-nowrap transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-                    style={{ fontFamily: "'Montserrat',sans-serif" }}
-                  >
-                    <FaPhoneVolume className="text-sm" />
-                    <span>Call {city}</span>
-                  </Link>
+                  <div key={city} className="flex items-center gap-2 text-black px-3 py-1.5">
+                    <Link
+                      href={`tel:${tel}`}
+                      className="hover:scale-110 hover:bg-[#EE3F4A] hover:text-white transition-transform p-2 bg-white/20 rounded-full"
+                      title={`Call ${city}`}
+                    >
+                      <FaPhoneVolume className="text-2xl" />
+                    </Link>
+                    <Link
+                      href={`https://wa.me/${tel.replace(/[^0-9]/g, '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:scale-110 hover:bg-green-500 hover:text-white transition-transform p-2 bg-white/20 rounded-full"
+                      title={`WhatsApp ${city}`}
+                    >
+                      <FaWhatsapp className="text-2xl" />
+                    </Link>
+                  </div>
                 ))}
-              </div>
             </nav>
 
             {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden w-12 h-12 flex items-center justify-center text-gray-900 transition-all"
+              className="lg:hidden w-14 h-14 flex items-center justify-center text-gray-900 transition-all"
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Open Mobile Menu"
             >
-              <TbMenu className="text-4xl cursor-pointer p-2 shadow shadow-black hover:shadow-md rounded-full hover:scale-120 duration-600 transition text-black" />
+              <TbMenu className="text-4xl cursor-pointer p-2 shadow shadow-[#EE3F4A] hover:shadow-lg rounded-full hover:scale-120 duration-600 transition text-black" />
             </button>
           </div>
         </div>
@@ -272,7 +280,7 @@ const Navbar = () => {
               </motion.div>
               <RxCross1
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-4xl cursor-pointer p-2 shadow shadow-black hover:shadow-md rounded-full hover:scale-120 duration-500 transition text-black"
+                className="text-4xl cursor-pointer p-2 shadow shadow-[#EE3F4A] hover:shadow-lg rounded-full hover:scale-120 duration-500 transition text-black"
               />
             </div>
 
@@ -282,7 +290,7 @@ const Navbar = () => {
                   <div key={index} className="flex flex-col">
                     <button
                       onClick={() => setMobileServicesOpen((o) => !o)}
-                      className="text-xl py-3 flex items-center justify-between hover:text-black transition text-left"
+                      className="text-xl py-3 flex items-center justify-between font-bold transition text-left hover:translate-x-2 duration-500 hover:text-[#EE3F4A]"
                     >
                       Services
                       <span className="text-lg">
@@ -305,7 +313,7 @@ const Navbar = () => {
                                 setMobileServicesOpen(false);
                                 setMobileMenuOpen(false);
                               }}
-                              className="block py-2 text-lg text-black"
+                              className="block py-2 text-lg text-black hover:translate-x-2 duration-500 transition text-left hover:text-[#EE3F4A]"
                             >
                               {s.name}
                             </Link>
@@ -321,7 +329,7 @@ const Navbar = () => {
                       setMobileMenuOpen(false);
                       onNavigate?.[link.key]?.();
                     }}
-                    className="text-xl py-3 text-black hover:translate-x-2 duration-500 transition text-left"
+                    className="font-bold text-xl py-2 text-black hover:translate-x-2 duration-500 transition text-left hover:text-[#EE3F4A]"
                   >
                     {link.name}
                   </button>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { FaYoutube, FaLinkedin } from "react-icons/fa";
-import { FaFacebookF, FaInstagram } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { getAllPhones } from "@/data/contact";
 
@@ -33,7 +33,8 @@ const SocialLinks = () => {
       
       <div className="flex flex-wrap justify-center gap-4">
         {getAllPhones().map(({ city, tel, display }) => (
-          <Link
+          <div className="flex gap-4">
+            <Link
             key={city}
             href={`tel:${tel}`}
             className="flex items-center gap-3 bg-black border border-white/10 text-white rounded-xl px-5 py-3 text-sm font-bold hover:bg-[#EE3F4A] hover:border-[#EE3F4A] hover:text-black hover:-translate-y-1 transition-all duration-300 group shadow-lg"
@@ -41,8 +42,22 @@ const SocialLinks = () => {
             title={`${city}: ${display}`}
           >
             <FaPhoneVolume className="text-lg text-white group-hover:text-black transition-colors" />
-            <span className="tracking-wide uppercase text-[10px]">{city}</span>
+            <span className="tracking-wide uppercase text-[10px]">Call now</span>
           </Link>
+          
+          <Link
+            key={city}
+            href={`https://wa.me/${tel.replace(/[^0-9]/g, '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 bg-black border border-white/10 text-white rounded-xl px-5 py-3 text-sm font-bold hover:bg-green-500 hover:border-green-500 hover:text-black hover:-translate-y-1 transition-all duration-300 group shadow-lg"
+            aria-label={`WhatsApp ${city}`}
+            title={`${city}: ${display}`}
+          >
+            <FaWhatsapp className="text-lg text-white group-hover:text-black transition-colors" />
+            <span className="tracking-wide uppercase text-[10px]">Whatsapp</span>
+          </Link>
+          </div>
         ))}
       </div>
     </div>

@@ -1,9 +1,7 @@
 import wash from "../../../public/service/wash.webp";
 import ac from "../../../public/service/ac.webp";
 import fridge from "../../../public/service/fridge.webp";
-import chimney from "../../../public/service/chim.webp";
 import oven from "../../../public/service/oven.webp";
-import dish from "../../../public/service/dishwasher.webp";
 
 const serviceData = {
   "washing-machine": {

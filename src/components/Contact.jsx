@@ -62,26 +62,26 @@ const EASE = [0.76, 0, 0.24, 1];
 const Field = ({ icon: Icon, error, children }) => (
   <div className="flex flex-col gap-1">
     <div
-      className="flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-200"
+      className="flex items-center gap-3 rounded-xl px-5 py-3.5 transition-all duration-200"
       style={{
         background: "rgba(0,0,0,0.03)",
         border: `1px solid ${error ? "rgba(239,68,68,0.6)" : "rgba(0,0,0,0.12)"}`,
       }}
     >
       <Icon
-        className="w-4 h-4 flex-shrink-0"
+        className="w-5 h-5 flex-shrink-0"
         style={{ color: error ? "#ef4444" : "#EE3F4A" }}
       />
       {children}
     </div>
+
     <AnimatePresence>
       {error && (
         <motion.p
-          className="text-red-500 text-xs pl-1"
+          className="text-red-500 text-sm pl-1"
           initial={{ opacity: 0, y: -4 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -4 }}
-          transition={{ duration: 0.22 }}
         >
           {error}
         </motion.p>
@@ -91,8 +91,9 @@ const Field = ({ icon: Icon, error, children }) => (
 );
 
 /* ─── shared input className ─────────────────────────────────────────────── */
+
 const inputCls = `
-  w-full bg-transparent text-black placeholder-black/40 text-sm
+  w-full bg-transparent text-black placeholder-black/60 text-base
   focus:outline-none
 `;
 
@@ -113,39 +114,15 @@ const Contact = ({ isModal = false }) => {
 
   return (
     <>
-      <style>{`
-
-        .contact-select option 
-        .contact-scroll::-webkit-scrollbar { width: 4px; }
-        .contact-scroll::-webkit-scrollbar-track { background: transparent; }
-        .contact-scroll::-webkit-scrollbar-thumb { background: rgba(182,245,0,0.25); border-radius: 99px; }
-      `}</style>
-
       <section
         ref={!isModal ? contactRef : null}
         className={isModal ? "" : "py-16 relative overflow-hidden bg-white"}
-        style={{}}
       >
-        {/* ── standalone page: decorative BG elements ── */}
-        {!isModal && (
-          <>
-            <div
-              className="pointer-events-none absolute top-[-120px] right-[-120px] w-[420px] h-[420px] rounded-full"
-            />
-            <div
-              className="pointer-events-none absolute bottom-[-80px] left-[-80px] w-[300px] h-[300px] rounded-full"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(182,245,0,0.10) 0%, transparent 70%)",
-              }}
-            />
-          </>
-        )}
-
         <div
-          className={`relative z-10 ${isModal ? "" : "max-w-2xl mx-auto px-4 sm:px-6"}`}
+          className={`relative z-10 ${
+            isModal ? "" : "max-w-2xl mx-auto px-4 sm:px-6"
+          }`}
         >
-          {/* ── Section header (standalone only) ── */}
           {!isModal && (
             <SectionHeader
               tag="Get in Touch"
@@ -155,16 +132,14 @@ const Contact = ({ isModal = false }) => {
             />
           )}
 
-          {/* ════════════════════════════════════════════════════════════════
-              FORM CARD
-          ════════════════════════════════════════════════════════════════ */}
           <motion.form
             onSubmit={handleContactSubmit}
-            className={`contact-scroll relative overflow-hidden ${isModal ? "" : "rounded-2xl"}`}
+            className={`relative overflow-hidden ${
+              isModal ? "" : "rounded-2xl"
+            }`}
             style={{
               background: isModal ? "transparent" : "#ffffff",
               border: isModal ? "none" : "1px solid rgba(0,0,0,0.08)",
-              backdropFilter: "none",
               padding: isModal ? "0" : "2rem",
               boxShadow: isModal ? "none" : "0 8px 40px rgba(0,0,0,0.08)",
             }}
@@ -173,22 +148,11 @@ const Contact = ({ isModal = false }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
           >
-            {/* Lime corner accent */}
-            {!isModal && (
-              <div
-                className="pointer-events-none absolute top-0 right-0 w-32 h-32"
-                style={{
-                  background:
-                    "radial-gradient(circle at top right, rgba(182,245,0,0.25) 0%, transparent 70%)",
-                }}
-              />
-            )}
-
             <div
-              className="relative z-10 flex flex-col gap-4"
+              className="relative z-10 flex flex-col gap-5"
               style={{ fontFamily: "'Inter',sans-serif" }}
             >
-              {/* Row 1: Name + Phone */}
+              {/* Row 1 */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field icon={User} error={errors.contactName}>
                   <input
@@ -203,7 +167,8 @@ const Contact = ({ isModal = false }) => {
 
                 <Field icon={Phone} error={errors.contactNumber}>
                   <input
-                    type="number"
+                    type="tel"
+                    inputMode="numeric"
                     name="contactNumber"
                     value={contact?.contactNumber || ""}
                     onChange={handleContactChange}
@@ -213,7 +178,7 @@ const Contact = ({ isModal = false }) => {
                 </Field>
               </div>
 
-              {/* Row 2: Email */}
+              {/* Email */}
               <Field icon={Mail} error={errors.contactEmail}>
                 <input
                   type="email"
@@ -225,7 +190,7 @@ const Contact = ({ isModal = false }) => {
                 />
               </Field>
 
-              {/* Row 3: City */}
+              {/* City */}
               <Field icon={MapPin} error={errors.contactCity}>
                 <input
                   type="text"
@@ -237,14 +202,14 @@ const Contact = ({ isModal = false }) => {
                 />
               </Field>
 
-              {/* Row 4: Product select */}
+              {/* Product */}
               <Field icon={Wrench} error={errors.product}>
                 <div className="relative flex-1 flex items-center">
                   <select
                     name="product"
                     value={selectedProduct}
                     onChange={handleContactChange}
-                    className={`${inputCls} contact-select appearance-none pr-6 cursor-pointer`}
+                    className={`${inputCls} appearance-none pr-6 cursor-pointer`}
                   >
                     <option value="">Choose Appliance</option>
                     {products.map((p) => (
@@ -253,11 +218,12 @@ const Contact = ({ isModal = false }) => {
                       </option>
                     ))}
                   </select>
-                  <ChevronDown className="pointer-events-none absolute right-0 w-4 h-4 text-black/40" />
+
+                  <ChevronDown className="pointer-events-none absolute right-0 w-5 h-5 text-black/40" />
                 </div>
               </Field>
 
-              {/* Row 5: Complaints — animated reveal */}
+              {/* Complaints */}
               <AnimatePresence>
                 {selectedProduct && (
                   <motion.div
@@ -269,53 +235,49 @@ const Contact = ({ isModal = false }) => {
                     style={{ overflow: "hidden" }}
                   >
                     <div className="flex flex-col gap-3">
-                      {/* Label */}
                       <div className="flex items-center gap-2">
-                        <CheckSquare className="w-4 h-4 text-[#EE3F4A]" />
-                        <span
-                          className="text-black/60 text-xs uppercase tracking-[0.2em]"
-                          style={{ fontFamily: "'Inter',sans-serif" }}
-                        >
+                        <CheckSquare className="w-5 h-5 text-[#EE3F4A]" />
+                        <span className="text-black/70 text-sm uppercase tracking-[0.18em]">
                           Select Issues
                         </span>
                       </div>
 
-                      {/* Chip grid */}
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {complaints.map((c) => {
                           const checked = selectedComplaints.includes(c);
+
                           return (
                             <motion.label
                               key={c}
-                              className="flex items-center gap-2 rounded-xl px-3 py-2.5 cursor-pointer transition-all duration-200 select-none"
+                              className="flex items-center gap-3 rounded-xl px-4 py-3 cursor-pointer transition-all"
                               style={{
                                 background: checked
                                   ? "rgba(182,245,0,0.20)"
                                   : "rgba(0,0,0,0.03)",
-                                border: `1px solid ${checked ? "rgba(182,245,0,0.7)" : "rgba(0,0,0,0.10)"}`,
+                                border: `1px solid ${
+                                  checked
+                                    ? "rgba(182,245,0,0.7)"
+                                    : "rgba(0,0,0,0.10)"
+                                }`,
                               }}
                               whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.97 }}
                             >
-                              {/* Custom checkbox */}
                               <div
-                                className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0 transition-all duration-200"
+                                className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0"
                                 style={{
                                   background: checked
                                     ? "#EE3F4A"
                                     : "transparent",
-                                  border: `1.5px solid ${checked ? "#EE3F4A" : "rgba(0,0,0,0.25)"}`,
+                                  border: `1.5px solid ${
+                                    checked ? "#EE3F4A" : "rgba(0,0,0,0.25)"
+                                  }`,
                                 }}
                               >
                                 {checked && (
-                                  <svg
-                                    width="9"
-                                    height="7"
-                                    viewBox="0 0 9 7"
-                                    fill="none"
-                                  >
+                                  <svg width="10" height="8">
                                     <path
-                                      d="M1 3.5L3.2 6L8 1"
+                                      d="M1 4L3.5 7L9 1"
                                       stroke="#000"
                                       strokeWidth="1.6"
                                       strokeLinecap="round"
@@ -324,40 +286,21 @@ const Contact = ({ isModal = false }) => {
                                   </svg>
                                 )}
                               </div>
+
                               <input
                                 type="checkbox"
                                 checked={checked}
                                 onChange={() => handleComplaintToggle(c)}
                                 className="sr-only"
                               />
-                              <span
-                                className="text-xs leading-snug"
-                                style={{
-                                  color: checked
-                                    ? "#5a8a00"
-                                    : "rgba(0,0,0,0.65)",
-                                  fontFamily: "'Inter',sans-serif",
-                                }}
-                              >
+
+                              <span className="text-sm font-medium leading-snug">
                                 {c}
                               </span>
                             </motion.label>
                           );
                         })}
                       </div>
-
-                      <AnimatePresence>
-                        {errors.complaint && (
-                          <motion.p
-                            className="text-red-400 text-xs pl-1"
-                            initial={{ opacity: 0, y: -4 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0 }}
-                          >
-                            {errors.complaint}
-                          </motion.p>
-                        )}
-                      </AnimatePresence>
                     </div>
                   </motion.div>
                 )}
@@ -367,36 +310,15 @@ const Contact = ({ isModal = false }) => {
               <motion.button
                 type="submit"
                 disabled={contactSubmitting}
-                className="relative w-full overflow-hidden rounded-xl font-bold text-black flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                className="relative w-full overflow-hidden rounded-xl font-bold text-black flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-60"
                 style={{
                   background: "#EE3F4A",
-                  padding: "14px 24px",
+                  padding: "16px 26px",
                   fontFamily: "'Montserrat',sans-serif",
-                  fontSize: "1rem",
+                  fontSize: "1.1rem",
                   letterSpacing: "0.06em",
                 }}
-                whileHover={
-                  !contactSubmitting
-                    ? {
-                        scale: 1.015,
-                        boxShadow: "0 0 28px rgba(182,245,0,0.4)",
-                      }
-                    : {}
-                }
-                whileTap={!contactSubmitting ? { scale: 0.98 } : {}}
               >
-                {/* Shine sweep */}
-                <motion.span
-                  className="pointer-events-none absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.25) 50%, transparent 65%)",
-                  }}
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "160%" }}
-                  transition={{ duration: 0.55, ease: "easeInOut" }}
-                />
-
                 {contactSubmitting ? (
                   <>
                     <span className="h-4 w-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
@@ -404,19 +326,19 @@ const Contact = ({ isModal = false }) => {
                   </>
                 ) : (
                   <>
-                    <Zap className="w-4 h-4" fill="black" />
-                    <span>SEND SERVICE REQUEST</span>
-                    <Send className="w-4 h-4" />
+                   
+                    <span>SEND REQUEST</span>
+                    <Send className="w-5 h-5" />
                   </>
                 )}
               </motion.button>
 
-              {/* Trust micro-line */}
+              {/* Trust line */}
               <p
-                className="text-center text-black/35"
+                className="text-center text-black/40"
                 style={{
                   fontFamily: "'Inter',sans-serif",
-                  fontSize: "0.52rem",
+                  fontSize: "0.8rem",
                   letterSpacing: "0.15em",
                 }}
               >

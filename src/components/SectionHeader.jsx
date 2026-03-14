@@ -26,7 +26,7 @@ export default function SectionHeader({
             className="uppercase tracking-[0.35em]"
             style={{
               fontFamily: "'Inter',sans-serif",
-              fontSize: "0.65rem",
+              fontSize: "0.85rem",
               color: "#000",
             }}
           >
@@ -41,7 +41,7 @@ export default function SectionHeader({
         className="font-black capitalize leading-[0.9] pt-3 pb-1"
         style={{
           fontFamily: "'Montserrat',sans-serif",
-          fontSize: "clamp(2rem,5vw,3rem)",
+          fontSize: "clamp(2.3rem,5vw,3.5rem)",
           color: "#000",
           lineHeight:"1.4"
         }}
@@ -56,7 +56,7 @@ export default function SectionHeader({
           className="text-black/60 "
           style={{
             fontFamily: "'Inter',sans-serif",
-            fontSize: "0.95rem",
+            fontSize: "1rem",
           }}
         >
           {description}

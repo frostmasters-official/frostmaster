@@ -392,7 +392,7 @@ const Home = ({ homeRef }) => {
         </div>
 
         {/* Left text */}
-        <div className="relative z-30 h-full flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24 pt-28 pb-44 max-w-5xl">
+        <div className="relative z-30 h-full flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24 pt-28 pb-44 max-w-6xl">
 
           {/* Title */}
           <AnimatePresence mode="wait">
@@ -426,10 +426,10 @@ const Home = ({ homeRef }) => {
           <AnimatePresence mode="wait">
             <motion.p
               key={`desc-${active}`}
-              className="text-white/62 mb-7 max-w-sm"
+              className="text-white/62 mb-7 max-w-2xl"
               style={{
                 fontFamily: "'Inter',sans-serif",
-                fontSize: "clamp(0.85rem,1.4vw,1rem)",
+                fontSize: "clamp(1rem,1.4vw,2rem)",
                 lineHeight: 1.65,
               }}
               initial={{ opacity: 0, y: 10 }}
@@ -464,7 +464,7 @@ const Home = ({ homeRef }) => {
                   className="relative z-10 flex items-center gap-1.5 bg-white hover:bg-white/10 text-black group-hover:text-white transition-colors duration-300 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 font-bold tracking-wide whitespace-nowrap"
                   style={{ 
                     fontFamily: "'Montserrat',sans-serif",
-                    fontSize: "clamp(1rem,1.3vw,1.5rem)" 
+                    fontSize: "clamp(1rem,1.3vw,1.8rem)" 
                   }}
                 >
                   Call Now: {display}

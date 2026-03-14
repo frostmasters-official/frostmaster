@@ -21,7 +21,6 @@ export function getAllPhones() {
 /** City slugs and names for service-area URLs. */
 export const SERVICE_CITIES = [
   { slug: "Eranakulam", name: "Eranakulam" },
-  { slug: "Eranakulam", name: "Eranakulam" },
 ];
 
 const SERVICE_IN_CITY_SUFFIX = "-service-in-";
