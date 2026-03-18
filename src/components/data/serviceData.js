@@ -4,72 +4,6 @@ import fridge from "../../../public/service/fridge.webp";
 import oven from "../../../public/service/oven.webp";
 
 const serviceData = {
-  "washing-machine": {
-    title: "Washing Machine",
-    image: wash,
-    ogImage: "/service/wash.webp",
-    seoTitle: "Washing Machine Repair Eranakulam & Eranakulam | Frost Masters",
-    seoDescription:
-      "Expert washing machine repair in Eranakulam and Eranakulam. Top-load, front-load, drum, motor, PCB repair. Same-day service, genuine parts. Call for booking.",
-    description:
-      "Frost Masters offers professional washing machine repair and maintenance across Eranakulam and Eranakulam. Our technicians handle all major brands—LG, Samsung, Whirlpool, IFB, Bosch, and more—for both top-load and front-load models. From drum not spinning and water drainage issues to motor, belt, and PCB board repairs, we diagnose and fix the root cause. We also address water leakage, pipe blockages, vibration, unusual noise, door lock and sensor replacement, and provide periodic servicing and deep cleaning. Installation, uninstallation, and genuine spare parts with warranty are available. Book a visit and get a transparent estimate before any repair.",
-    points: [
-      "Diagnosis of all major brands and models",
-      "Top-load and front-load repair solutions",
-      "Drum not spinning or water not draining fix",
-      "Motor, belt, and PCB board repairs",
-      "Water leakage and pipe blockages",
-      "Vibration and unusual noise troubleshooting",
-      "Door lock and sensor replacement",
-      "Periodic servicing and deep cleaning",
-      "Installation and uninstallation support",
-      "Genuine spare parts with warranty",
-    ],
-    faq: [
-      {
-        question: "Why is my washing machine not spinning?",
-        answer:
-          "Common causes include a faulty motor, worn belt, overloaded drum, or a defective lid/door switch. Our technician will inspect and fix the issue—often a belt replacement or motor repair resolves it.",
-      },
-      {
-        question: "Do you repair front-load and top-load washing machines?",
-        answer:
-          "Yes. We service both front-load and top-load machines from all major brands including LG, Samsung, Whirlpool, IFB, and Bosch.",
-      },
-      {
-        question: "What if water is not draining from the washing machine?",
-        answer:
-          "Blocked drain hose, clogged pump filter, or a faulty drain pump can cause this. We clean or replace the affected parts and restore normal drainage.",
-      },
-      {
-        question: "Do you provide warranty on washing machine repairs?",
-        answer:
-          "Yes. We offer a 30-day service warranty on labour and use genuine or OEM spare parts with their manufacturer warranty where applicable.",
-      },
-    ],
-    cityKeywords: [
-      {
-        city: "Eranakulam",
-        keywords: [
-          "washing machine repair Eranakulam",
-          "washing machine service Eranakulam",
-          "washing machine repair near me Eranakulam",
-          "LG washing machine repair Eranakulam",
-          "Samsung washing machine repair Eranakulam",
-        ],
-      },
-      {
-        city: "Eranakulam",
-        keywords: [
-          "washing machine repair Eranakulam",
-          "washing machine service Eranakulam",
-          "washing machine repair near me Eranakulam",
-          "front load washing machine repair Eranakulam",
-          "washing machine technician Eranakulam",
-        ],
-      },
-    ],
-  },
   refrigerator: {
     title: "Refrigerator",
     image: fridge,
@@ -200,6 +134,72 @@ const serviceData = {
           "AC repair near me Eranakulam",
           "AC gas refill Eranakulam",
           "window AC repair Eranakulam",
+        ],
+      },
+    ],
+  },
+    "washing-machine": {
+    title: "Washing Machine",
+    image: wash,
+    ogImage: "/service/wash.webp",
+    seoTitle: "Washing Machine Repair Eranakulam & Eranakulam | Frost Masters",
+    seoDescription:
+      "Expert washing machine repair in Eranakulam and Eranakulam. Top-load, front-load, drum, motor, PCB repair. Same-day service, genuine parts. Call for booking.",
+    description:
+      "Frost Masters offers professional washing machine repair and maintenance across Eranakulam and Eranakulam. Our technicians handle all major brands—LG, Samsung, Whirlpool, IFB, Bosch, and more—for both top-load and front-load models. From drum not spinning and water drainage issues to motor, belt, and PCB board repairs, we diagnose and fix the root cause. We also address water leakage, pipe blockages, vibration, unusual noise, door lock and sensor replacement, and provide periodic servicing and deep cleaning. Installation, uninstallation, and genuine spare parts with warranty are available. Book a visit and get a transparent estimate before any repair.",
+    points: [
+      "Diagnosis of all major brands and models",
+      "Top-load and front-load repair solutions",
+      "Drum not spinning or water not draining fix",
+      "Motor, belt, and PCB board repairs",
+      "Water leakage and pipe blockages",
+      "Vibration and unusual noise troubleshooting",
+      "Door lock and sensor replacement",
+      "Periodic servicing and deep cleaning",
+      "Installation and uninstallation support",
+      "Genuine spare parts with warranty",
+    ],
+    faq: [
+      {
+        question: "Why is my washing machine not spinning?",
+        answer:
+          "Common causes include a faulty motor, worn belt, overloaded drum, or a defective lid/door switch. Our technician will inspect and fix the issue—often a belt replacement or motor repair resolves it.",
+      },
+      {
+        question: "Do you repair front-load and top-load washing machines?",
+        answer:
+          "Yes. We service both front-load and top-load machines from all major brands including LG, Samsung, Whirlpool, IFB, and Bosch.",
+      },
+      {
+        question: "What if water is not draining from the washing machine?",
+        answer:
+          "Blocked drain hose, clogged pump filter, or a faulty drain pump can cause this. We clean or replace the affected parts and restore normal drainage.",
+      },
+      {
+        question: "Do you provide warranty on washing machine repairs?",
+        answer:
+          "Yes. We offer a 30-day service warranty on labour and use genuine or OEM spare parts with their manufacturer warranty where applicable.",
+      },
+    ],
+    cityKeywords: [
+      {
+        city: "Eranakulam",
+        keywords: [
+          "washing machine repair Eranakulam",
+          "washing machine service Eranakulam",
+          "washing machine repair near me Eranakulam",
+          "LG washing machine repair Eranakulam",
+          "Samsung washing machine repair Eranakulam",
+        ],
+      },
+      {
+        city: "Eranakulam",
+        keywords: [
+          "washing machine repair Eranakulam",
+          "washing machine service Eranakulam",
+          "washing machine repair near me Eranakulam",
+          "front load washing machine repair Eranakulam",
+          "washing machine technician Eranakulam",
         ],
       },
     ],

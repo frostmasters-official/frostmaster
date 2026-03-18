@@ -98,7 +98,7 @@ const AboutUs = () => {
               <div className="mt-10">
                 <Link
                   href="#contact"
-                  className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full font-bold transition-all duration-500 bg-black text-white px-8 py-4 text-sm tracking-wider uppercase"
+                  className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full font-bold transition-all duration-500 bg-white text-black shadow-xl px-8 py-4 text-sm tracking-wider uppercase"
                 >
                   <div className="absolute inset-0 bg-blue-500 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                   <span className="relative z-10 group-hover:text-white flex items-center gap-2">

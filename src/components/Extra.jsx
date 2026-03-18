@@ -105,10 +105,7 @@ const Extra = () => {
                 </p>
 
                 {/* Lime accent line bottom */}
-                <div
-                  className="absolute bottom-4 left-8 right-8 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left bg-white"
-                  
-                />
+                <div className="absolute bottom-4 left-8 right-8 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left bg-white" />
               </motion.div>
             ))}
           </div>
@@ -130,10 +127,7 @@ const Extra = () => {
         </div>
       </section>
 
-      <section
-        className="relative overflow-hidden py-16 bg-gray-300"
-        
-      >
+      <section className="relative overflow-hidden py-16 bg-gray-400">
         {/* Lime glow */}
         <div
           className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px]"
@@ -162,7 +156,7 @@ const Extra = () => {
             {/* Left text */}
             <div>
               <p
-                className="text-blue-500 uppercase tracking-[0.35em] mb-2"
+                className="text-white uppercase tracking-[0.35em] mb-2"
                 style={{
                   fontFamily: "'Inter',sans-serif",
                   fontSize: "0.62rem",
@@ -171,7 +165,7 @@ const Extra = () => {
                 Ready to fix it?
               </p>
               <h3
-                className="text-white font-black uppercase leading-tight"
+                className="text-blue-500 font-black uppercase leading-tight"
                 style={{
                   fontFamily: "'Montserrat',sans-serif",
                   fontSize: "clamp(2.2rem,4vw,3.2rem)",
@@ -179,7 +173,7 @@ const Extra = () => {
               >
                 Book An
                 <br />
-                <span className="text-blue-500">Appointment</span>
+                <span className="text-white">Appointment</span>
               </h3>
             </div>
 
@@ -187,14 +181,13 @@ const Extra = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <a
                 href="tel:+916282450300"
-                className="group relative overflow-hidden flex items-center gap-3 rounded-full font-bold transition-all duration-300 bg-blue-500  hover:text-white" 
+                className="group relative overflow-hidden flex items-center gap-3 rounded-full font-bold transition-all text-white duration-300 bg-blue-500"
                 style={{
-                  
                   padding: "14px 32px",
                   fontFamily: "'Montserrat',sans-serif",
                   fontSize: "1.05rem",
                   letterSpacing: "0.05em",
-                  
+
                   boxShadow: "0 0 0 0 rgba(182,245,0,0.4)",
                 }}
                 onMouseEnter={(e) =>
