@@ -6,28 +6,25 @@ import React, {
   useLayoutEffect,
   useCallback,
   memo,
+  useContext
 } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { gsap } from "gsap";
 import { Observer } from "gsap/Observer";
 import Image from "next/image";
 import { getAllPhones } from "@/data/contact";
+import { FaLocationDot } from "react-icons/fa6";
+import { myContext } from "@/context/myContext";
 
-import AC from "../../public/cover/AC.webp";
-import Chimney from "../../public/cover/Chimney.webp";
-import fridge from "../../public/cover/fridge.webp";
-import dish from "../../public/cover/dish.webp";
-import oven from "../../public/cover/oven.webp";
-import tv from "../../public/cover/tv.webp";
-import washingMachine from "../../public/cover/washing-machine.webp";
+import AC from "../../public/cover/acBanner.png";
+import fridge from "../../public/cover/fridgeBanner.png";
+import oven from "../../public/cover/ovenBanner.png";
+import washingMachine from "../../public/cover/washBanner.png";
 
-import AC_cropped from "../../public/cover/AC_cropped.webp";
-import fridge_cropped from "../../public/cover/fridge_cropped.jpg";
-import washingMachine_cropped from "../../public/cover/washing-machine_cropped.jpg";
-import tv_cropped from "../../public/cover/tv_cropped.jpg";
-import dish_cropped from "../../public/cover/dish_cropped.webp";
-import oven_cropped from "../../public/cover/oven_cropped.jpg";
-import chimney_cropped from "../../public/cover/Chimney_cropped.webp";
+import AC_cropped from "../../public/cover/acBanner.png";
+import fridge_cropped from "../../public/cover/fridgeBanner.png";
+import washingMachine_cropped from "../../public/cover/washBanner.png";
+import oven_cropped from "../../public/cover/ovenBanner.png";
 
 gsap.registerPlugin(Observer);
 
@@ -42,14 +39,6 @@ const slides = [
     bgMobile: washingMachine_cropped,
   },
   {
-    id: 2,
-    title: "Television",
-    label: "DISPLAY",
-    description: "Expert TV repair and maintenance",
-    bg: tv,
-    bgMobile: tv_cropped,
-  },
-  {
     id: 3,
     title: "Refrigerator",
     label: "COOLING",
@@ -57,14 +46,6 @@ const slides = [
     bg: fridge,
     bgMobile: fridge_cropped,
   },
-  // {
-  //   id: 4,
-  //   title: "Chimney",
-  //   label: "VENTILATION",
-  //   description: "Chimney cleaning and repair services",
-  //   bg: Chimney,
-  //   bgMobile: chimney_cropped,
-  // },
   {
     id: 5,
     title: "Air Conditioner",
@@ -81,15 +62,9 @@ const slides = [
     bg: oven,
     bgMobile: oven_cropped,
   },
-  // {
-  //   id: 7,
-  //   title: "Dishwasher",
-  //   label: "CLEANING",
-  //   description: "Reliable dishwasher repair and installation",
-  //   bg: dish,
-  //   bgMobile: dish_cropped,
-  // },
 ];
+
+const CITIES = ["Eranakulam", "Kochi", "Trissur", "Kottayam"];
 
 const SLIDE_DURATION = 5;
 const TRANSITION_DURATION = 1.0;
@@ -159,16 +134,19 @@ const BgLayer = memo(function BgLayer({ slide, isActive, direction }) {
   );
 });
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   CAROUSEL STRIP
+═══════════════════════════════════════════════════════════════════════════ */
 const CarouselStrip = memo(function CarouselStrip({
   active,
   goTo,
   slideDuration,
 }) {
-  const STRIP_H = 110; 
-  const T_W = 52; 
-  const T_H = 62; 
-  const A_W = 360; 
-  const A_H = 210; 
+  const STRIP_H = 110;
+  const T_W = 52;
+  const T_H = 62;
+  const A_W = 360;
+  const A_H = 210;
   const RADIUS_T = 5;
   const RADIUS_A = 14;
   const STRIP_GAP = 6;
@@ -204,7 +182,6 @@ const CarouselStrip = memo(function CarouselStrip({
                 : {}
             }
           >
-            {/* Photo */}
             <Image
               src={slide.bg}
               alt={slide.title.replace("\n", " ")}
@@ -214,7 +191,6 @@ const CarouselStrip = memo(function CarouselStrip({
               priority={i < 2}
             />
 
-            {/* Dark overlay for inactive */}
             <motion.div
               className="absolute inset-0"
               animate={{ opacity: isAct ? 0 : 1 }}
@@ -222,11 +198,9 @@ const CarouselStrip = memo(function CarouselStrip({
               style={{ background: "rgba(144, 140, 140, 0.55)" }}
             />
 
-            {/* ── Active-only overlays ── */}
             <AnimatePresence>
               {isAct && (
                 <>
-                  {/* Bottom lime tint */}
                   <motion.div
                     key="tint"
                     className="absolute inset-0 z-10 pointer-events-none"
@@ -240,7 +214,6 @@ const CarouselStrip = memo(function CarouselStrip({
                     transition={{ duration: 0.35 }}
                   />
 
-                  {/* Lime border — wipes bottom→top */}
                   <motion.div
                     key="border"
                     className="absolute inset-0 z-20 pointer-events-none"
@@ -256,7 +229,6 @@ const CarouselStrip = memo(function CarouselStrip({
                     transition={{ duration: 0.6, ease: EASE_SMOOTH }}
                   />
 
-              
                   <div
                     className="absolute bottom-0 left-0 right-0 z-30 overflow-hidden"
                     style={{
@@ -267,7 +239,7 @@ const CarouselStrip = memo(function CarouselStrip({
                   >
                     <motion.div
                       key={`pb-${active}`}
-                      className="absolute inset-y-0 left-0 bg-[#EE3F4A]"
+                      className="absolute inset-y-0 left-0 bg-blue-500"
                       initial={{ width: "0%" }}
                       animate={{ width: "100%" }}
                       transition={{ duration: slideDuration, ease: "linear" }}
@@ -277,7 +249,6 @@ const CarouselStrip = memo(function CarouselStrip({
               )}
             </AnimatePresence>
 
-            {/* Inactive: small index */}
             {!isAct && (
               <div className="absolute inset-0 z-20 flex items-end justify-center pb-1.5 pointer-events-none">
                 <span
@@ -299,6 +270,48 @@ const CarouselStrip = memo(function CarouselStrip({
 });
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   CITY BADGE
+═══════════════════════════════════════════════════════════════════════════ */
+const CityBadges = memo(function CityBadges() {
+  return (
+    <motion.div
+      className="flex flex-wrap items-center gap-2 mt-5"
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: {},
+        visible: { transition: { staggerChildren: 0.08, delayChildren: 0.35 } },
+      }}
+    >
+      {CITIES.map((city) => (
+        <motion.span
+          key={city}
+          className="flex items-center gap-1.5 text-white text-sm font-medium rounded-full border border-white/15 px-3 py-1 backdrop-blur-sm bg-blue-500"
+          variants={{
+            hidden: { opacity: 0, y: 8, scale: 0.92 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              transition: { duration: 0.45, ease: [0.33, 1, 0.68, 1] },
+            },
+          }}
+          whileHover={{
+            background: "rgba(255,255,255,0.14)",
+            borderColor: "rgba(255,255,255,0.32)",
+            scale: 1.04,
+            transition: { duration: 0.2 },
+          }}
+        >
+          <FaLocationDot className="text-white text-xs flex-shrink-0" />
+          {city}
+        </motion.span>
+      ))}
+    </motion.div>
+  );
+});
+
+/* ═══════════════════════════════════════════════════════════════════════════
    HOME
 ═══════════════════════════════════════════════════════════════════════════ */
 const Home = ({ homeRef }) => {
@@ -307,6 +320,10 @@ const Home = ({ homeRef }) => {
   const activeRef = useRef(0);
   const intervalRef = useRef(null);
   const isPausedRef = useRef(false);
+
+  const {
+      scrolled,
+    } = useContext(myContext);
 
   const goTo = useCallback((idx) => {
     const next = ((idx % slides.length) + slides.length) % slides.length;
@@ -378,7 +395,7 @@ const Home = ({ homeRef }) => {
 
   return (
     <section ref={homeRef}>
-      <section className="relative max-w-8xl h-[850px] mx-auto overflow-hidden select-none">
+      <section className={`relative max-w-8xl h-screen min-h-[700px] mx-auto overflow-hidden select-none ${!scrolled && "mt-30"}`}>
         {/* Backgrounds */}
         <div className="absolute inset-0" aria-hidden="true">
           {slides.map((slide, i) => (
@@ -393,7 +410,6 @@ const Home = ({ homeRef }) => {
 
         {/* Left text */}
         <div className="relative z-30 h-full flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24 pt-28 pb-44 max-w-6xl">
-
           {/* Title */}
           <AnimatePresence mode="wait">
             <motion.div key={`title-${active}`} className="mb-5">
@@ -457,14 +473,14 @@ const Home = ({ homeRef }) => {
                 style={{ fontFamily: "'Montserrat',sans-serif" }}
               >
                 <span
-                  className="absolute inset-0 bg-[#EE3F4A] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out rounded-full"
+                  className="absolute inset-0 bg-blue-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out rounded-full"
                   aria-hidden="true"
                 />
                 <span
                   className="relative z-10 flex items-center gap-1.5 bg-white hover:bg-white/10 text-black group-hover:text-white transition-colors duration-300 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 font-bold tracking-wide whitespace-nowrap"
-                  style={{ 
+                  style={{
                     fontFamily: "'Montserrat',sans-serif",
-                    fontSize: "clamp(1rem,1.3vw,1.8rem)" 
+                    fontSize: "clamp(1rem,1.3vw,1.8rem)",
                   }}
                 >
                   Call Now: {display}
@@ -472,14 +488,13 @@ const Home = ({ homeRef }) => {
               </a>
             ))}
           </motion.div>
+
+          {/* ── City Coverage Badges ── */}
+          <CityBadges />
         </div>
 
-        {/* ════════════════════════════════════════════════
-            BOTTOM-RIGHT CAROUSEL
-        ════════════════════════════════════════════════ */}
-        <div className="absolute bottom-28 right-6 md:right-10 lg:right-14 z-30 hidden md:flex flex-col items-end gap-2">
-          {/* Header */}
-
+        {/* Bottom-right carousel */}
+        <div className={`absolute right-6 md:right-10 lg:right-14 z-30 hidden md:flex flex-col items-end gap-2 ${scrolled ? "bottom-28" : "bottom-40"}`}>
           <CarouselStrip
             active={active}
             goTo={goTo}
@@ -494,7 +509,11 @@ const Home = ({ homeRef }) => {
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Slide ${i + 1}`}
-              className={`rounded-full transition-all duration-500 ${i === active ? "bg-[#EE3F4A] w-6 h-2" : "bg-white/32 hover:bg-white/60 w-2 h-2"}`}
+              className={`rounded-full transition-all duration-500 ${
+                i === active
+                  ? "bg-blue-500 w-6 h-2"
+                  : "bg-white/32 hover:bg-white/60 w-2 h-2"
+              }`}
             />
           ))}
         </div>

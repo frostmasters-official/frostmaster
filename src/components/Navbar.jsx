@@ -6,14 +6,7 @@ import { TbMenu } from "react-icons/tb";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  FaPhoneVolume,
-  FaYoutube,
-  FaLinkedin,
-  FaFacebookF,
-  FaInstagram,
-  FaWhatsapp,
-} from "react-icons/fa6";
+import { FaPhoneVolume, FaWhatsapp } from "react-icons/fa6";
 
 import { myContext } from "@/context/myContext";
 import { getAllPhones } from "@/data/contact";
@@ -31,26 +24,26 @@ const EASE = [0.16, 1, 0.3, 1];
 
 /* ─── Sub-Components ───────────────────────────────────────────────────────── */
 
-const SocialIcon = ({ icon: Icon, label, link }) => (
+const SocialIcon = ({ icon, label, link }) => (
   <Link
     href={link}
     aria-label={label}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-gray-600 hover:text-white rounded-full hover:bg-[#EE3F4A] transition-colors duration-400 p-1.5"
+    className="rounded-full hover:scale-110 transition-colors duration-400 p-1"
   >
-    <Icon className="h-6 w-6" />
+    <Image src={icon} alt={label} width={20} height={20} />
   </Link>
 );
 
 const NavLink = ({ name, onClick, isActive }) => (
   <button
     onClick={onClick}
-    className="relative py-2 text-md font-semibold text-gray-900 group transition-colors duration-300 hover:text-[#EE3F4A]"
+    className="relative py-2 text-md font-semibold text-gray-900 group transition-colors duration-300 hover:text-blue-500"
   >
     {name}
     <span
-      className={`absolute bottom-0 left-0 h-0.5 bg-[#EE3F4A] transition-all duration-300 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+      className={`absolute bottom-0 left-0 h-0.5 bg-blue-500 transition-all duration-300 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
     />
   </button>
 );
@@ -59,7 +52,7 @@ const ServiceLink = ({ name, slug, onClick }) => (
   <Link
     href={`/services/${slug}`}
     onClick={onClick}
-    className="block px-5 py-3 text-md font-medium text-gray-700 hover:text-[#EE3F4A] hover:bg-gray-50/50 transition-all duration-200 rounded-xl"
+    className="block px-5 py-3 text-md font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50/50 transition-all duration-200 rounded-xl"
   >
     {name}
   </Link>
@@ -80,9 +73,8 @@ const Navbar = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
-  // Scroll handler
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [setScrolled]);
@@ -113,35 +105,34 @@ const Navbar = () => {
                   href={`tel:${tel}`}
                   className="flex items-center gap-2 group"
                 >
-                  <div className="w-7 h-7 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#EE3F4A]/10 transition-colors duration-300">
-                    <FaPhoneVolume className="text-lg text-gray-600 group-hover:text-[#EE3F4A]" />
+                  <div className="w-7 h-7 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-blue-500/10 transition-colors duration-300">
+                    <FaPhoneVolume className="text-lg text-blue-500" />
                   </div>
-                  <span className="text-lg md:text-xl font-bold">
-                    
-                    Call Now : {display}
-                    </span>
+                  <span className="text-blue-500 text-lg md:text-xl font-bold">
+                    Call Now : <span className="text-black">{display}</span>
+                  </span>
                 </Link>
               ))}
             </div>
 
             <div className="flex items-center gap-1">
               <SocialIcon
-                icon={FaFacebookF}
+                icon="/fb.svg"
                 label="Facebook"
                 link="https://facebook.com"
               />
               <SocialIcon
-                icon={FaInstagram}
+                icon="/instagram.svg"
                 label="Instagram"
                 link="https://instagram.com"
               />
               <SocialIcon
-                icon={FaYoutube}
+                icon="/yt.svg"
                 label="Youtube"
                 link="https://youtube.com"
               />
               <SocialIcon
-                icon={FaLinkedin}
+                icon="/linkedin.svg"
                 label="LinkedIn"
                 link="https://linkedin.com"
               />
@@ -173,7 +164,7 @@ const Navbar = () => {
                     onMouseLeave={() => setServicesOpen(false)}
                   >
                     <button
-                      className={`flex items-center gap-2 text-md font-semibold transition-colors duration-300 ${servicesOpen ? "text-[#EE3F4A]" : "text-gray-900"}`}
+                      className={`flex items-center gap-2 text-md font-semibold transition-colors duration-300 ${servicesOpen ? "text-blue-500" : "text-gray-900"}`}
                     >
                       Services
                       <motion.span
@@ -216,26 +207,29 @@ const Navbar = () => {
               )}
 
               {/* Action Buttons */}
-                {getAllPhones().map(({ city, tel }) => (
-                  <div key={city} className="flex items-center gap-2 text-black px-3 py-1.5">
-                    <Link
-                      href={`tel:${tel}`}
-                      className="hover:scale-110 hover:bg-[#EE3F4A] hover:text-white transition-transform p-2 bg-white/20 rounded-full"
-                      title={`Call ${city}`}
-                    >
-                      <FaPhoneVolume className="text-2xl" />
-                    </Link>
-                    <Link
-                      href={`https://wa.me/${tel.replace(/[^0-9]/g, '')}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:scale-110 hover:bg-green-500 hover:text-white transition-transform p-2 bg-white/20 rounded-full"
-                      title={`WhatsApp ${city}`}
-                    >
-                      <FaWhatsapp className="text-2xl" />
-                    </Link>
-                  </div>
-                ))}
+              {getAllPhones().map(({ city, tel }) => (
+                <div
+                  key={city}
+                  className="flex items-center gap-2 text-black px-3 py-1.5"
+                >
+                  <Link
+                    href={`tel:${tel}`}
+                    className="hover:scale-110 hover:bg-blue-500 hover:text-white transition-transform p-2 bg-white/20 rounded-full"
+                    title={`Call ${city}`}
+                  >
+                    <FaPhoneVolume className="text-2xl" />
+                  </Link>
+                  <Link
+                    href={`https://wa.me/${tel.replace(/[^0-9]/g, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:scale-110 hover:bg-green-500 hover:text-white transition-transform p-2 bg-white/20 rounded-full"
+                    title={`WhatsApp ${city}`}
+                  >
+                    <FaWhatsapp className="text-2xl" />
+                  </Link>
+                </div>
+              ))}
             </nav>
 
             {/* Mobile Menu Toggle */}
@@ -244,7 +238,7 @@ const Navbar = () => {
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Open Mobile Menu"
             >
-              <TbMenu className="text-4xl cursor-pointer p-2 shadow shadow-[#EE3F4A] hover:shadow-lg rounded-full hover:scale-120 duration-600 transition text-black" />
+              <TbMenu className="text-4xl cursor-pointer p-2 shadow shadow-blue-500 hover:shadow-lg rounded-full hover:scale-120 duration-600 transition text-black" />
             </button>
           </div>
         </div>
@@ -280,7 +274,7 @@ const Navbar = () => {
               </motion.div>
               <RxCross1
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-4xl cursor-pointer p-2 shadow shadow-[#EE3F4A] hover:shadow-lg rounded-full hover:scale-120 duration-500 transition text-black"
+                className="text-4xl cursor-pointer p-2 shadow shadow-blue-500 hover:shadow-lg rounded-full hover:scale-120 duration-500 transition text-black"
               />
             </div>
 
@@ -290,7 +284,7 @@ const Navbar = () => {
                   <div key={index} className="flex flex-col">
                     <button
                       onClick={() => setMobileServicesOpen((o) => !o)}
-                      className="text-xl py-3 flex items-center justify-between font-bold transition text-left hover:translate-x-2 duration-500 hover:text-[#EE3F4A]"
+                      className="text-xl py-3 flex items-center justify-between font-bold transition text-left hover:translate-x-2 duration-500 hover:text-blue-500"
                     >
                       Services
                       <span className="text-lg">
@@ -313,7 +307,7 @@ const Navbar = () => {
                                 setMobileServicesOpen(false);
                                 setMobileMenuOpen(false);
                               }}
-                              className="block py-2 text-lg text-black hover:translate-x-2 duration-500 transition text-left hover:text-[#EE3F4A]"
+                              className="block py-2 text-lg text-black hover:translate-x-2 duration-500 transition text-left hover:text-blue-500"
                             >
                               {s.name}
                             </Link>
@@ -329,14 +323,14 @@ const Navbar = () => {
                       setMobileMenuOpen(false);
                       onNavigate?.[link.key]?.();
                     }}
-                    className="font-bold text-xl py-2 text-black hover:translate-x-2 duration-500 transition text-left hover:text-[#EE3F4A]"
+                    className="font-bold text-xl py-2 text-black hover:translate-x-2 duration-500 transition text-left hover:text-blue-500"
                   >
                     {link.name}
                   </button>
                 ),
               )}
             </nav>
-              <SocialLinks />
+            <SocialLinks />
           </motion.div>
         )}
       </AnimatePresence>

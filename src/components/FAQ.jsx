@@ -40,10 +40,7 @@ const FAQ = () => {
       : null;
 
   return (
-    <section
-      ref={faqRef}
-      className="max-w-8xl mx-auto px-6 lg:px-12 py-16"
-    >
+    <section ref={faqRef} className="max-w-8xl mx-auto px-6 lg:px-12 py-16">
       {faqSchema && (
         <script
           type="application/ld+json"
@@ -51,11 +48,11 @@ const FAQ = () => {
         />
       )}
       <SectionHeader
-  tag="FAQ"
-  titleStart="Frequently Asked"
-  highlight="Questions"
-  description="Quick answers to common questions about our appliance repair services."
-/>
+        tag="FAQ"
+        titleStart="Frequently Asked"
+        highlight="Questions"
+        description="Quick answers to common questions about our appliance repair services."
+      />
 
       <div className="mb-10 max-w-2xl mx-auto relative group">
         <input
@@ -63,7 +60,7 @@ const FAQ = () => {
           placeholder="Search questions..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full px-6 py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#EE3F4A]/20 focus:border-[#EE3F4A] text-black transition-all duration-300 shadow-sm group-hover:shadow-md"
+          className="w-full px-6 py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-black transition-all duration-300 shadow-sm group-hover:shadow-md"
           style={{ fontFamily: "'Inter',sans-serif" }}
         />
       </div>
@@ -84,13 +81,13 @@ const FAQ = () => {
                 aria-controls={`faq-answer-${index}`}
               >
                 <span
-                  className={`text-left pr-4 font-bold text-lg sm:text-base md:text-lg transition-colors duration-300 ${openIndex === index ? "text-[#EE3F4A]" : "text-gray-900 group-hover:text-[#EE3F4A]"}`}
+                  className={`text-left pr-4 font-bold text-lg sm:text-base md:text-lg transition-colors duration-300 ${openIndex === index ? "text-blue-500" : "text-gray-900 group-hover:text-blue-500"}`}
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {item.question}
                 </span>
                 <span
-                  className={`text-2xl shrink-0 transition-transform duration-300 ${openIndex === index ? "rotate-180 text-[#EE3F4A]" : "text-gray-400 group-hover:text-[#EE3F4A]"}`}
+                  className={`text-2xl shrink-0 transition-transform duration-300 ${openIndex === index ? "rotate-180 text-blue-500" : "text-gray-400 group-hover:text-blue-500"}`}
                 >
                   {openIndex === index ? "−" : "+"}
                 </span>

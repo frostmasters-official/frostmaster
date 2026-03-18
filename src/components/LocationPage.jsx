@@ -22,7 +22,7 @@ const LocationPage = ({ data, city, area }) => {
   if (!data) return null;
 
   return (
-    <div className="min-h-screen selection:bg-[#EE3F4A]">
+    <div className="min-h-screen selection:bg-blue-500">
       {/* Hero Section */}
       <section className="relative items-center justify-center pt-32 pb-20 px-4 md:px-10 lg:px-20 overflow-hidden">
         <div className="absolute inset-0 z-0" />
@@ -35,13 +35,13 @@ const LocationPage = ({ data, city, area }) => {
             <span className="text-[black] font-bold tracking-widest uppercase text-sm md:text-base mb-4 block">
               {city} &bull; {area.replace("-", " ")}
             </span>
-            <h1 
+            <h1
               className="text-[black] text-4xl md:text-6xl font-extrabold leading-tight mb-6"
               style={{ fontFamily: "'Montserrat',sans-serif" }}
             >
               {data.h1}
             </h1>
-            <p 
+            <p
               className="text-[black] text-lg md:text-xl leading-relaxed mb-8 text-justify"
               style={{ fontFamily: "'Inter',sans-serif" }}
             >
@@ -49,7 +49,7 @@ const LocationPage = ({ data, city, area }) => {
             </p>
             <a
               href={`tel:${getPhoneForCity(city).tel}`}
-              className="inline-flex items-center gap-2 bg-[#EE3F4A] text-black px-8 py-4 rounded-full text-xl font-bold hover:scale-105 transition-transform duration-300"
+              className="inline-flex items-center gap-2 bg-blue-500 text-black px-8 py-4 rounded-full text-xl font-bold hover:scale-105 transition-transform duration-300"
               style={{ fontFamily: "'Montserrat',sans-serif" }}
               title={`Call ${getPhoneForCity(city).city}`}
             >
@@ -67,7 +67,7 @@ const LocationPage = ({ data, city, area }) => {
           <div className="lg:col-span-2 space-y-12">
             {/* Intro */}
             <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
-              <h2 
+              <h2
                 className="text-3xl font-bold mb-6 text-[black]"
                 style={{ fontFamily: "'Montserrat',sans-serif" }}
               >
@@ -81,7 +81,7 @@ const LocationPage = ({ data, city, area }) => {
             {/* Local Relevance */}
             <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
               <div className="flex items-center gap-4 mb-6">
-                <MapPin className="w-8 h-8 text-[#EE3F4A]" />
+                <MapPin className="w-8 h-8 text-blue-500" />
                 <h2 className="text-3xl font-bold">
                   Serving {area.replace(/-/g, " ")}
                 </h2>
@@ -104,9 +104,9 @@ const LocationPage = ({ data, city, area }) => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: idx * 0.1 }}
-                      className="p-6 rounded-xl bg-gray-50 border border-gray-100 hover:border-[#EE3F4A]/50 transition-colors"
+                      className="p-6 rounded-xl bg-gray-50 border border-gray-100 hover:border-blue-500/50 transition-colors"
                     >
-                      <CheckCircle className="w-8 h-8 text-[#EE3F4A] mb-4" />
+                      <CheckCircle className="w-8 h-8 text-blue-500 mb-4" />
                       <h3 className="text-xl font-bold mb-2">{title}</h3>
                       <p className="text-[black] text-justify">{desc}</p>
                     </motion.div>
@@ -119,7 +119,7 @@ const LocationPage = ({ data, city, area }) => {
           {/* Right Column: Sidebar */}
           <div className="lg:col-span-1 space-y-8">
             {/* Services List */}
-            <div className="bg-[#EE3F4A] text-black p-8 rounded-2xl">
+            <div className="bg-blue-500 text-black p-8 rounded-2xl">
               <h3 className="text-2xl font-bold mb-6 font-main">
                 Services Offered
               </h3>
@@ -154,7 +154,7 @@ const LocationPage = ({ data, city, area }) => {
                 </a>
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center gap-3 w-full border border-[black] text-[black] py-3 rounded-lg font-bold hover:bg-[#EE3F4A]/10 transition"
+                  className="flex items-center justify-center gap-3 w-full border border-[black] text-[black] py-3 rounded-lg font-bold hover:bg-blue-500/10 transition"
                 >
                   <Clock className="w-5 h-5" />
                   Book Online
@@ -164,7 +164,7 @@ const LocationPage = ({ data, city, area }) => {
 
             {/* Trust Signals */}
             <div className="p-8 rounded-2xl bg-[black]/10 border border-[black]/20">
-              <ShieldCheck className="w-12 h-12 text-[#EE3F4A] mb-4" />
+              <ShieldCheck className="w-12 h-12 text-blue-500 mb-4" />
               <h3 className="text-xl font-bold mb-2">Verified Professionals</h3>
               <p className="text-[black] italic text-justify">
                 "{data.content.trustSignals}"
@@ -188,7 +188,7 @@ const LocationPage = ({ data, city, area }) => {
             {data.keywords?.map((kw, idx) => (
               <span
                 key={idx}
-                className="text-xs md:text-sm text-[black] bg-white border border-[black]/10 px-3 py-1.5 rounded-full shadow-sm hover:border-[#EE3F4A]/50 transition-colors"
+                className="text-xs md:text-sm text-[black] bg-white border border-[black]/10 px-3 py-1.5 rounded-full shadow-sm hover:border-blue-500/50 transition-colors"
               >
                 {kw}
               </span>

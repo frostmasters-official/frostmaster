@@ -34,19 +34,10 @@ const Extra = () => {
 
   return (
     <div>
-      <section
-        className="relative overflow-hidden py-16"
-        
-      >
+      <section className="relative overflow-hidden py-16">
         {/* subtle corner accents */}
-        <div
-          className="pointer-events-none absolute top-0 left-0 w-64 h-64"
-          
-        />
-        <div
-          className="pointer-events-none absolute bottom-0 right-0 w-64 h-64"
-          
-        />
+        <div className="pointer-events-none absolute top-0 left-0 w-64 h-64" />
+        <div className="pointer-events-none absolute bottom-0 right-0 w-64 h-64" />
 
         <div className="relative z-10 px-6 lg:px-12">
           {/* Heading */}
@@ -74,8 +65,8 @@ const Extra = () => {
               >
                 {/* Hover lime fill from bottom */}
                 <div
-                  className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"
-                  style={{ background: "black", borderRadius: "16px" }}
+                  className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out bg-blue-500"
+                  style={{ borderRadius: "16px" }}
                 />
 
                 {/* Icon */}
@@ -86,7 +77,7 @@ const Extra = () => {
                     border: "1px solid rgba(182,245,0,0.3)",
                   }}
                 >
-                  <Icon className="w-6 h-6 transition-colors duration-300 text-[black] group-hover:text-[#EE3F4A]" />
+                  <Icon className="w-6 h-6 transition-colors duration-300 text-[black] group-hover:text-white" />
                 </div>
 
                 {/* Title */}
@@ -115,8 +106,8 @@ const Extra = () => {
 
                 {/* Lime accent line bottom */}
                 <div
-                  className="absolute bottom-0 left-8 right-8 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                  style={{ background: "#EE3F4A" }}
+                  className="absolute bottom-4 left-8 right-8 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left bg-white"
+                  
                 />
               </motion.div>
             ))}
@@ -140,10 +131,8 @@ const Extra = () => {
       </section>
 
       <section
-        className="relative overflow-hidden py-16"
-        style={{
-          background: "linear-gradient(110deg,black 0%,#0a0f1e 100%)",
-        }}
+        className="relative overflow-hidden py-16 bg-gray-300"
+        
       >
         {/* Lime glow */}
         <div
@@ -156,10 +145,10 @@ const Extra = () => {
         {/* Diagonal stripe accent */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(45deg,#EE3F4A 0px,#EE3F4A 1px,transparent 1px,transparent 40px)",
-          }}
+          // style={{
+          //   backgroundImage:
+          //     "repeating-linear-gradient(45deg,#EE3F4A 0px,#EE3F4A 1px,transparent 1px,transparent 40px)",
+          // }}
         />
 
         <div className="relative z-10 px-6 lg:px-12">
@@ -173,7 +162,7 @@ const Extra = () => {
             {/* Left text */}
             <div>
               <p
-                className="text-[#EE3F4A] uppercase tracking-[0.35em] mb-2"
+                className="text-blue-500 uppercase tracking-[0.35em] mb-2"
                 style={{
                   fontFamily: "'Inter',sans-serif",
                   fontSize: "0.62rem",
@@ -190,7 +179,7 @@ const Extra = () => {
               >
                 Book An
                 <br />
-                <span style={{ color: "#EE3F4A" }}>Appointment</span>
+                <span className="text-blue-500">Appointment</span>
               </h3>
             </div>
 
@@ -198,14 +187,14 @@ const Extra = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <a
                 href="tel:+916282450300"
-                className="group relative overflow-hidden flex items-center gap-3 rounded-full font-bold transition-all duration-300"
+                className="group relative overflow-hidden flex items-center gap-3 rounded-full font-bold transition-all duration-300 bg-blue-500  hover:text-white" 
                 style={{
-                  background: "#EE3F4A",
+                  
                   padding: "14px 32px",
                   fontFamily: "'Montserrat',sans-serif",
                   fontSize: "1.05rem",
                   letterSpacing: "0.05em",
-                  color: "black",
+                  
                   boxShadow: "0 0 0 0 rgba(182,245,0,0.4)",
                 }}
                 onMouseEnter={(e) =>

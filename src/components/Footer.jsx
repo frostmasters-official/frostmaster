@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { memo, useContext, useMemo } from "react";
 import { motion } from "framer-motion";
@@ -39,11 +39,10 @@ const Footer = () => {
   }, [pathname]);
 
   return (
-    <footer className="bg-black text-white pt-20 pb-10">
+    <footer className=" bg-gray-100 text-black pt-20 pb-10">
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-14 text-left items-start">
-
           {/* Column 1 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -58,12 +57,12 @@ const Footer = () => {
               <Image
                 src={image}
                 alt="Frost Masters Logo"
-                className="w-64 h-14 brightness-0 invert"
+                className="w-64 h-14"
               />
             </Link>
 
             <p
-              className="text-white/70 leading-relaxed text-base max-w-md"
+              className="text-black/70 leading-relaxed text-base max-w-md"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               Premium home appliance repair in Eranakulam & Kochi. Expert
@@ -71,16 +70,15 @@ const Footer = () => {
             </p>
 
             <div className="space-y-5">
-
               {/* Email */}
               <div className="flex items-center gap-4 group">
-                <div className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#EE3F4A]/50 transition-colors">
-                  <FaRegEnvelope className="h-5 w-5 text-[#EE3F4A]" />
+                <div className="w-11 h-11 rounded-full bg-black/5 flex items-center justify-center border border-black/10 group-hover:border--blue-500/50 transition-colors">
+                  <FaRegEnvelope className="h-5 w-5 text--blue-500" />
                 </div>
 
                 <Link
                   href="mailto:info@frostmasters.com"
-                  className="text-white/80 hover:text-white transition-colors text-base font-medium"
+                  className="text-black/80 hover:text-black transition-colors text-base font-medium"
                 >
                   info@frostmasters.com
                 </Link>
@@ -88,8 +86,8 @@ const Footer = () => {
 
               {/* Phone */}
               <div className="flex items-center gap-4 group">
-                <div className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#EE3F4A]/50 transition-colors">
-                  <LuPhone className="h-5 w-5 text-[#EE3F4A]" />
+                <div className="w-11 h-11 rounded-full bg-black/5 flex items-center justify-center border border-black/10 group-hover:border--blue-500/50 transition-colors">
+                  <LuPhone className="h-5 w-5 text--blue-500" />
                 </div>
 
                 <div className="flex flex-col">
@@ -99,13 +97,13 @@ const Footer = () => {
                       <Link
                         key={tel}
                         href={`tel:${tel}`}
-                        className="text-white hover:text-white transition-colors text-lg font-bold"
+                        className="text-black/80 hover:text-black transition-colors text-lg font-bold"
                       >
                         {displayFull}
                       </Link>
                     ))}
 
-                  <span className="text-white/50 text-sm uppercase tracking-wider">
+                  <span className="text-black/50 text-sm uppercase tracking-wider">
                     Primary Support
                   </span>
                 </div>
@@ -113,11 +111,11 @@ const Footer = () => {
 
               {/* Address */}
               <div className="flex items-start gap-4 group">
-                <div className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#EE3F4A]/50 transition-colors mt-1">
-                  <FaAddressBook className="h-5 w-5 text-[#EE3F4A]" />
+                <div className="w-11 h-11 rounded-full bg-black/5 flex items-center justify-center border border-black/10 group-hover:border--blue-500/50 transition-colors mt-1">
+                  <FaAddressBook className="h-5 w-5 text--blue-500" />
                 </div>
 
-                <p className="text-white/70 text-base leading-relaxed max-w-[280px]">
+                <p className="text-black/70 text-base leading-relaxed max-w-[280px]">
                   30/282 Pavamkulangara Jn, Tripurathura po, Puthiyakavu,
                   Eranakulam, India - 682301
                 </p>
@@ -147,7 +145,7 @@ const Footer = () => {
             className="lg:col-span-2 flex flex-col gap-6"
           >
             <h3
-              className="text-[#EE3F4A] font-bold uppercase tracking-[0.18em] text-md"
+              className="text--blue-500 font-bold uppercase tracking-[0.18em] text-md"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               Quick Links
@@ -158,7 +156,7 @@ const Footer = () => {
                 <li key={link.key}>
                   <button
                     onClick={() => onNavigate?.[link.key]?.()}
-                    className="text-white/70 hover:text-[#EE3F4A] transition-all duration-300 text-base font-medium hover:translate-x-1 inline-block text-left"
+                    className="text-black/70 hover:text--blue-500 transition-all duration-300 text-base font-medium hover:translate-x-1 inline-block text-left"
                   >
                     {link.name}
                   </button>
@@ -183,12 +181,10 @@ const Footer = () => {
         <SocialLinks />
 
         {/* Bottom */}
-        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-center gap-6">
-          <p className="text-white/50 text-sm font-medium tracking-wide">
+        <div className="pt-10 border-t border-black/5 flex flex-col md:flex-row items-center justify-center gap-6">
+          <p className="text-black/50 text-sm font-medium tracking-wide">
             &copy; {currentYear} FROST MASTERS. ALL RIGHTS RESERVED.
           </p>
-
-          
         </div>
       </div>
     </footer>
@@ -203,7 +199,7 @@ const FooterColumn = ({ title, items, delay }) => (
     className="flex flex-col gap-6"
   >
     <h3
-      className="text-[#EE3F4A] font-bold uppercase tracking-[0.18em] text-md"
+      className="text--blue-500 font-bold uppercase tracking-[0.18em] text-md"
       style={{ fontFamily: "'Montserrat', sans-serif" }}
     >
       {title}
@@ -214,7 +210,7 @@ const FooterColumn = ({ title, items, delay }) => (
         <li key={index}>
           <Link
             href={item.path}
-            className="text-white/70 hover:text-[#EE3F4A] transition-all duration-300 text-base font-medium hover:translate-x-1 inline-block"
+            className="text-black/70 hover:text--blue-500 transition-all duration-300 text-base font-medium hover:translate-x-1 inline-block"
           >
             {item.label}
           </Link>

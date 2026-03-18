@@ -21,7 +21,7 @@ export default function SectionHeader({
       {/* Top Label */}
       {tag && (
         <div className="flex items-center justify-center gap-3 mb-2">
-          <span className="h-px w-10 bg-[#EE3F4A]/60" />
+          <span className="h-px w-10 bg-blue-500/60" />
           <span
             className="uppercase tracking-[0.35em]"
             style={{
@@ -32,7 +32,7 @@ export default function SectionHeader({
           >
             {tag}
           </span>
-          <span className="h-px w-10 bg-[#EE3F4A]/60" />
+          <span className="h-px w-10 bg-blue-500/60" />
         </div>
       )}
 
@@ -43,11 +43,10 @@ export default function SectionHeader({
           fontFamily: "'Montserrat',sans-serif",
           fontSize: "clamp(2.3rem,5vw,3.5rem)",
           color: "#000",
-          lineHeight:"1.4"
+          lineHeight: "1.4",
         }}
       >
-        {titleStart}{" "}
-        <span style={{ color: "#EE3F4A" }}>{highlight}</span>
+        {titleStart} <span className="text-blue-500">{highlight}</span>
       </h2>
 
       {/* Description */}
