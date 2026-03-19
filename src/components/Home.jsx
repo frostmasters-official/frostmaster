@@ -124,7 +124,7 @@ const BgLayer = memo(function BgLayer({ slide, isActive, direction }) {
             className="absolute inset-0 hidden md:block"
             style={{
               backgroundImage: `url(${desktopSrc})`,
-              backgroundSize: "fit",
+              backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           />
