@@ -225,7 +225,7 @@ export default function PrivacyPolicy() {
                 color: "black",
               }}
             >
-              Privacy <span style={{ color: "#EE3F4A" }}>Policy</span>
+              Privacy <span className="text-blue-500">Policy</span>
             </h1>
             <p className="text-gray-500 font-medium">
               Last Updated: March 2026
@@ -278,7 +278,7 @@ export default function PrivacyPolicy() {
                 color: "black",
               }}
             >
-              Contact <span style={{ color: "#EE3F4A" }}>Us</span>
+              Contact <span className="text-blue-500">Us</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
               <div className="space-y-6">
