@@ -21,10 +21,10 @@ import fridge from "../../public/cover/fridgeBanner.webp";
 import oven from "../../public/cover/ovenBanner.webp";
 import washingMachine from "../../public/cover/washBanner.webp";
 
-import AC_cropped from "../../public/cover/acBanner.webp";
-import fridge_cropped from "../../public/cover/fridgeBanner.webp";
-import washingMachine_cropped from "../../public/cover/washBanner.webp";
-import oven_cropped from "../../public/cover/ovenBanner.webp";
+import AC_cropped from "../../public/cover/acCropped.webp";
+import fridge_cropped from "../../public/cover/fridgeCropped.webp";
+import washingMachine_cropped from "../../public/cover/washCropped.webp";
+import oven_cropped from "../../public/cover/ovenCropped.webp";
 
 gsap.registerPlugin(Observer);
 
