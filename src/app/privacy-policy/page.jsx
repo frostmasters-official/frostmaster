@@ -283,22 +283,6 @@ export default function PrivacyPolicy() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
               <div className="space-y-6">
                 <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100 transition-transform hover:-translate-y-1">
-                  <div className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white">
-                    <Globe className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 font-bold uppercase tracking-wider">
-                      Website
-                    </p>
-                    <a
-                      href="https://www.frostmasters.com"
-                      className="font-bold hover:text-blue-500"
-                    >
-                      www.frostmasters.com
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100 transition-transform hover:-translate-y-1">
                   <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white">
                     <Mail className="w-6 h-6" />
                   </div>
