@@ -64,7 +64,7 @@ const slides = [
   },
 ];
 
-const CITIES = ["Eranakulam", "Kochi", "Trissur", "Kottayam"];
+const CITIES = ["Kochi", "Trissur", "Kottayam"];
 
 const SLIDE_DURATION = 5;
 const TRANSITION_DURATION = 1.0;

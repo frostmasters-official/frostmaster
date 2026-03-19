@@ -44,7 +44,7 @@ const Contact = ({ isModal = false }) => {
     contactSubmitting,
   } = useContext(myContext);
 
-  const cityOptions = ["Eranakulam", "Kochi", "Trissur", "Kottayam"];
+  const cityOptions = ["Kochi", "Trissur", "Kottayam"];
 
   return (
     <section
