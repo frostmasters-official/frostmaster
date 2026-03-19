@@ -4,6 +4,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Contact from "./Contact";
+import SectionHeader from "./SectionHeader";
 
 const BookingModal = ({ isOpen, onClose }) => {
   return (
@@ -58,19 +59,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                 overflow-y-auto
               "
             >
-              {/* CONTENT */}
-              <div className="pt-12 pb-6 px-4">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl md:text-2xl font-extrabold text-[#111B34]">
-                    Book Your Service Now!
-                  </h3>
-                  <p className="text-gray-500 text-sm mt-1">
-                    Get expert appliance repair in minutes.
-                  </p>
-                </div>
-
-                <Contact isModal={true} />
-              </div>
+              <Contact isModal={true} />
             </motion.div>
           </div>
         </div>

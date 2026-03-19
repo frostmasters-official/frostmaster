@@ -55,17 +55,17 @@ export const ContextProvider = ({ children }) => {
     {
       question: "What services does Frost Masters offer?",
       answer:
-        "We provide home appliance services, including washing machine service, AC service, fridge service, water heater service, geyser, microwave oven, dishwasher, chimney cleaning, and water purifier service.",
+        "We are provide repair and service only for fridge ,washing machines,AC and microwave oven.",
     },
     {
       question: "How can I book a service with Frost Masters?",
       answer:
-        "You can book by visiting our website, filling the contact form, or calling your city number: Eranakulam 6282450300 or Eranakulam 6282450300. We confirm the slot and send a technician to your doorstep.",
+        "You can book by visiting our website, filling the contact form, or calling your city number: Eranakulam 6282450300. We confirm the slot and send a technician to your doorstep.",
     },
     {
       question: "What is the service response time?",
       answer:
-        "Our standard response time is within 24 hours. Same-day or next-day slots are available based on your area. Emergency requests are prioritised where possible.",
+        "Our standard response time is within an hour. Same-day or next-day slots are available based on your area. Emergency requests are prioritised where possible.",
     },
     {
       question: "Are your technicians experienced and safe?",
@@ -80,22 +80,22 @@ export const ContextProvider = ({ children }) => {
     {
       question: "Do you provide service for all appliance brands?",
       answer:
-        "Yes. We support major brands including LG, Samsung, Whirlpool, IFB, Godrej, Panasonic, Bosch, Daikin, Voltas, and other popular makes. Brand-specific expertise is available for complex repairs.",
+        "Yes. We support major brands. Brand-specific expertise is available for complex repairs.",
     },
     {
       question: "Which areas do you cover?",
       answer:
-        "We serve Eranakulam and Eranakulam with multiple localities in each city. You can check our location pages for your area. Service is doorstep—our technician comes to your home or office.",
+        "We serve Ernakulam or kochi,Alappuzha ,Kottayam and Thrisur. You can check our location pages for your area. Service is doorstep - our technician comes to your home or office.",
     },
     {
       question: "What are the charges for visit and repair?",
       answer:
-        "We have a nominal visit/inspection charge. Repair cost depends on the fault and parts required. You get a clear estimate after inspection; work starts only after your approval. No hidden charges.",
+        "We have a Inspection charge Rs.500. Repair cost depends on the fault and parts required. You get a clear estimate after inspection; work starts only after your approval. No hidden charges.",
     },
     {
       question: "Do you provide warranty on repairs?",
       answer:
-        "Yes. We offer a 30-day service warranty on labour. Spare parts come with 3–6 months warranty depending on the component. Warranty is void if the appliance is tampered with by another party.",
+        "Yes. We offer a 30-day service warranty on labour. No spare warranty. Warranty is void if the appliance is tampered with by another party.",
     },
     {
       question: "What payment methods do you accept?",
