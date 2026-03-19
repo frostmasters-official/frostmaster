@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { CheckCircle, Users, Zap, ShieldCheck, Award } from "lucide-react";
-import all from "../../public/service/all.jpg";
+import all from "../../public/service/all.webp";
 import SectionHeader from "./SectionHeader";
 import Link from "next/link";
 import Extra from "./Extra";
@@ -35,15 +35,9 @@ const features = [
 const AboutUs = () => {
   return (
     <>
-      <section
-        id="about"
-        className="relative overflow-hidden py-20"
-      >
+      <section id="about" className="relative overflow-hidden py-20">
         {/* Soft radial accents */}
-        <div
-          className="pointer-events-none absolute top-[-10%] right-[-5%] w-[600px] h-[600px]"
-          
-        />
+        <div className="pointer-events-none absolute top-[-10%] right-[-5%] w-[600px] h-[600px]" />
         <div
           className="pointer-events-none absolute bottom-[-5%] left-[-5%] w-[500px] h-[500px]"
           style={{

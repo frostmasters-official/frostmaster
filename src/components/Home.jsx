@@ -16,15 +16,15 @@ import { getAllPhones } from "@/data/contact";
 import { FaLocationDot } from "react-icons/fa6";
 import { myContext } from "@/context/myContext";
 
-import AC from "../../public/cover/acBanner.png";
-import fridge from "../../public/cover/fridgeBanner.png";
-import oven from "../../public/cover/ovenBanner.png";
-import washingMachine from "../../public/cover/washBanner.png";
+import AC from "../../public/cover/acBanner.webp";
+import fridge from "../../public/cover/fridgeBanner.webp";
+import oven from "../../public/cover/ovenBanner.webp";
+import washingMachine from "../../public/cover/washBanner.webp";
 
-import AC_cropped from "../../public/cover/acBanner.png";
-import fridge_cropped from "../../public/cover/fridgeBanner.png";
-import washingMachine_cropped from "../../public/cover/washBanner.png";
-import oven_cropped from "../../public/cover/ovenBanner.png";
+import AC_cropped from "../../public/cover/acBanner.webp";
+import fridge_cropped from "../../public/cover/fridgeBanner.webp";
+import washingMachine_cropped from "../../public/cover/washBanner.webp";
+import oven_cropped from "../../public/cover/ovenBanner.webp";
 
 gsap.registerPlugin(Observer);
 
@@ -124,7 +124,7 @@ const BgLayer = memo(function BgLayer({ slide, isActive, direction }) {
             className="absolute inset-0 hidden md:block"
             style={{
               backgroundImage: `url(${desktopSrc})`,
-              backgroundSize: "cover",
+              backgroundSize: "fit",
               backgroundPosition: "center",
             }}
           />
