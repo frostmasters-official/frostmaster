@@ -164,7 +164,7 @@ const Services = () => {
             <div
               key={slug}
               className={index === 0 ? "sm:col-span-2" : ""}
-              style={{ height: index === 0 ? "360px" : "240px" }}
+              style={{ height: "360px" }}
             >
               <ServiceCard
                 slug={slug}

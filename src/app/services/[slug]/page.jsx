@@ -90,13 +90,12 @@ export default async function ServicePage({ params }) {
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Eranakulam",
-                addressRegion: "Tamil Nadu",
-                postalCode: "600119",
+                addressRegion: "Kerala",
+                postalCode: "682011",
                 addressCountry: "IN",
               },
             },
             areaServed: [
-              { "@type": "Place", name: "Eranakulam" },
               { "@type": "Place", name: "Eranakulam" },
             ],
             url,

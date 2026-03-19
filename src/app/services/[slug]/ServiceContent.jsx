@@ -57,7 +57,7 @@ export default function ServiceContent({ service, cityName }) {
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent lg:via-black/40" />
+          <div className="absolute inset-0 bg-black/60 lg:via-black/80" />
         </div>
 
         <div className="relative z-10 max-w-8xl mx-auto px-6 lg:px-12 w-full">
@@ -159,19 +159,19 @@ export default function ServiceContent({ service, cityName }) {
           <div className="lg:col-span-4 flex flex-col gap-6">
             {/* Genuine Parts Tile */}
             <motion.div
-              className="group relative overflow-hidden bg-black rounded-[2.5rem] p-8 h-full flex flex-col justify-between min-h-[220px]"
+              className="group relative overflow-hidden bg-white rounded-[2.5rem] p-8 h-full flex flex-col justify-between min-h-[220px] shadow-md"
               {...fadeUp(0.2)}
             >
               <div className="relative z-10">
                 <span className="text-blue-500 text-[9px] font-black uppercase tracking-[0.4em] mb-2 block">
                   Premium Standard
                 </span>
-                <h4 className="text-white font-black text-2xl leading-tight">
+                <h4 className="text-black font-black text-2xl leading-tight">
                   100% Genuine <br /> Spare Parts
                 </h4>
               </div>
-              <Settings className="absolute -bottom-10 -right-10 w-40 h-40 text-white/10 group-hover:rotate-90 transition-transform duration-1000" />
-              <div className="relative z-10 text-white/40 text-[10px] font-bold uppercase tracking-widest mt-4">
+              <Settings className="absolute -bottom-10 -right-10 w-40 h-40 text-black/10 group-hover:rotate-90 transition-transform duration-1000" />
+              <div className="relative z-10 text-black/40 text-[10px] font-bold uppercase tracking-widest mt-4">
                 Authorized Brands Only
               </div>
             </motion.div>
