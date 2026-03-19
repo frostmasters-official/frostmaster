@@ -37,15 +37,12 @@ const AboutUs = () => {
     <>
       <section
         id="about"
-        className="relative overflow-hidden py-20 bg-[#fafafa]"
+        className="relative overflow-hidden py-20"
       >
         {/* Soft radial accents */}
         <div
           className="pointer-events-none absolute top-[-10%] right-[-5%] w-[600px] h-[600px]"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(182,245,0,0.08) 0%, transparent 70%)",
-          }}
+          
         />
         <div
           className="pointer-events-none absolute bottom-[-5%] left-[-5%] w-[500px] h-[500px]"
