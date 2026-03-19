@@ -6,7 +6,7 @@ export const metadata = {
   title:
     "FrostMasters - Washing Machine, AC & Fridge Repair | Eranakulam 6282450300",
   description:
-    "Expert washing machine, AC and fridge repair in Eranakulam (6282450300). Same-day doorstep repair for LG, Samsung, Bosch, IFB. Genuine parts, skilled technicians. www.frostmasters.com",
+    "Expert washing machine, AC and fridge repair in Eranakulam (6282450300). Genuine parts, skilled technicians. www.frostmasters.com",
   keywords:
     "washing machine service center in Eranakulam, washing machine service in Eranakulam, washing machine repair in Eranakulam, washing machine service near me, washing machine service in Eranakulam, fridge service center in Eranakulam, ac service in Eranakulam, ac repair in Eranakulam, service center in Eranakulam, FrostMasters, Eranakulam 6282450300, Eranakulam 6282450300, same day appliance repair",
   authors: [{ name: "FrostMasters Team", url: "https://www.FrostMasters.com" }],
@@ -32,7 +32,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.FrostMasters.com/logo1.webp",
+        url: "https://www.FrostMasters.com/apple-touch-icon.png",
         width: 1200,
         height: 630,
         alt: "FrostMasters - Washing Machine, AC, Fridge Repair in Eranakulam",
@@ -79,31 +79,25 @@ export default function RootLayout({ children }) {
               image: "https://www.FrostMasters.com/logo1.webp",
               url: "https://www.FrostMasters.com",
               description:
-                "Expert washing machine service, AC repair and fridge repair in Eranakulam (6282450300). Same-day doorstep repair for LG, Samsung, Bosch, IFB.",
+                "Expert washing machine service, AC repair and fridge repair in Eranakulam (6282450300).",
               telephone: "+916282450300",
-              priceRange: "₹199 to ₹399",
+              priceRange: "₹400 to ₹500",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "Sholinganallur, OMR",
+                streetAddress: "Eranakulam ",
                 addressLocality: "Eranakulam",
-                addressRegion: "Tamil Nadu",
-                postalCode: "600119",
+                addressRegion: "Kerala",
+                postalCode: "682011",
                 addressCountry: "IN",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: 12.9063,
-                longitude: 80.2282,
               },
               areaServed: [
                 { "@type": "City", name: "Eranakulam" },
-                { "@type": "City", name: "Eranakulam" },
-                { "@type": "Place", name: "Sholinganallur" },
-                { "@type": "Place", name: "Navalur" },
-                { "@type": "Place", name: "Medavakkam" },
-                { "@type": "Place", name: "Perumbakkam" },
-                { "@type": "Place", name: "OMR" },
-                { "@type": "Place", name: "Tambaram" },
+                { "@type": "City", name: "Kochi" },
+                { "@type": "Place", name: "Kakkanad" },
+                { "@type": "Place", name: "Edappally" },
+                { "@type": "Place", name: "Vyttila" },
+                { "@type": "Place", name: "Palarivattom" },
+                { "@type": "Place", name: "Kaloor" },
               ],
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
