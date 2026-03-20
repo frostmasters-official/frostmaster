@@ -23,7 +23,7 @@ const Footer = () => {
   const { filteredLinks, onNavigate, pathname } = useContext(myContext);
   const currentYear = new Date().getFullYear();
 
-  const path = usePathname()
+  const path = usePathname();
 
   const currentServiceSlug = useMemo(() => {
     if (!pathname || !pathname.startsWith("/services/")) return null;
@@ -159,7 +159,10 @@ const Footer = () => {
                 ?.filter(
                   (link) =>
                     !(
-                      path.startsWith("/services") || path.startsWith("/terms-and-conditions") || path.startsWith("/privacy-policy ") && link.key === "services"
+                      link.key === "services" &&
+                      (path.startsWith("/services") ||
+                        path.startsWith("/terms-and-conditions") ||
+                        path.startsWith("/privacy-policy"))
                     ),
                 )
                 .map((link) => (
