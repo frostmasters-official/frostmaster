@@ -489,14 +489,14 @@ const Contact = ({ isModal }) => {
                         rel="noopener noreferrer"
                         className="group flex items-start gap-4"
                       >
-                        <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-200">
-                          <Icon size={17} className="text-blue-200" />
+                        <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center group-hover:bg-white transition-colors duration-200">
+                          <Icon size={17} className="text-blue-200 group-hover:text-blue-500" />
                         </span>
                         <div className="min-w-0 pt-0.5">
-                          <p className="text-black text-[10px] font-extrabold uppercase tracking-[0.15em] mb-0.5">
+                          <p className="text-white/60 text-[10px] font-extrabold uppercase tracking-[0.15em] mb-0.5">
                             {title}
                           </p>
-                          <p className="text-white text-sm font-semibold leading-snug break-words group-hover:text-blue-100 transition-colors">
+                          <p className="text-white text-md font-semibold leading-snug break-words group-hover:text-blue-100 transition-colors">
                             {value}
                           </p>
                         </div>

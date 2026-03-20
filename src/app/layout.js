@@ -8,7 +8,7 @@ export const metadata = {
   description:
     "Expert washing machine, AC and fridge repair in Eranakulam (6282450300). Genuine parts, skilled technicians. www.frostmasters.com",
   keywords:
-    "washing machine service center in Eranakulam, washing machine service in Eranakulam, washing machine repair in Eranakulam, washing machine service near me, washing machine service in Eranakulam, fridge service center in Eranakulam, ac service in Eranakulam, ac repair in Eranakulam, service center in Eranakulam, FrostMasters, Eranakulam 6282450300, Eranakulam 6282450300, same day appliance repair",
+    "washing machine service center in Eranakulam, washing machine service in Eranakulam, washing machine repair in Eranakulam, washing machine service near me, washing machine service in Eranakulam, fridge service center in Eranakulam, ac service in Eranakulam, ac repair in Eranakulam, service center in Eranakulam, FrostMasters, same day appliance repair",
   authors: [{ name: "FrostMasters Team", url: "https://www.FrostMasters.com" }],
   creator: "FrostMasters",
   publisher: "FrostMasters",
