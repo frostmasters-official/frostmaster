@@ -17,10 +17,13 @@ import {
   parseServiceInCitySlug,
 } from "@/data/contact";
 import serviceData from "@/components/data/serviceData";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const { filteredLinks, onNavigate, pathname } = useContext(myContext);
   const currentYear = new Date().getFullYear();
+
+  const path = usePathname()
 
   const currentServiceSlug = useMemo(() => {
     if (!pathname || !pathname.startsWith("/services/")) return null;
@@ -152,16 +155,23 @@ const Footer = () => {
             </h3>
 
             <ul className="flex flex-col gap-4">
-              {filteredLinks?.map((link) => (
-                <li key={link.key}>
-                  <button
-                    onClick={() => onNavigate?.[link.key]?.()}
-                    className="text-black/70 hover:text--blue-500 transition-all duration-300 text-base font-medium hover:translate-x-1 inline-block text-left"
-                  >
-                    {link.name}
-                  </button>
-                </li>
-              ))}
+              {filteredLinks
+                ?.filter(
+                  (link) =>
+                    !(
+                      path.startsWith("/services") && link.key === "services"
+                    ),
+                )
+                .map((link) => (
+                  <li key={link.key}>
+                    <button
+                      onClick={() => onNavigate?.[link.key]?.()}
+                      className="text-black/70 hover:text-blue-500 transition-all duration-300 text-base font-medium hover:translate-x-1 inline-block text-left"
+                    >
+                      {link.name}
+                    </button>
+                  </li>
+                ))}
             </ul>
           </motion.div>
 
