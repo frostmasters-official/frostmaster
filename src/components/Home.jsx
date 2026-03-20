@@ -419,7 +419,7 @@ const Home = ({ homeRef }) => {
                     className="text-white font-black uppercase leading-[1.1] block py-2"
                     style={{
                       fontFamily: "'Montserrat',sans-serif",
-                      fontSize: "clamp(3.2rem,9vw,5rem)",
+                      fontSize: "clamp(2rem,9vw,5rem)",
                       textShadow: "0 4px 30px rgba(0,0,0,0.35)",
                     }}
                     initial={{ y: "104%", opacity: 0 }}

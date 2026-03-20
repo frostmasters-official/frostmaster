@@ -10,7 +10,7 @@ const BookingModal = ({ isOpen, onClose }) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-6 sm:px-8">
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 sm:px-8">
           {/* BACKDROP */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -29,8 +29,8 @@ const BookingModal = ({ isOpen, onClose }) => {
               className="
                 absolute
                 -top-6
-                right-0
-                translate-x-1/2
+                left-1/2
+                -translate-x-1/2
                 z-50
                 p-2.5
                 rounded-full
@@ -53,7 +53,7 @@ const BookingModal = ({ isOpen, onClose }) => {
               transition={{ duration: 0.25, ease: "easeOut" }}
               className="
                 bg-white
-                rounded-2xl
+                rounded-xl
                 shadow-2xl
                 max-h-[90vh]
                 overflow-y-auto

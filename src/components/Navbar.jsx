@@ -106,9 +106,9 @@ const Navbar = () => {
                   className="flex items-center gap-2 group"
                 >
                   <div className="w-7 h-7 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-blue-500/10 transition-colors duration-300">
-                    <FaPhoneVolume className="text-lg text-blue-500" />
+                    <FaPhoneVolume className="text-sm md:text-lg text-blue-500" />
                   </div>
-                  <span className="text-blue-500 text-lg md:text-xl font-bold">
+                  <span className="text-blue-500 text-sm md:text-xl font-bold">
                     Call Now : <span className="text-black">{display}</span>
                   </span>
                 </Link>

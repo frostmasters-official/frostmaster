@@ -41,7 +41,7 @@ export default function SectionHeader({
         className="font-black capitalize leading-[0.9] pt-3 pb-1"
         style={{
           fontFamily: "'Montserrat',sans-serif",
-          fontSize: "clamp(2.3rem,5vw,3.5rem)",
+          fontSize: "clamp(1.8rem,5vw,3.5rem)",
           color: "#000",
           lineHeight: "1.4",
         }}

@@ -407,7 +407,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
 };
 
-const Contact = ({ isModal = false }) => {
+const Contact = ({ isModal }) => {
   const {
     contact,
     contactRef,
@@ -546,7 +546,7 @@ const Contact = ({ isModal = false }) => {
             }`}
           >
             {/* Form header */}
-            <div className={`px-8 lg:px-10 ${isModal ? "pt-4": "pt-10"} pb-6 border-b border-slate-100 flex items-center justify-between flex-shrink-0`}>
+            <div className={`px-4 lg:px-6 ${isModal ? "pt-4": "pt-10"} pb-6 border-b border-slate-100 flex items-center justify-between flex-shrink-0`}>
               <motion.div variants={fadeUp}>
                 <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-blue-500 mb-1">
                   {isModal ? "Schedule" : "Service Request"}
