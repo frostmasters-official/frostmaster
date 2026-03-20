@@ -1,18 +1,13 @@
-import wash from "../../../public/service/wash.jpg";
-import ac from "../../../public/service/ac.jpg";
-import fridge from "../../../public/service/fridge.jpg";
-import oven from "../../../public/service/oven.jpg";
+import wash from "../../../public/service/wash.webp";
+import ac from "../../../public/service/ac.webp";
+import fridge from "../../../public/service/fridge.webp";
+import oven from "../../../public/service/oven.webp";
 
-import washingmachine from "../../../public/service/washing-machine.png";
-import airconditioner from "../../../public/service/ac.png";
-import microwave from "../../../public/service/oven.png";
-import refridge from "../../../public/service/fridge.png";
 
 const serviceData = {
   refrigerator: {
     title: "Refrigerator",
     image: fridge,
-    img:refridge,
     ogImage: "/service/fridge.webp",
     seoTitle:
       "Refrigerator Repair Eranakulam | Fridge Repair | Frost Masters",
@@ -80,7 +75,6 @@ const serviceData = {
   "air-conditioner": {
     title: "Air Conditioner",
     image: ac,
-    img:airconditioner,
     ogImage: "/service/ac.webp",
     seoTitle:
       "AC Repair Eranakulam | Air Conditioner Repair | Frost Masters",
@@ -148,7 +142,6 @@ const serviceData = {
     "washing-machine": {
     title: "Washing Machine",
     image: wash,
-    img:washingmachine,
     ogImage: "/service/wash.webp",
     seoTitle: "Washing Machine Repair Eranakulam | Frost Masters",
     seoDescription:
@@ -215,7 +208,6 @@ const serviceData = {
   "microwave-oven": {
     title: "Microwave Oven",
     image: oven,
-    img:microwave,
     ogImage: "/service/oven.webp",
     seoTitle: "Microwave Oven Repair Eranakulam | Frost Masters",
     seoDescription:
