@@ -145,7 +145,7 @@ const Footer = () => {
             className="lg:col-span-2 flex flex-col gap-6"
           >
             <h3
-              className="text--blue-500 font-bold uppercase tracking-[0.18em] text-md"
+              className="text-blue-500 font-bold uppercase tracking-[0.18em] text-md"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               Quick Links
@@ -181,8 +181,8 @@ const Footer = () => {
         <SocialLinks />
 
         {/* Bottom */}
-        <div className="pt-10 border-t border-black/5 flex flex-col md:flex-row items-center justify-center gap-6">
-          <p className="text-black/50 text-sm font-medium tracking-wide">
+        <div className=" mt-4 pt-6 border-t border-black/5 flex flex-col md:flex-row items-center justify-center gap-6">
+          <p className="text-black/50 text-[10px] md:text-sm font-medium tracking-wide">
             &copy; {currentYear} FROST MASTERS. ALL RIGHTS RESERVED.
           </p>
         </div>
@@ -199,7 +199,7 @@ const FooterColumn = ({ title, items, delay }) => (
     className="flex flex-col gap-6"
   >
     <h3
-      className="text--blue-500 font-bold uppercase tracking-[0.18em] text-md"
+      className="text-blue-500 font-bold uppercase tracking-[0.18em] text-md"
       style={{ fontFamily: "'Montserrat', sans-serif" }}
     >
       {title}

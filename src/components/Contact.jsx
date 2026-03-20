@@ -474,11 +474,8 @@ const Contact = ({ isModal }) => {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="lg:col-span-5 flex flex-col min-h-full"
-              style={{
-                background:
-                  "linear-gradient(170deg,#1e3a8a 0%,#1e40af 45%,#2563eb 100%)",
-              }}
+              className="lg:col-span-5 flex flex-col min-h-full bg-blue-500"
+              
             >
               {/* Info area */}
               <div className="flex-1 px-8 py-10 lg:px-10 lg:py-12 flex flex-col">
@@ -496,7 +493,7 @@ const Contact = ({ isModal }) => {
                           <Icon size={17} className="text-blue-200" />
                         </span>
                         <div className="min-w-0 pt-0.5">
-                          <p className="text-blue-400 text-[10px] font-extrabold uppercase tracking-[0.15em] mb-0.5">
+                          <p className="text-black text-[10px] font-extrabold uppercase tracking-[0.15em] mb-0.5">
                             {title}
                           </p>
                           <p className="text-white text-sm font-semibold leading-snug break-words group-hover:text-blue-100 transition-colors">

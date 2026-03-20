@@ -88,7 +88,7 @@ const Services = () => {
   tag="Our Services"
   titleStart="Our"
   highlight="Services"
-  description="Expert home appliance repair & maintenance — same-day service, genuine parts, 90-day warranty."
+  description="Expert home appliance repair & maintenance-same-day service, genuine parts, 30-day warranty."
 />
 
         {/* ── Desktop Bento Grid (hidden on mobile) ── */}

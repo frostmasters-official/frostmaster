@@ -61,7 +61,7 @@ const AboutUs = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 auto-rows-[minmax(180px,auto)] gap-4 lg:gap-6 mt-12">
             {/* 1. MAIN STORY (The Lead) - Rows 1-2, Cols 1-7 */}
             <motion.div
-              className="lg:col-span-7 lg:row-span-2 rounded-[2.5rem] p-8 lg:p-12 flex flex-col justify-between relative overflow-hidden group shadow-sm bg-white"
+              className=" bg-gray-200 lg:col-span-7 lg:row-span-2 rounded-[2.5rem] p-8 lg:p-12 flex flex-col justify-between relative overflow-hidden group shadow-sm"
               {...fadeUp(0.1)}
             >
               <div className="relative z-10">
@@ -69,7 +69,7 @@ const AboutUs = () => {
                   className="text-black font-black leading-tight mb-5"
                   style={{
                     fontFamily: "'Montserrat',sans-serif",
-                    fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+                    fontSize: "clamp(1.5rem, 2vw, 2.8rem)",
                   }}
                 >
                   Your Trusted Partner in <br />
@@ -176,7 +176,7 @@ const AboutUs = () => {
                   </span>
                 </div>
                 <h4
-                  className="text-white text-3xl font-black leading-tight"
+                  className="text-white text-2xl md:text-3xl font-black leading-tight"
                   style={{ fontFamily: "'Montserrat',sans-serif" }}
                 >
                   Certified Technicians <br />

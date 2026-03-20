@@ -42,7 +42,7 @@ const SocialLinks = () => {
             <div key={city} className="flex gap-4">
               <Link
                 href={`tel:${tel}`}
-                className="flex items-center gap-3 bg-gray-300 border border-white/10 text-black rounded-xl px-5 py-3 text-sm font-bold hover:bg--blue-500 hover:border--blue-500 hover:text-black hover:-translate-y-1 transition-all duration-300 group shadow-lg"
+                className="flex items-center gap-3 bg-gray-300 border border-white/10 text-black rounded-xl px-5 py-3 text-sm font-bold hover:bg-blue-500 hover:border-blue-500 hover:text-black hover:-translate-y-1 transition-all duration-300 group shadow-lg"
                 aria-label={`Call ${city}`}
                 title={`${city}: ${display}`}
               >

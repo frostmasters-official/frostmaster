@@ -71,7 +71,7 @@ const STATIC_FEEDBACKS = [
 ];
 
 const FeedbackCard = ({ item }) => (
-  <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-xl transition-all duration-300 group cursor-default select-none">
+  <div className="bg-gray-100 p-4 md:p-8 rounded-2xl shadow-md flex flex-col h-full hover:scale-105 transition-all duration-300 group cursor-default select-none">
     <div className="flex justify-between items-start mb-6">
       <div className="flex gap-4 items-center">
         <div className="w-12 h-12 rounded-full bg-blue-500/5 flex items-center justify-center group-hover:bg-blue-500 transition-colors duration-300">
@@ -167,13 +167,13 @@ const Feedback = () => {
           grabCursor={true}
           centeredSlides={false}
           breakpoints={{
-            480: { slidesPerView: 1.2 },
+            480: { slidesPerView: 1 },
             640: { slidesPerView: 1.5 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 2.5 },
             1280: { slidesPerView: 3.1 },
           }}
-          className="feedback-swiper !px-6 lg:!px-12"
+          className="feedback-swiper !px-12 lg:!px-12"
         >
           {STATIC_FEEDBACKS.map((item) => (
             <SwiperSlide key={item.id} className="!h-auto py-2">

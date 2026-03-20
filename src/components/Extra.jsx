@@ -82,11 +82,10 @@ const Extra = () => {
 
                 {/* Title */}
                 <h3
-                  className="relative z-10 font-black uppercase mb-3 transition-colors duration-300 text-[black] group-hover:text-white"
+                  className="relative z-10 font-black uppercase mb-3 transition-colors duration-300 text-[black] group-hover:text-white text-xl md:text-2xl"
                   style={{
                     fontFamily: "'Montserrat',sans-serif",
-                    fontSize: "1.55rem",
-                    lineHeight: 0.95,
+                    lineHeight: 1.2,
                     whiteSpace: "pre-line",
                   }}
                 >
@@ -139,10 +138,6 @@ const Extra = () => {
         {/* Diagonal stripe accent */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.025]"
-          // style={{
-          //   backgroundImage:
-          //     "repeating-linear-gradient(45deg,#EE3F4A 0px,#EE3F4A 1px,transparent 1px,transparent 40px)",
-          // }}
         />
 
         <div className="relative z-10 px-6 lg:px-12">
@@ -154,7 +149,7 @@ const Extra = () => {
             transition={{ duration: 0.6, ease: EASE }}
           >
             {/* Left text */}
-            <div>
+            <div className="text-center md:text-left">
               <p
                 className="text-white uppercase tracking-[0.35em] mb-2"
                 style={{
