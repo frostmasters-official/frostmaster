@@ -159,7 +159,7 @@ const Footer = () => {
                 ?.filter(
                   (link) =>
                     !(
-                      path.startsWith("/services") && link.key === "services"
+                      path.startsWith("/services") || path.startsWith("/terms-and-conditions") || path.startsWith("/privacy-policy ") && link.key === "services"
                     ),
                 )
                 .map((link) => (
