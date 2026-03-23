@@ -38,9 +38,8 @@ export default function ServiceContent({ service, cityName }) {
 
   const stats = [
     { icon: Clock, label: "Response", val: "60 Mins" },
-    { icon: ShieldCheck, label: "Warranty", val: "90 Days" },
+    { icon: ShieldCheck, label: "Warranty", val: "30 Days" },
     { icon: Award, label: "Parts", val: "Genuine" },
-    { icon: CircleCheck, label: "Inspection", val: "Free" },
   ];
 
   return (
@@ -128,70 +127,173 @@ export default function ServiceContent({ service, cityName }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
-          {/* Main Content Card */}
-          <motion.div
-            className="lg:col-span-8 p-8 md:p-12 bg-white border border-black/5 rounded-[2.5rem] shadow-sm flex flex-col justify-between min-h-[400px]"
-            {...fadeUp(0.1)}
-          >
-            <div>
-              <h3
-                className="text-black font-black text-xl md:text-2xl mb-6 flex items-center gap-3"
-                style={{ fontFamily: "'Montserrat', sans-serif" }}
+        {/* ─── STATS GRID ─── */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-12">
+          {stats.map((stat, idx) => (
+            <motion.div
+              key={idx}
+              className="bg-white border border-black/5 rounded-[2rem] p-6 md:p-8 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
+              {...fadeUp(0.1 + idx * 0.1)}
+            >
+              <stat.icon className="w-8 h-8 md:w-10 md:h-10 text-blue-500 mb-4" />
+              <span className="text-black/50 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] mb-1">
+                {stat.label}
+              </span>
+              <span className="text-black font-black text-xl md:text-3xl">
+                {stat.val}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 relative mb-12">
+          <div className="flex flex-col gap-6">
+            {service.detailedContent ? (
+              <>
+                {service.detailedContent.map((section, idx) => (
+                  <motion.div
+                    key={idx}
+                    className="p-8 md:p-10 bg-white border border-black/5 rounded-[2.5rem] shadow-sm flex flex-col"
+                    {...fadeUp(0.1 + idx * 0.05)}
+                  >
+                    <div className="space-y-5">
+                      {section.title && (
+                        <h3
+                          className="text-black font-black text-xl md:text-2xl flex items-center gap-3"
+                          style={{ fontFamily: "'Montserrat', sans-serif" }}
+                        >
+                          {idx === 0 ? (
+                            <CircleCheck className="w-6 h-6 text-blue-500 shrink-0" />
+                          ) : (
+                            <div className="w-2 h-6 bg-blue-500 rounded-full shrink-0"></div>
+                          )}
+                          {section.title}
+                        </h3>
+                      )}
+                      {section.content && (
+                        <p className="text-black/60 leading-relaxed text-base md:text-lg font-medium">
+                          {section.content}
+                        </p>
+                      )}
+                      {section.type === "list" && section.items && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mt-6">
+                          {section.items.map((item, i) => (
+                            <div
+                              key={i}
+                              className="flex flex-col sm:flex-row sm:items-start gap-4 p-5 md:p-6 rounded-[1.5rem] bg-[#f8f9fa] border border-black/5 hover:border-black/10 hover:shadow-md transition-all duration-300 h-full"
+                            >
+                              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm border border-black/5">
+                                <Zap className="w-5 h-5 text-blue-500 fill-current" />
+                              </div>
+                              <div className="flex-1">
+                                <h4 className="font-extrabold text-black text-base md:text-lg mb-2 leading-snug">
+                                  {item.title}
+                                </h4>
+                                <p className="text-black/60 font-medium text-sm md:text-base leading-relaxed">
+                                  {item.description}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </>
+            ) : (
+              <motion.div
+                className="p-8 md:p-12 bg-white border border-black/5 rounded-[2.5rem] shadow-sm flex flex-col justify-between min-h-[400px]"
+                {...fadeUp(0.1)}
               >
-                <CircleCheck className="w-6 h-6 text-blue-500" />
-                Service Overview
-              </h3>
-              <p className="text-black/60 leading-relaxed whitespace-pre-line text-base md:text-lg font-medium">
-                {service.description}
-              </p>
+                <>
+                  <h3
+                    className="text-black font-black text-xl md:text-2xl mb-6 flex items-center gap-3"
+                    style={{ fontFamily: "'Montserrat', sans-serif" }}
+                  >
+                    <CircleCheck className="w-6 h-6 text-blue-500 shrink-0" />
+                    Service Overview
+                  </h3>
+                  <p className="text-black/60 leading-relaxed whitespace-pre-line text-base md:text-lg font-medium">
+                    {service.description}
+                  </p>
+                </>
+              </motion.div>
+            )}
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full lg:sticky lg:top-8">
+          {/* ───── TILE 1 ───── */}
+          <motion.div
+            className="group relative overflow-hidden bg-white rounded-[2rem] p-8
+               flex flex-col justify-between min-h-[160px] h-full
+               shadow-sm border border-black/5"
+            {...fadeUp(0.2)}
+          >
+            <div className="relative z-10">
+              <span className="text-blue-500 text-[8px] font-black uppercase tracking-[0.35em] mb-1 block">
+                Premium Standard
+              </span>
+              <h4 className="text-black font-black text-xl leading-tight">
+                100% Genuine <br /> Spare Parts
+              </h4>
             </div>
-            <div className="flex items-center gap-5 pt-8 mt-10 border-t border-black/5">
-              <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0">
-                <PackageCheck className="w-6 h-6 text-blue-500" />
-              </div>
-              <p className="text-xs md:text-sm font-black text-black/80 tracking-tight uppercase">
-                Full health check included with every service visit.
-              </p>
+
+            <Settings
+              className="absolute -bottom-12 -right-12 w-32 h-32 text-black/10 
+                         group-hover:rotate-90 transition-transform duration-1000"
+            />
+
+            <div className="relative z-10 text-black/40 text-[9px] font-bold uppercase tracking-widest mt-3">
+              Authorized Brands Only
             </div>
           </motion.div>
 
-          <div className="lg:col-span-4 flex flex-col gap-6">
-            {/* Genuine Parts Tile */}
-            <motion.div
-              className="group relative overflow-hidden bg-white rounded-[2.5rem] p-8 h-full flex flex-col justify-between min-h-[220px] shadow-md"
-              {...fadeUp(0.2)}
-            >
-              <div className="relative z-10">
-                <span className="text-blue-500 text-[9px] font-black uppercase tracking-[0.4em] mb-2 block">
-                  Premium Standard
-                </span>
-                <h4 className="text-black font-black text-2xl leading-tight">
-                  100% Genuine <br /> Spare Parts
-                </h4>
+          {/* ───── TILE 2 ───── */}
+          <motion.div
+            className="bg-blue-500 rounded-[2rem] p-8 flex flex-col justify-between
+               min-h-[160px] h-full shadow-lg shadow-blue-500/20"
+            {...fadeUp(0.3)}
+          >
+            <div className="flex justify-between items-start">
+              <Clock className="w-8 h-8 text-white" />
+              <div className="bg-white/20 p-1.5 rounded-lg">
+                <Zap className="w-3.5 h-3.5 text-white fill-current" />
               </div>
-              <Settings className="absolute -bottom-10 -right-10 w-40 h-40 text-black/10 group-hover:rotate-90 transition-transform duration-1000" />
-              <div className="relative z-10 text-black/40 text-[10px] font-bold uppercase tracking-widest mt-4">
-                Authorized Brands Only
-              </div>
-            </motion.div>
+            </div>
 
-            {/* Rapid Response Tile */}
-            <motion.div
-              className="bg-blue-500 rounded-[2.5rem] p-8 flex flex-col justify-between min-h-[160px] shadow-xl shadow-blue-500/20"
-              {...fadeUp(0.3)}
+            <h4 className="text-white font-black text-xl leading-tight mt-4">
+              Express Same-Day Fix
+            </h4>
+          </motion.div>
+
+          {/* ───── TILE 3 ───── */}
+          <motion.div
+            className="bg-white rounded-[2rem] p-8 flex flex-col items-center 
+               text-center justify-center min-h-[160px] h-full shadow-xl"
+            {...fadeUp(0.4)}
+          >
+            <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center mb-4">
+              <ShieldCheck className="w-6 h-6 text-white" />
+            </div>
+
+            <h4 className="text-black font-black text-lg mb-2">
+              Need Immediate Assistance?
+            </h4>
+
+            <p className="text-black/50 text-sm font-medium mb-4">
+              Our experts are ready to help fast.
+            </p>
+
+            <button
+              onClick={() => onNavigate?.("contact")}
+              className="w-full py-3 rounded-full bg-blue-500 text-white font-black 
+                 text-[9px] tracking-[0.18em] uppercase hover:bg-blue-600 
+                 transition-colors shadow-md shadow-blue-500/30"
             >
-              <div className="flex justify-between items-start">
-                <Clock className="w-10 h-10 text-white" />
-                <div className="bg-white/20 p-2 rounded-lg">
-                  <Zap className="w-4 h-4 text-white fill-current" />
-                </div>
-              </div>
-              <h4 className="text-white font-black text-2xl leading-none mt-6">
-                Express <br /> Same-Day Fix
-              </h4>
-            </motion.div>
-          </div>
+              Book Technician
+            </button>
+          </motion.div>
         </div>
       </section>
 

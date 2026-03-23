@@ -39,7 +39,7 @@ const ServiceCard = ({ slug, service, className = "", size = "md", index }) => (
 
       {/* Top-left badge */}
       <div className="absolute top-3 left-3 z-10">
-        <span 
+        <span
           className="inline-flex items-center gap-1.5 bg-black/40 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
@@ -85,11 +85,11 @@ const Services = () => {
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
         {/* Heading */}
         <SectionHeader
-  tag="Our Services"
-  titleStart="Our"
-  highlight="Services"
-  description="Expert home appliance repair & maintenance-same-day service, genuine parts, 30-day warranty."
-/>
+          tag="Our Services"
+          titleStart="Our"
+          highlight="Services"
+          description="Expert home appliance repair & maintenance-same-day service, genuine parts, 30-day warranty."
+        />
 
         {/* ── Desktop Bento Grid (hidden on mobile) ── */}
         <div
