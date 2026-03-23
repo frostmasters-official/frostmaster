@@ -74,7 +74,7 @@ const Footer = () => {
 
             <div className="space-y-5">
               {/* Email */}
-              <div className="flex items-center gap-4 group">
+              {/* <div className="flex items-center gap-4 group">
                 <div className="w-11 h-11 rounded-full bg-black/5 flex items-center justify-center border border-black/10 group-hover:border--blue-500/50 transition-colors">
                   <FaRegEnvelope className="h-5 w-5 text--blue-500" />
                 </div>
@@ -85,7 +85,7 @@ const Footer = () => {
                 >
                   info@frostmasters.com
                 </Link>
-              </div>
+              </div> */}
 
               {/* Phone */}
               <div className="flex items-center gap-4 group">

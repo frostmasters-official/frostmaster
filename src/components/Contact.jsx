@@ -363,7 +363,7 @@ const complaintsOptions = {
   "Microwave oven": ["Heating Problem", "Turntable Not Working", "Door Issue", "Noise Issue", "Others"],
 };
 
-const cityOptions = ["Kochi", "Trissur", "Kottayam"];
+const cityOptions = ["Kochi", "Kottayam","Alappuzha","Thiruvalla"];
 
 const contactDetails = [
   {
@@ -602,7 +602,7 @@ const Contact = ({ isModal }) => {
               </motion.div>
 
               {/* Row B: Email */}
-              <motion.div variants={fadeUp} className="space-y-1.5">
+              {/* <motion.div variants={fadeUp} className="space-y-1.5">
                 <label className="block text-[10px] font-extrabold uppercase tracking-[0.18em] text-slate-500">
                   Email Address{" "}
                   <span className="normal-case tracking-normal font-normal text-slate-400 text-xs">
@@ -617,7 +617,7 @@ const Contact = ({ isModal }) => {
                   placeholder="you@example.com"
                   className={inputCls(false)}
                 />
-              </motion.div>
+              </motion.div> */}
 
               {/* Row C: City pills */}
               <motion.div variants={fadeUp} className="space-y-2.5">
