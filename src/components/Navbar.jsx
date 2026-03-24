@@ -89,7 +89,7 @@ const Navbar = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
           scrolled
-            ? "bg-white/90 backdrop-blur-md shadow-lg py-1"
+            ? "bg-white backdrop-blur-md shadow-lg py-1"
             : "bg-white py-2"
         }`}
       >
@@ -108,7 +108,7 @@ const Navbar = () => {
                   <div className="w-7 h-7 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-blue-500/10 transition-colors duration-300">
                     <FaPhoneVolume className="text-sm md:text-lg text-blue-500" />
                   </div>
-                  <span className="text-blue-500 text-sm md:text-xl font-bold">
+                  <span className="text-blue-500 text-sm md:text-lg font-bold">
                     Call Now : <span className="text-black">{display}</span>
                   </span>
                 </Link>
