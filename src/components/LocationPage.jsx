@@ -207,8 +207,7 @@ const LocationPage = ({ data, city, area }) => {
               <strong>Air Conditioner</strong>, <strong>Washing Machine</strong>
               , <strong>Refrigerator</strong>, <strong>Microwave Oven</strong>,
               and <strong>Geyser</strong> in your locality. Our experts serve
-              all major brands including LG, Samsung, Whirlpool, IFB, and
-              Godrej. Book online or call{" "}
+              all major brands. Book online or call{" "}
               <strong>{getPhoneForCity(city).display}</strong> (
               {getPhoneForCity(city).city}) for quick service.
             </p>

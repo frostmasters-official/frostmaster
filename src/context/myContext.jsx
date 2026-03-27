@@ -75,7 +75,7 @@ export const ContextProvider = ({ children }) => {
     {
       question: "Do you use original spare parts for replacements?",
       answer:
-        "Absolutely. We use genuine and quality spare parts for all repairs. Parts are sourced from authorised channels to ensure longevity and safety of your appliance.",
+        "Absolutely. We use genuine and quality spare parts for all repairs. Parts are sourced from trusted channels to ensure longevity and safety of your appliance.",
     },
     {
       question: "Do you provide service for all appliance brands?",

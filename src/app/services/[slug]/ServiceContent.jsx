@@ -244,9 +244,6 @@ export default function ServiceContent({ service, cityName }) {
                          group-hover:rotate-90 transition-transform duration-1000"
             />
 
-            <div className="relative z-10 text-black/40 text-[9px] font-bold uppercase tracking-widest mt-3">
-              Authorized Brands Only
-            </div>
           </motion.div>
 
           {/* ───── TILE 2 ───── */}

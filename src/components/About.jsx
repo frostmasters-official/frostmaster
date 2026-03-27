@@ -29,7 +29,7 @@ const features = [
   "Certified & Skilled Technicians",
   "100% Genuine Spare Parts",
   "Same-Day Doorstep Service",
-  "1 Year Warranty on Repairs",
+  "1 Year Warranty (Terms and Conditions Apply)",
 ];
 
 const AboutUs = () => {

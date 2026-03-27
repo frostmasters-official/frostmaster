@@ -42,7 +42,7 @@ const Footer = () => {
   }, [pathname]);
 
   return (
-    <footer className=" bg-gray-100 text-black pt-20 pb-10">
+    <footer className="text-black pt-20 pb-10">
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-14 text-left items-start">
@@ -74,18 +74,6 @@ const Footer = () => {
 
             <div className="space-y-5">
               {/* Email */}
-              {/* <div className="flex items-center gap-4 group">
-                <div className="w-11 h-11 rounded-full bg-black/5 flex items-center justify-center border border-black/10 group-hover:border--blue-500/50 transition-colors">
-                  <FaRegEnvelope className="h-5 w-5 text--blue-500" />
-                </div>
-
-                <Link
-                  href="mailto:info@frostmasters.com"
-                  className="text-black/80 hover:text-black transition-colors text-base font-medium"
-                >
-                  info@frostmasters.com
-                </Link>
-              </div> */}
 
               {/* Phone */}
               <div className="flex items-center gap-4 group">

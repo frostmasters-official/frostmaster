@@ -79,6 +79,7 @@ const Services = () => {
   const { servicesRef } = useContext(myContext);
 
   const [s0, s1, s2, s3, s4, s5] = services;
+  const bottomRowCards = [s3, s4, s5].filter(Boolean);
 
   return (
     <section ref={servicesRef} className="py-16 bg-white">
@@ -134,26 +135,27 @@ const Services = () => {
             />
           )}
 
-          {/* Row 2: 3 small cards split across center+right column (use sub-grid) */}
-          {(s3 || s4 || s5) && (
+          {/* Row 2: small cards across center + right columns (s3, s4, s5) */}
+          {bottomRowCards.length > 0 && (
             <div
               style={{
                 gridColumn: "2 / 4",
                 display: "grid",
-                gridTemplateColumns: "repeat(1, 1fr)",
+                gridTemplateColumns: `repeat(${bottomRowCards.length}, minmax(0, 1fr))`,
                 gap: "12px",
                 height: "350px",
               }}
             >
-              {s3 && (
+              {bottomRowCards.map(([slug, service], i) => (
                 <ServiceCard
-                  slug={s3[0]}
-                  service={s3[1]}
+                  key={slug}
+                  slug={slug}
+                  service={service}
                   className="w-full h-full"
                   size="sm"
-                  index={3}
+                  index={3 + i}
                 />
-              )}
+              ))}
             </div>
           )}
         </div>

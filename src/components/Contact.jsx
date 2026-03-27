@@ -11,7 +11,7 @@ const complaintsOptions = {
   "Microwave oven": ["Heating Problem", "Turntable Not Working", "Door Issue", "Noise Issue", "Others"],
 };
 
-const cityOptions = ["Kochi", "Kottayam","Alappuzha","Thiruvalla"];
+const cityOptions = ["Kochi", "Kottayam","Alappuzha","Thrissur"];
 
 const contactDetails = [
   {
