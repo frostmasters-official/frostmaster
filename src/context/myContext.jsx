@@ -55,7 +55,7 @@ export const ContextProvider = ({ children }) => {
     {
       question: "What services does Frost Masters offer?",
       answer:
-        "We are provide repair and service only for fridge ,washing machines,AC and microwave oven.",
+        "We are provide repair and service only for fridge, washing machine, AC and microwave oven.",
     },
     {
       question: "How can I book a service with Frost Masters?",
@@ -85,7 +85,7 @@ export const ContextProvider = ({ children }) => {
     {
       question: "Which areas do you cover?",
       answer:
-        "We serve Ernakulam or kochi,Alappuzha ,Kottayam and Thrisur. You can check our location pages for your area. Service is doorstep - our technician comes to your home or office.",
+        "We serve Ernakulam or kochi, Alappuzha, Kottayam and Thrissur. You can check our location pages for your area. Service is doorstep - our technician comes to your home or office.",
     },
     {
       question: "What are the charges for visit and repair?",

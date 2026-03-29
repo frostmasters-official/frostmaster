@@ -19,6 +19,29 @@ import {
 import serviceData from "@/components/data/serviceData";
 import { usePathname } from "next/navigation";
 
+const SERVICE_AREAS = [
+  "Kochi, Kerala, India",
+  "Kakkanad, Kerala, India",
+  "Eroor, Kochi, Kerala, India",
+  "Kaloor, Kochi, Kerala, India",
+  "Pachalam, Kochi, Kerala, India",
+  "Elamkulam, Kochi, Kerala, India",
+  "Elamakkara, Kochi, Kerala, India",
+  "Kalamassery, Kochi, Kerala, India",
+  "Palarivattom, Kochi, Kerala, India",
+  "Thrippunithura, Kochi, Kerala, India",
+  "Kadavanthra, Kochi, Kerala 682020, India",
+  "Thammanam, Ernakulam, Kochi, Kerala, India",
+  "Panampilly Nagar, Kochi, Kerala 682036, India",
+  "Vyttila Hub, Vyttila, Kochi, Kerala 682019, India",
+  "Kundannoor, Maradu, Ernakulam, Kochi, Kerala, India",
+  "Petta, Poonithura, Maradu, Kochi, Kerala 682038, India",
+  "Chembumukku, Edappally, Ernakulam, Kochi, Kerala, India",
+  "Thrikkakara, Edappally, Ernakulam, Kochi, Kerala, India",
+  "Chalikkavattom, Vennala, Ernakulam, Kochi, Kerala, India",
+  "Padivattom, Edappally, Ernakulam, Kochi, Kerala 682024, India",
+];
+
 const Footer = () => {
   const { filteredLinks, onNavigate, pathname } = useContext(myContext);
   const currentYear = new Date().getFullYear();
@@ -178,6 +201,39 @@ const Footer = () => {
             />
           </div>
         </div>
+
+        {/* Service area — full width, responsive columns */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-14 pt-14 border-t border-black/10"
+        >
+          <h3
+            className="text-blue-500 font-bold uppercase tracking-[0.18em] text-md mb-6 sm:mb-8"
+            style={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            Service area
+          </h3>
+          <ul
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 sm:gap-x-8 gap-y-2.5 sm:gap-y-3 list-none p-0 m-0"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            {SERVICE_AREAS.map((area) => (
+              <li
+                key={area}
+                className="flex gap-2.5 text-black/70 text-sm sm:text-[15px] leading-snug sm:leading-relaxed"
+              >
+                <span
+                  className="mt-[0.45em] h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500/60"
+                  aria-hidden
+                />
+                <span className="min-w-0">{area}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
 
         <SocialLinks />
 
