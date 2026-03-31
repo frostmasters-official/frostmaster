@@ -35,7 +35,7 @@ const contactDetails = [
       Puthiyakavu, Eranakulam — 682301
     </>
     ),
-    link: "https://maps.app.goo.gl/YourActualMapLink",
+    link: "https://maps.app.goo.gl/s9zi21ey8nYpPepR6",
   },
 ];
 
