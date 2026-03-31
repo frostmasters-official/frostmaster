@@ -160,19 +160,17 @@ const Contact = ({ isModal }) => {
 
               {/* Map pinned to bottom of left panel */}
               <div className="h-86 w-full border-t border-white/10 overflow-hidden flex-shrink-0">
-                <iframe
-                  title="Frost Masters Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.584319401768!2d76.3500313!3d9.9258303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08709333333333%3A0x3333333333333333!2sPavamkulangara%20Devi%20Temple!5e0!3m2!1sen!2sin!4v1710830000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{
-                    border: 0,
-                    display: "block",
-                    filter: "saturate(0.8) contrast(1.05)",
-                  }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                <iframe title="Frost Masters Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.096798083166!2d76.3517481!3d9.9258961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873bba860b6fb%3A0x8f916db6f9db22d9!2sfrostmasters%20fridge%20and%20washing%20repair!5e0!3m2!1sen!2sin!4v1774976090675!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{
+                  border: 0,
+                  display: "block",
+                  filter: "saturate(0.8) contrast(1.05)",
+                }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
             </motion.div>

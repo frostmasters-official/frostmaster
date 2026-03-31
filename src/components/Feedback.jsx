@@ -76,17 +76,17 @@ const STATIC_FEEDBACKS = [
       "Quick responce,work closed on the day.",
     stars: 5,
   },
+  // {
+  //   id: 6,
+  //   name: "Elizabeth Manuel",
+  //   city: "Eranakulam",
+  //   date: "February 10, 2026",
+  //   message:
+  //     "Good service and quick response",
+  //   stars: 5,
+  // },
   {
-    id: 6,
-    name: "Elizabeth Manuel",
-    city: "Eranakulam",
-    date: "February 10, 2026",
-    message:
-      "Good service and quick response",
-    stars: 5,
-  },
-  {
-    id: 6,
+    id: 8,
     name: "RG XN FOX YT",
     city: "Eranakulam",
     date: "February 10, 2026",
@@ -94,17 +94,17 @@ const STATIC_FEEDBACKS = [
       "The washing machine was repaired neatly, and the service charges were transparent. I’m fully satisfied with the quality of service provided",
     stars: 5,
   },
+  // {
+  //   id: 6,
+  //   name: "Mini K A",
+  //   city: "Eranakulam",
+  //   date: "February 10, 2026",
+  //   message:
+  //     "Quick response, excellent service",
+  //   stars: 5,
+  // },
   {
-    id: 6,
-    name: "Mini K A",
-    city: "Eranakulam",
-    date: "February 10, 2026",
-    message:
-      "Quick response, excellent service",
-    stars: 5,
-  },
-  {
-    id: 6,
+    id: 9,
     name: "Anirudh Vinod",
     city: "Eranakulam",
     date: "February 10, 2026",
@@ -113,7 +113,7 @@ const STATIC_FEEDBACKS = [
     stars: 5,
   },
   {
-    id: 6,
+    id: 10,
     name: "Ananthu Kumar",
     city: "Eranakulam",
     date: "February 10, 2026",
@@ -122,7 +122,7 @@ const STATIC_FEEDBACKS = [
     stars: 5,
   },
   {
-    id: 6,
+    id: 11,
     name: "Chakradhar Yammanur",
     city: "Eranakulam",
     date: "February 10, 2026",
@@ -191,7 +191,7 @@ const GoogleReviewsBanner = () => (
   >
     {/* Left: big score */}
     <div className="flex flex-col items-center sm:items-start gap-1 shrink-0 sm:pr-6 sm:border-r sm:border-gray-100">
-      <div className="flex items-center gap-2 mb-1">
+      <div className="flex items-center justify-between gap-2 mb-1">
         <GoogleLogo size={22} />
         <span className="text-sm font-semibold text-gray-500 tracking-wide uppercase">
           Google Reviews
@@ -207,7 +207,7 @@ const GoogleReviewsBanner = () => (
     </div>
 
     {/* Middle: bar chart */}
-    {/* <div className="flex-1 w-full flex flex-col gap-1.5">
+    <div className="flex-1 w-full flex flex-col gap-1.5">
       {starCounts.map(({ star, count }) => {
         const pct = totalReviews ? Math.round((count / totalReviews) * 100) : 0;
         return (
@@ -231,7 +231,7 @@ const GoogleReviewsBanner = () => (
           </div>
         );
       })}
-    </div> */}
+    </div>
 
     {/* Right: CTA */}
     <div className="shrink-0 flex flex-col items-center gap-3 sm:pl-4">
@@ -344,12 +344,12 @@ const FeedbackCard = ({ item }) => {
             {item.stars}.0 / 5.0
           </span>
         </div>
-        <span
+        {/* <span
           className="text-xs text-gray-400"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {item.date}
-        </span>
+        </span> */}
       </div>
     </div>
   );
