@@ -519,133 +519,133 @@ const serviceData = {
       },
     ],
   },
-  "modern-kitchen": {
-    title: "Modern Kitchen Appliance Repair",
-    image: md,
-    ogImage: "/service/modern_kit.webp",
-    seoTitle: "Modern Kitchen Appliance Repair Eranakulam | Frost Masters",
-    seoDescription:
-      "Modern kitchen appliance repair in Eranakulam. Expert service for microwave, oven, hob, chimney & more. Reliable technicians. Call now.",
+  // "modern-kitchen": {
+  //   title: "Modern Kitchen Appliance Repair",
+  //   image: md,
+  //   ogImage: "/service/modern_kit.webp",
+  //   seoTitle: "Modern Kitchen Appliance Repair Eranakulam | Frost Masters",
+  //   seoDescription:
+  //     "Modern kitchen appliance repair in Eranakulam. Expert service for microwave, oven, hob, chimney & more. Reliable technicians. Call now.",
 
-    description:
-      "Frost Masters provides expert repair services for modern kitchen appliances in Eranakulam. From built-in ovens and microwaves to hobs, chimneys, and advanced cooking systems, we ensure every appliance works efficiently. Our technicians specialize in diagnosing complex electronic and mechanical issues using advanced tools and genuine spare parts.",
+  //   description:
+  //     "Frost Masters provides expert repair services for modern kitchen appliances in Eranakulam. From built-in ovens and microwaves to hobs, chimneys, and advanced cooking systems, we ensure every appliance works efficiently. Our technicians specialize in diagnosing complex electronic and mechanical issues using advanced tools and genuine spare parts.",
 
-    detailedContent: [
-      {
-        type: "text",
-        title: "Complete Care for Modern Kitchens",
-        content:
-          "Today’s kitchens rely on smart and high-performance appliances. At Frost Masters, we deliver end-to-end repair and maintenance solutions to keep your kitchen running smoothly, safely, and efficiently.",
-      },
-      {
-        type: "list",
-        title: "Our Kitchen Appliance Expertise:",
-        items: [
-          {
-            title: "Built-in Appliance Repair:",
-            description:
-              "Service and repair for built-in ovens, microwaves, and integrated kitchen systems.",
-          },
-          {
-            title: "Hob & Cooktop Services:",
-            description:
-              "Repair of gas hobs, induction cooktops, burners, and ignition systems.",
-          },
-          {
-            title: "Kitchen Chimney Repair:",
-            description:
-              "Fixing suction issues, motor problems, noise, and filter cleaning.",
-          },
-          {
-            title: "Electrical & Control Systems:",
-            description:
-              "Handling PCB issues, wiring faults, and smart control malfunctions.",
-          },
-          {
-            title: "Performance Optimization:",
-            description:
-              "Ensuring proper heating, airflow, and energy efficiency across appliances.",
-          },
-          {
-            title: "Preventive Maintenance:",
-            description:
-              "Regular servicing to avoid breakdowns and extend appliance lifespan.",
-          },
-        ],
-      },
-      {
-        type: "list",
-        title: "Appliances We Cover:",
-        items: [
-          {
-            title: "Microwave Ovens:",
-            description: "All types including solo, grill, and convection.",
-          },
-          {
-            title: "Built-in Ovens:",
-            description: "Electric and smart ovens with advanced features.",
-          },
-          {
-            title: "Kitchen Chimneys:",
-            description: "Wall-mounted, island, and auto-clean chimneys.",
-          },
-          {
-            title: "Hobs & Cooktops:",
-            description: "Gas and induction cooking systems.",
-          },
-        ],
-      },
-    ],
+  //   detailedContent: [
+  //     {
+  //       type: "text",
+  //       title: "Complete Care for Modern Kitchens",
+  //       content:
+  //         "Today’s kitchens rely on smart and high-performance appliances. At Frost Masters, we deliver end-to-end repair and maintenance solutions to keep your kitchen running smoothly, safely, and efficiently.",
+  //     },
+  //     {
+  //       type: "list",
+  //       title: "Our Kitchen Appliance Expertise:",
+  //       items: [
+  //         {
+  //           title: "Built-in Appliance Repair:",
+  //           description:
+  //             "Service and repair for built-in ovens, microwaves, and integrated kitchen systems.",
+  //         },
+  //         {
+  //           title: "Hob & Cooktop Services:",
+  //           description:
+  //             "Repair of gas hobs, induction cooktops, burners, and ignition systems.",
+  //         },
+  //         {
+  //           title: "Kitchen Chimney Repair:",
+  //           description:
+  //             "Fixing suction issues, motor problems, noise, and filter cleaning.",
+  //         },
+  //         {
+  //           title: "Electrical & Control Systems:",
+  //           description:
+  //             "Handling PCB issues, wiring faults, and smart control malfunctions.",
+  //         },
+  //         {
+  //           title: "Performance Optimization:",
+  //           description:
+  //             "Ensuring proper heating, airflow, and energy efficiency across appliances.",
+  //         },
+  //         {
+  //           title: "Preventive Maintenance:",
+  //           description:
+  //             "Regular servicing to avoid breakdowns and extend appliance lifespan.",
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       type: "list",
+  //       title: "Appliances We Cover:",
+  //       items: [
+  //         {
+  //           title: "Microwave Ovens:",
+  //           description: "All types including solo, grill, and convection.",
+  //         },
+  //         {
+  //           title: "Built-in Ovens:",
+  //           description: "Electric and smart ovens with advanced features.",
+  //         },
+  //         {
+  //           title: "Kitchen Chimneys:",
+  //           description: "Wall-mounted, island, and auto-clean chimneys.",
+  //         },
+  //         {
+  //           title: "Hobs & Cooktops:",
+  //           description: "Gas and induction cooking systems.",
+  //         },
+  //       ],
+  //     },
+  //   ],
 
-    points: [
-      "Complete modern kitchen appliance repair",
-      "Service for microwave, oven, hob, chimney",
-      "Advanced diagnostic support",
-      "PCB and electrical issue handling",
-      "Performance and efficiency optimization",
-      "Preventive maintenance services",
-      "All major brands supported",
-      "Genuine spare parts used",
-      "Quick and reliable service",
-      "Transparent pricing",
-    ],
+  //   points: [
+  //     "Complete modern kitchen appliance repair",
+  //     "Service for microwave, oven, hob, chimney",
+  //     "Advanced diagnostic support",
+  //     "PCB and electrical issue handling",
+  //     "Performance and efficiency optimization",
+  //     "Preventive maintenance services",
+  //     "All major brands supported",
+  //     "Genuine spare parts used",
+  //     "Quick and reliable service",
+  //     "Transparent pricing",
+  //   ],
 
-    faq: [
-      {
-        question: "What appliances are covered under modern kitchen repair?",
-        answer:
-          "We repair microwaves, ovens, chimneys, hobs, and other built-in kitchen appliances.",
-      },
-      {
-        question: "Do you handle built-in appliances?",
-        answer:
-          "Yes, we specialize in built-in and modular kitchen appliance repair.",
-      },
-      {
-        question: "Can you fix multiple appliances in one visit?",
-        answer:
-          "Yes, our technicians can diagnose and repair multiple kitchen appliances in a single visit.",
-      },
-      {
-        question: "Do you provide maintenance services?",
-        answer:
-          "Yes, we offer preventive maintenance to improve appliance lifespan and performance.",
-      },
-    ],
+  //   faq: [
+  //     {
+  //       question: "What appliances are covered under modern kitchen repair?",
+  //       answer:
+  //         "We repair microwaves, ovens, chimneys, hobs, and other built-in kitchen appliances.",
+  //     },
+  //     {
+  //       question: "Do you handle built-in appliances?",
+  //       answer:
+  //         "Yes, we specialize in built-in and modular kitchen appliance repair.",
+  //     },
+  //     {
+  //       question: "Can you fix multiple appliances in one visit?",
+  //       answer:
+  //         "Yes, our technicians can diagnose and repair multiple kitchen appliances in a single visit.",
+  //     },
+  //     {
+  //       question: "Do you provide maintenance services?",
+  //       answer:
+  //         "Yes, we offer preventive maintenance to improve appliance lifespan and performance.",
+  //     },
+  //   ],
 
-    cityKeywords: [
-      {
-        city: "Eranakulam",
-        keywords: [
-          "modern kitchen appliance repair Eranakulam",
-          "kitchen appliance service Eranakulam",
-          "built in appliance repair Eranakulam",
-          "kitchen repair services Eranakulam",
-          "modular kitchen appliance repair Eranakulam",
-        ],
-      },
-    ],
-  },
+  //   cityKeywords: [
+  //     {
+  //       city: "Eranakulam",
+  //       keywords: [
+  //         "modern kitchen appliance repair Eranakulam",
+  //         "kitchen appliance service Eranakulam",
+  //         "built in appliance repair Eranakulam",
+  //         "kitchen repair services Eranakulam",
+  //         "modular kitchen appliance repair Eranakulam",
+  //       ],
+  //     },
+  //   ],
+  // },
 };
 
 export default serviceData;

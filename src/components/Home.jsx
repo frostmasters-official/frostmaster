@@ -483,7 +483,7 @@ const Home = ({ homeRef }) => {
                     fontSize: "clamp(1rem,1.3vw,1.8rem)",
                   }}
                 >
-                  Call Now: {display}
+                  Book Now: {display}
                 </span>
               </a>
             ))}
