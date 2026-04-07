@@ -15,7 +15,7 @@ const socials = [
     label: "Instagram",
     link: "https://www.instagram.com/frostmasters.official/",
   },
-  { icon: "/yt.svg", label: "Youtube", link: "https://www.youtube.com" },
+  { icon: "/yt.svg", label: "Youtube", link: "https://www.youtube.com/@Frostmasters" },
   {
     icon: "/linkedin.svg",
     label: "LinkedIn",

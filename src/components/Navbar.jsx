@@ -119,22 +119,22 @@ const Navbar = () => {
               <SocialIcon
                 icon="/fb.svg"
                 label="Facebook"
-                link="https://facebook.com"
+                link="https://www.facebook.com/frostmasters/"
               />
               <SocialIcon
                 icon="/instagram.svg"
                 label="Instagram"
-                link="https://instagram.com"
+                link="https://www.instagram.com/frostmasters.official/"
               />
               <SocialIcon
                 icon="/yt.svg"
                 label="Youtube"
-                link="https://youtube.com"
+                link="https://www.youtube.com/@Frostmasters"
               />
               <SocialIcon
                 icon="/linkedin.svg"
                 label="LinkedIn"
-                link="https://linkedin.com"
+                link="https://www.linkedin.com/in/frostmasters-offical-5a1082394"
               />
             </div>
           </div>
