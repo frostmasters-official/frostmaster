@@ -3,6 +3,7 @@ import { createContext, useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { usePathname } from "next/navigation";
 import toast from "react-hot-toast";
+import emailjs from "@emailjs/browser";
 
 export const myContext = createContext();
 
@@ -21,20 +22,20 @@ export const ContextProvider = ({ children }) => {
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
 
-  // feedback state
-  const [feedback, setFeedback] = useState({
-    name: "",
-    city: "",
-    email: "",
-    stars: "",
-    message: "",
-  });
+    // ✅ INIT EMAILJS (IMPORTANT)
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
+      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+      console.log("EmailJS initialized ✅");
+    } else {
+      console.error("Missing EmailJS PUBLIC KEY ❌");
+    }
+  }, []);
 
   // contact state
   const [contact, setContact] = useState({
     contactName: "",
     contactNumber: "",
-    contactEmail: "",
     contactCity: "",
     product: "",
     complaint: [], // now array
@@ -43,7 +44,6 @@ export const ContextProvider = ({ children }) => {
   const [errors, setErrors] = useState({});
   const [activeTab, setActiveTab] = useState("contact");
   const [contactSubmitting, setContactSubmitting] = useState(false);
-  const [feedbackSubmitting, setFeedbackSubmitting] = useState(false);
 
   // navbar
   // navbar
@@ -171,36 +171,10 @@ export const ContextProvider = ({ children }) => {
     return newErrors;
   };
 
-  // feedback validation
-  const validateFeedback = () => {
-    const newErrors = {};
-    if (!feedback.name.trim()) newErrors.name = "Name is required.";
-    if (!feedback.city.trim()) newErrors.city = "City is required.";
-    if (!feedback.email.trim()) {
-      newErrors.email = "Email is required.";
-    } else if (!/^\S+@\S+\.\S+$/.test(feedback.email)) {
-      newErrors.email = "Invalid email address.";
-    }
-    if (!feedback.stars) newErrors.stars = "Please select a rating.";
-    if (!feedback.message.trim()) newErrors.message = "Feedback is required.";
-    return newErrors;
-  };
-
   // contact input change
   const handleContactChange = (e) => {
     const { name, value } = e.target;
     setContact((prev) => ({ ...prev, [name]: value }));
-  };
-
-  // feedback input change
-  const handleFeedbackChange = (e) => {
-    const { name, value } = e.target;
-    setFeedback((prev) => ({ ...prev, [name]: value }));
-  };
-
-  // star select
-  const handleStarSelect = (value) => {
-    setFeedback((prev) => ({ ...prev, stars: value }));
   };
 
   // toggle complaint dynamically
@@ -219,72 +193,55 @@ export const ContextProvider = ({ children }) => {
   // submit contact
   const handleContactSubmit = async (e) => {
     e.preventDefault();
+
     const validationErrors = validateContact();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-    } else {
-      setContactSubmitting(true);
-      try {
-        const headers = {};
-        if (csrfTokenRef.current)
-          headers["X-CSRF-Token"] = csrfTokenRef.current;
-        const response = await axios.post("/api/contact", contact, { headers });
-        if (response.data.success) {
-          toast.success("Success, Technician will contact you shortly!");
-          setContact({
-            contactName: "",
-            contactEmail: "",
-            contactNumber: "",
-            contactCity: "",
-            product: "",
-            complaint: [],
-          });
-          setErrors({});
-        } else {
-          toast.error("Failed to submit.");
-        }
-      } catch (error) {
-        console.log(error.message);
-        toast.error("Server error");
-      } finally {
-        setContactSubmitting(false);
-      }
+      return;
     }
-  };
 
-  // submit feedback
-  const handleFeedbackSubmit = async (e) => {
-    e.preventDefault();
-    const validationErrors = validateFeedback();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-    } else {
-      setFeedbackSubmitting(true);
-      try {
-        const headers = {};
-        if (csrfTokenRef.current)
-          headers["X-CSRF-Token"] = csrfTokenRef.current;
-        const response = await axios.post("/api/feedback", feedback, {
-          headers,
-        });
-        if (response.data.success) {
-          toast.success("Feedback submitted successfully!");
-          setFeedback({
-            name: "",
-            city: "",
-            email: "",
-            stars: "",
-            message: "",
-          });
-          setErrors({});
-        } else {
-          toast.error("Failed to submit feedback.");
+    setContactSubmitting(true);
+
+    try {
+      // =====================
+      // 1️⃣ SEND EMAIL FIRST
+      // =====================
+      console.log("Sending EmailJS...");
+
+      const emailRes = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        {
+          contactName: contact.contactName,
+          contactNumber: contact.contactNumber,
+          contactCity: contact.contactCity,
+          product: contact.product,
+          complaint: contact.complaint.join(", "),
         }
-      } catch (error) {
-        toast.error("Server error");
-      } finally {
-        setFeedbackSubmitting(false);
-      }
+      );
+
+      console.log("EmailJS SUCCESS ✅", emailRes);
+      toast.success("Request sent successfully ✅");
+
+        // RESET FORM
+        setContact({
+          contactName: "",
+          contactNumber: "",
+          contactCity: "",
+          product: "",
+          complaint: [],
+        });
+
+    } catch (error) {
+      console.error("FULL ERROR:", error);
+
+      toast.error(
+        error?.text ||
+        error?.message ||
+        "Something went wrong ❌"
+      );
+    } finally {
+      setContactSubmitting(false);
     }
   };
 
@@ -295,8 +252,6 @@ export const ContextProvider = ({ children }) => {
     feedbackRef,
     aboutRef,
     contactRef,
-    feedback,
-    setFeedback,
     scrollToSection,
     mobileMenuOpen,
     setMobileMenuOpen,
@@ -312,11 +267,7 @@ export const ContextProvider = ({ children }) => {
     handleContactSubmit,
     handleContactChange,
     handleComplaintToggle,
-    handleFeedbackChange,
-    handleStarSelect,
-    handleFeedbackSubmit,
     contactSubmitting,
-    feedbackSubmitting,
     faqList,
     updateFaqList,
   };
