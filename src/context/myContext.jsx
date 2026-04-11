@@ -1,9 +1,12 @@
 "use client";
 import { createContext, useState, useRef, useEffect } from "react";
-import axios from "axios";
 import { usePathname } from "next/navigation";
 import toast from "react-hot-toast";
 import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = "service_75vz10e";
+const EMAILJS_TEMPLATE_ID = "template_37j1kz9";
+const EMAILJS_PUBLIC_KEY = "J9xTLZ4xDbxvWIRgN";
 
 export const myContext = createContext();
 
@@ -24,12 +27,8 @@ export const ContextProvider = ({ children }) => {
 
     // ✅ INIT EMAILJS (IMPORTANT)
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
-      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
-      console.log("EmailJS initialized ✅");
-    } else {
-      console.error("Missing EmailJS PUBLIC KEY ❌");
-    }
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+    console.log("EmailJS initialized ✅");
   }, []);
 
   // contact state
@@ -209,8 +208,8 @@ export const ContextProvider = ({ children }) => {
       console.log("Sending EmailJS...");
 
       const emailRes = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         {
           contactName: contact.contactName,
           contactNumber: contact.contactNumber,
