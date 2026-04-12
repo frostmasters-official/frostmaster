@@ -18,7 +18,7 @@ const Extra = () => {
     {
       icon: Gem,
       title: "Certified\nTechnicians",
-      desc: "Every technician is trained, vetted and certified to work on all major appliance brands.",
+      desc: "Every technicians is trained, vetted and certified to work on all major appliance brands.",
     },
     {
       icon: Clock,
