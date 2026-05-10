@@ -2,7 +2,7 @@ import { myContext } from "@/context/myContext";
 import React, { memo, useContext } from "react";
 import SectionHeader from "./SectionHeader";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, ChevronDown, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ChevronDown, ArrowRight, User } from "lucide-react";
 
 const complaintsOptions = {
   Refrigerator: ["Cooling Problem", "Over Freezing", "Water Leakage", "Door Issue", "Others"],
@@ -36,6 +36,12 @@ const contactDetails = [
     </>
     ),
     link: "https://maps.app.goo.gl/s9zi21ey8nYpPepR6",
+  },
+  {
+    icon: User,
+    title: "Owner",
+    value: "Liji George",
+    link: "",
   },
 ];
 
